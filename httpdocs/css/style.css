@@ -1,0 +1,169 @@
+/*========================================================================
+	Vendor Prefix styles with LESS
+========================================================================*/
+
+.border-radius( @radius: 3px ) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+
+.opacity(@op:100) {
+	filter:alpha(opacity=@op);
+	-moz-opacity:@op/100;
+	-khtml-opacity:@op/100;
+	opacity:@op/100;
+}
+
+.rotate(@deg:35) {
+	-webkit-transform: rotate(formatstring("{0}deg", @deg));
+	-moz-transform: rotate(formatstring("{0}deg", @deg));
+	-o-transform: rotate(formatstring("{0}deg", @deg));
+	-ms-transform: rotate(formatstring("{0}deg", @deg));
+	transform: rotate(formatstring("{0}deg", @deg));
+}
+
+.box-shadow(
+	@x : 2px,
+    @y : 2px,
+    @blur : 5px,
+    @spread : 0,
+    @color : rgba(0,0,0,.6)
+) {
+    -webkit-box-shadow: @x @y @blur @spread @color;
+       -moz-box-shadow: @x @y @blur @spread @color;
+            box-shadow: @x @y @blur @spread @color;
+}
+
+.linear-gradient(
+	@begin: black,
+	@end: white,
+	@switch : 100%
+) {
+	background:  @begin;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(@begin), color-stop(@switch, @end));
+	background: -moz-linear-gradient(top, @begin, @end @switch);
+	background: -o-linear-gradient(top, @begin, @end @switch);
+	background: linear-gradient(top, @begin, @end @switch);
+}
+
+/*========================================================================
+	Main Elements
+========================================================================*/
+.pie { position:relative; behavior:url(<?php echo $this->js(); ?>libs/PIE.htc); }
+
+.clearBoth {
+	clear:both;
+	height:0px;
+	line-height:0px;
+	font-size:0px;
+}
+
+a {
+	text-decoration:none;
+}
+
+a:hover {
+
+	text-decoration:underline;
+}
+
+#panel {
+	position: fixed;
+	z-index: 9999;
+	bottom: 0;
+	left: 0;
+}
+.buttons {
+	background-color: #E7FDC0;
+	border: 1px solid black;
+	border-bottom: none;
+	border-left: none;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+
+/*========================================================================
+	Sample Navigation
+========================================================================*/
+
+#navigation {
+	list-style: none;
+	background: #b60002;
+	overflow: hidden;
+	width: 962px;
+}
+
+#navigation li {
+	float: left;
+	border-right: solid 1px #ca0002;
+	height: 35px;
+}
+
+#navigation li a:link, #navigation li a:visited {
+	text-decoration: none;
+	display: block;
+	height: 35px;
+	color: #fff;
+	line-height: 35px;
+	padding: 0 9px 0 9px;
+	border-right: solid 1px #990000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+#navigation li a:hover {
+	background: #990000;
+	color: #fff;
+}
+
+#navigation li.first {
+	border-left: solid 1px #ca0002;
+}
+
+/*========================================================================
+	Sample content styles
+========================================================================*/
+
+body > header {
+	width:996px;
+	margin:0 auto;
+}
+
+body > section {
+	width:976px;
+	margin:0 auto;
+	border:1px solid #666;
+	border-radius:4px;
+	background-color:#fff;
+	min-height:500px;
+	margin-bottom:20px;
+	padding:10px;
+}
+
+body > footer {
+	width:996px;
+	margin:0 auto;
+	padding-bottom:20px;
+}
+
+body {
+	background-color:#cccccc;
+}
+
+h1.mainHeading {
+	font-size:45px;
+	line-height: 55px;
+}
+
+h2 {
+	border-bottom:1px solid #000;
+	margin:5px 0;
+}
+
+img.structure {
+	float: left;
+	background-image: url(<?php echo $this->img(); ?>test.png);
+}

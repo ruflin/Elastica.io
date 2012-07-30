@@ -1,0 +1,1 @@
+alert('Zaphod Beeblebrox in js!');

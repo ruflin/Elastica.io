@@ -1,0 +1,7 @@
+{
+    "name": "centralway/xBoilerplate"
+    , "version": "1.0.1"
+    , "autoload": {
+        "classmap": ["lib/"]
+    }
+}
