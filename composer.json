@@ -1,7 +1,13 @@
 {
-    "name": "centralway/xBoilerplate"
-    , "version": "1.0.1"
-    , "autoload": {
-        "classmap": ["lib/"]
-    }
+	"name": "Xodoa/Elastica.io", 
+	"repositories": [ 
+		{
+			"type": "vcs",
+			"url": "https://github.com/centralway/xBoilerplate" 
+		}
+	], 
+	"minimum-stability": "dev",
+	"require": { 
+		"centralway/xBoilerplate": "*"
+	}
 }

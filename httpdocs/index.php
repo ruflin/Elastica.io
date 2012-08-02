@@ -16,7 +16,7 @@ error_reporting(E_ALL|E_STRICT);
 // adds elasticsearch to the include path
 set_include_path(get_include_path() . PATH_SEPARATOR . realpath(dirname(__FILE__) . '/../lib'));
 
-include('../autoload.php');
+include('../vendor/centralway/xBoilerplate/autoload.php');
 
 $content = '';
 try {

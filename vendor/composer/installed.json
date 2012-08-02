@@ -1,0 +1,30 @@
+[
+    {
+        "name": "centralway/xBoilerplate",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "time": "2012-07-31 11:19:56",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/centralway/xBoilerplate",
+            "reference": "1b94e744051f7459264308d805e448c28ec3fef1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/centralway/xBoilerplate/zipball/1b94e744051f7459264308d805e448c28ec3fef1",
+            "reference": "1b94e744051f7459264308d805e448c28ec3fef1",
+            "shasum": ""
+        },
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "classmap": [
+                "lib/"
+            ]
+        },
+        "support": {
+            "source": "https://github.com/centralway/xBoilerplate/tree/master",
+            "issues": "https://github.com/centralway/xBoilerplate/issues"
+        }
+    }
+]
