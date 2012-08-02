@@ -6,14 +6,13 @@
 		<link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-		<title><?php echo is_null($this->title)?'xBoilerplate':$this->title; ?></title>
-		<meta name="description" content="<?php echo is_null($this->title)?'xBoilerplate':$this->title; ?>">
-		<meta name="keywords" content="<?php echo is_null($this->title)?'xBoilerplate':$this->title; ?>" />
+		<title><?php echo is_null($this->title)?'Elastica.io':$this->title; ?></title>
+		<meta name="description" content="<?php echo is_null($this->title)?'':$this->title; ?>">
+		<meta name="keywords" content="<?php echo is_null($this->title)?'':$this->title; ?>" />
 		<meta name="author" content="Nicolas Ruflin">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<link rel="shortcut icon" href="<?php echo $this->img(); ?>favicon.ico">
-		<link type="text/css" rel="stylesheet" href="<?php echo $this->css(); ?>reset.css">
 		<link type="text/css" rel="stylesheet" href="<?php echo $this->css(); ?>style.css">
 		<?php echo $this->loadPageCss(); ?>
 

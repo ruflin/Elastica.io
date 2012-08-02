@@ -1,16 +1,10 @@
-<header>
-	<h1 class="mainHeading">xBoilerplate</h1>
-	<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
-	<?php
-		echo $this->loadMenu('top');
-		echo $this->loadMenu(null, 0);
-	?>
-</header>
-<section>
+	<a href="http://github.com/ruflin/Elastica"><img style="position: fixed; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/30f550e0d38ceb6ef5b81500c64d970b7fb0f028/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" /></a>
+	<header>
+		<div class="container">
+			<h1>Elastica</h1>
+			<span>A PHP client for elasticsearch.</span>
+		</div>
+	</header>
 	<?php 
 		echo $this->_content; 		
 	?>
-</section>
-<footer>
-	&copy; xBoilerplate &nbsp; <a href="/humans.txt">Humans</a>
-</footer>

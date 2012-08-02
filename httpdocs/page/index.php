@@ -1,2 +1,8 @@
-<h1>Component</h1>
-<?php echo $this->loadComponent('test');
+<h1>Elastica Documentation</h1>
+
+<ul>
+	<li>English</li>
+	<li>German</li>
+	<li>Polish</li>
+	<li>Russiah</li>
+</ul>
