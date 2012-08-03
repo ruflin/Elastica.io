@@ -8,6 +8,6 @@
 	], 
 	"minimum-stability": "dev",
 	"require": { 
-		"centralway/xBoilerplate": "*"
+		"centralway/xBoilerplate": "1.0.*"
 	}
 }
