@@ -1,0 +1,7 @@
+.idea
+.vagrant
+.DS_Store
+config/local.php
+tmp/error.log
+tmp/test-error.log
+atlassian-ide-plugin.xml
