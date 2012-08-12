@@ -1,5 +1,3 @@
-	<div class="content">
-		<div class="container">
 			<p>
 				<em><a href="http://github.com/ruflin/Elastica" title="Elastica">Elastica</a></em> is a PHP client for the <em><a href="http://elasticsearch.org">elasticsearch</a></em> search engine/database. <em>Elasticsearch</em> is an Open Source (Apache 2), Distributed, RESTful, Search Engine built on top of Apache Lucene.
 			</p>
@@ -367,21 +365,4 @@ foreach ($elasticaFacets['myFacetName']['terms'] as $elasticaFacet) {
 				</p>
 
 
-		</div>
-	</div>
-	<script type="text/javascript" src="prettify.js"></script>
-	<script type="text/javascript">
-		prettyPrint();
 
-		var _gaq = _gaq || [];
-		_gaq.push(['_setAccount', 'UA-2317870-19']);
-		_gaq.push(['_trackPageview']);
-
-		(function() {
-			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		})();
-	</script>
-</body>
-</html>
