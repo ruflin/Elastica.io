@@ -10,6 +10,7 @@ RewriteCond %{REQUEST_URI} !^\/font\/.* [NC]
 RewriteCond %{REQUEST_URI} !^\/humans.txt [NC]
 RewriteCond %{REQUEST_URI} !^\/api\/.* [NC]
 RewriteCond %{REQUEST_URI} !^\/robots.txt [NC]
+RewriteCond %{REQUEST_URI} !^\/sitemap.xml [NC]
 
 RewriteRule ^(.*)$ index.php?%{QUERY_STRING} [L,NC]
 

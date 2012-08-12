@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>http://elastica.io/en</loc>
+</url>
+<url>
+  <loc>http://elastica.io/api/index.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/en/releases</loc>
+</url>
+<url>
+  <loc>http://elastica.io/api/packages/Default.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/packages/Elastica.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/graph_class.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/errors.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/markers.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/deprecated.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/namespaces/global.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/en/release/v0.19.8.0</loc>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Searchable.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Client.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Cluster.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Cluster_Settings.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Document.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Exception_Abstract.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Exception_BulkResponse.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Exception_Client.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Exception_Invalid.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Exception_NotFound.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Exception_NotImplemented.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Exception_Response.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Facet_Abstract.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Facet_DateHistogram.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Facet_Filter.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Facet_GeoDistance.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Facet_Histogram.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Facet_Query.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Facet_Range.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Facet_Statistical.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Facet_Terms.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Facet_TermsStats.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Filter_Abstract.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Filter_Abstract_Multi.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Filter_And.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Filter_Bool.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Filter_Exists.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Filter_GeoBoundingBox.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Filter_GeoDistance.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Filter_GeoPolygon.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Filter_HasChild.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Filter_Ids.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Filter_Limit.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Filter_MatchAll.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Filter_Missing.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Filter_Nested.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Filter_Not.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Filter_NumericRange.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Filter_Or.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Filter_Prefix.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Filter_Query.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Filter_Range.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Filter_Script.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Filter_Term.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Filter_Terms.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Filter_Type.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Index.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Index_Settings.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Index_Stats.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Index_Status.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Log.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Node.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Node_Info.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Node_Stats.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Param.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Percolator.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Query.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Query_Abstract.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Query_Array.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Query_Bool.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Query_Builder.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Query_ConstantScore.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Query_CustomFiltersScore.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Query_CustomScore.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Query_Field.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Query_Filtered.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Query_Fuzzy.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Query_FuzzyLikeThis.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Query_HasChild.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Query_Ids.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Query_MatchAll.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Query_MoreLikeThis.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Query_Nested.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Query_Prefix.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Query_QueryString.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Query_Range.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Query_Term.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Query_Terms.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Query_Text.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Query_TopChildren.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Query_Wildcard.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Request.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Response.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Result.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_ResultSet.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Script.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_ScriptFields.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Search.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Status.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Transport_Abstract.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Transport_Http.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Transport_Https.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Transport_Memcache.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Type.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Type_Abstract.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Type_Mapping.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+<url>
+  <loc>http://elastica.io/api/classes/Elastica_Util.html</loc>
+  <lastmod>2012-08-12T17:24:01+00:00</lastmod>
+</url>
+</urlset>
