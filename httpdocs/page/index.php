@@ -1,3 +1,7 @@
+<?php
+	header('Location: /en');
+?>
+
 <h1>Elastica Documentation</h1>
 
 <ul>

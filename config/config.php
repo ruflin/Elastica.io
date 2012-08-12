@@ -2,7 +2,7 @@
 
 $config = array(
 	'cache' => false,
-	'dev' => true,
+	'dev' => false,
 	'raw' => false,
 	'googleAnalytics' => '', // UA-XXXXX-X
 	'version' => '1',
