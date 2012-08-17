@@ -7,6 +7,11 @@
 	</header>
 	<div class="content">
 		<div class="container">
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/en/examples">Examples</a></li>
+				<li><a href="/api">Api</a></li>
+			</ul>
 		<?php
 			echo $this->_content;
 		?>

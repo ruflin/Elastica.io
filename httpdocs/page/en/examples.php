@@ -1,3 +1,6 @@
+<?php
+	$this->title = 'Examples';
+?>
 <h1>Examples</h1>
 
 <ul>
