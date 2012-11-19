@@ -305,15 +305,15 @@ var_dump($elasticaResult->getData());
 <pre class="prettyprint">
 // Filter for being of color blue
 $elasticaFilterColorBlue	= new Elastica_Filter_Term();
-$elasticaFilterColorBlue->addTerm('color', 'blue');
+$elasticaFilterColorBlue->setTerm('color', 'blue');
 
 // Filter for being of color green
 $elasticaFilterColorGreen	= new Elastica_Filter_Term();
-$elasticaFilterColorGreen->addTerm('color', 'green');
+$elasticaFilterColorGreen->setTerm('color', 'green');
 
 // Filter for liking cookies
 $elasticaFilterLikesCookies	= new Elastica_Filter_Term();
-$elasticaFilterLikesCookies->addTerm('likes', 'cookies');
+$elasticaFilterLikesCookies->setTerm('likes', 'cookies');
 
 // Filter 'or' for the color, adding the color filters
 $elasticaFilterOr 	= new Elastica_Filter_Or();
