@@ -20,6 +20,9 @@
 					<li>
 						<a href="#section-download">Download</a>
 					</li>
+                    <li>
+                        <a href="#section-composer">Composer</a>
+                    </li>
 					<li>
 						<a href="#section-include">Include in your project</a>
 					</li>
@@ -76,20 +79,38 @@
 				The prefered way is to clone <em>Elastica</em> with <a href="http://git-scm.com">Git</a> by running:
 				<pre class="prettyprint">$ git clone git://github.com/ruflin/Elastica</pre>
 			</p>
+        <h3 id="section-composer">Composer</h3>
+            <p>
+                You can also install Elastica by using composer:
+                <pre class="prettyprint">
+{
+    "require": {
+        "ruflin/Elastica": "dev-master"
+    }
+}
+                </pre>
+            </p>
 		<h3 id="section-include">Include in your project</h3>
+            <p>If you've used composer to install Elastica it's very easy. Assuming your document root index file is in
+                /htdocs/myproject/web/ and composer installed the vendor file in /htdocs/myproject/vendor your index.php
+                has to look like this:
+                <pre class="prettyprint">
+require_once '../vendor/autoload.php';
+                </pre>
+            </p>
 			<p>
-				To use Elastica in your project you have to include it. Best way to do this is to use PHP <a href="http://www.php.net/manual/en/language.oop5.autoload.php">autoload</a>. This function is automatically called in case you are trying to use a class/interface which hasn't been defined yet.
+				If you don't use composer in your project you have to include Elastica. Best way to do this is to use PHP <a href="http://www.php.net/manual/en/language.oop5.autoload.php">autoload</a>. This function is automatically called in case you are trying to use a class/interface which hasn't been defined yet.
 			</p>
 			<p>
-				So let's assume you installed Elastica to <code>/var/www/Elastica</code>. When you make an instance of <code>Elastica_Client</code>, the function will check if there is a file with that class in <code>/var/www/Elastica/Client</code> and load it.
+				So let's assume you installed Elastica to <code>/var/www/Elastica</code>. When you make an instance of <code>\Elastica\Client</code>, the function will check if there is a file with that class in <code>/var/www/Elastica/Client</code> and load it.
 			<p>
 			<pre class="prettyprint">
 function __autoload_elastica ($class) {
-$path = str_replace('_', '/', $class);
+    $path = str_replace('\\', '/', substr($class, 1));
 
-if (file_exists('/var/www/' . $path . '.php')) {
-require_once('/var/www/' . $path . '.php');
-}
+    if (file_exists('/var/www/' . $path . '.php')) {
+        require_once('/var/www/' . $path . '.php');
+    }
 }
 spl_autoload_register('__autoload_elastica');</pre>
 			<p>
@@ -103,6 +124,8 @@ spl_autoload_register('__autoload_elastica');</pre>
 					To start an instance of your installed elasticsearch you just need to run the following command in the elasticsearch folder:
 				</p>
 				<pre>$ ./bin/elasticsearch -f</pre>
+                <p>If you are developing under windows just go to the bin folder and run</p>
+                <pre>> elasticsearch.bat</pre>
 				<p>
 					You can start multiple nodes by running the command multiple times. As you will see, the first node will be started on port 9200. If you start another node it will listen on port 9201 and so on. Elasticsearch automatically discovers the other nodes and creates a cluster.
 				</p>
@@ -110,28 +133,28 @@ spl_autoload_register('__autoload_elastica');</pre>
 					<p>
 						When your single elasticsearch node is running on <code>localhost:9200</code>, which is the default, you can simply connect:
 					</p>
-					<pre class="prettyprint">$elasticaClient = new Elastica_Client();</pre>
+					<pre class="prettyprint">$elasticaClient = new \Elastica\Client();</pre>
 					<p>
 						In case that your node is running on another server or a different port, you can pass these information as an array:
 					</p>
 					<pre class="prettyprint">
-$elasticaClient = new Elastica_Client(array(
-'host' => 'mydomain.org',
-'port' => 12345
+$elasticaClient = new \Elastica\Client(array(
+    'host' => 'mydomain.org',
+    'port' => 12345
 ));</pre>
 				<h4 id="section-connect-cluster">Running a cluster</h4>
 					<p>
 						Elasticsearch was built with the cloud / multiple distributed servers in mind. It is quite easy to start a elasticsearch cluster simply by starting multiple instances of elasticsearch on one server or on multiple servers. To start multiple instances of elasticsearch on your local machine, just run the command to start an instance in the elasticsearch folder twice.
 					</p>
 					<p>
-						One of the goals of the distributed search index is availability. If one server goes down, search results should still be served. But if the client connects to only the server that just went down, no results are returned anymore. Because of this, <code>Elastica_Client</code> supports multiple servers which are accessed in a round robin algorithm. This is the only and also most basic option at the moment. So if we start a node on port 9200 and port 9201 above, we pass the following arguments to <code>Elastica_Client</code> to access both servers:
+						One of the goals of the distributed search index is availability. If one server goes down, search results should still be served. But if the client connects to only the server that just went down, no results are returned anymore. Because of this, <code>\Elastica\Client</code> supports multiple servers which are accessed in a round robin algorithm. This is the only and also most basic option at the moment. So if we start a node on port 9200 and port 9201 above, we pass the following arguments to <code>\Elastica\Client</code> to access both servers:
 					</p>
 					<pre class="prettyprint">
-$elasticaClient = new Elastica_Client(array(
-'servers' => array(
-array('host' => 'localhost', 'port' => 9200)
-array('host' => 'localhost', 'port' => 9201)
-)
+$elasticaClient = new \Elastica\Client(array(
+    'servers' => array(
+        array('host' => 'localhost', 'port' => 9200)
+        array('host' => 'localhost', 'port' => 9201)
+    )
 ));</pre>
 					<p>
 						This client implementation also allows to distribute the load on multiple nodes. As far as I know, Elasticsearch already does this quite well on its own. But it helps if more than one node can answer http requests. Therefore, the method above is really useful if you use more than one elasticsearch node in a cluster to send your request to all servers.
@@ -163,30 +186,33 @@ array('host' => 'localhost', 'port' => 9201)
 $elasticaIndex = $elasticaClient->getIndex('twitter');
 
 // Create the index new
-$elasticaIndex->create(array(
-'number_of_shards' => 4,
-'number_of_replicas' => 1,
-'analysis' => array(
-'analyzer' => array(
-	'indexAnalyzer' => array(
-		'type' => 'custom',
-		'tokenizer' => 'standard',
-		'filter' => array('lowercase', 'mySnowball')
-	),
-	'searchAnalyzer' => array(
-		'type' => 'custom',
-		'tokenizer' => 'standard',
-		'filter' => array('standard', 'lowercase', 'mySnowball')
-	)
-),
-'filter' => array(
-	'mySnowball' => array(
-		'type' => 'snowball',
-		'language' => 'German'
-	)
-)
-)
-), true);</pre>
+$elasticaIndex->create(
+    array(
+        'number_of_shards' => 4,
+        'number_of_replicas' => 1,
+        'analysis' => array(
+            'analyzer' => array(
+                'indexAnalyzer' => array(
+                    'type' => 'custom',
+                    'tokenizer' => 'standard',
+                    'filter' => array('lowercase', 'mySnowball')
+                ),
+                'searchAnalyzer' => array(
+                    'type' => 'custom',
+                    'tokenizer' => 'standard',
+                    'filter' => array('standard', 'lowercase', 'mySnowball')
+                )
+            ),
+            'filter' => array(
+                'mySnowball' => array(
+                    'type' => 'snowball',
+                    'language' => 'German'
+                )
+            )
+        )
+    ),
+    true
+);</pre>
 		<h3 id="section-mapping">Define Mapping</h3>
 			<p>
 				The Mapping defines what kind of data is in which field. If no mapping is defined, elasticsearch will guess the kind of the data and map it. To see all possibilities, check out the <a href="http://www.elasticsearch.org/guide/reference/mapping/">Mapping</a> reference.
@@ -199,7 +225,7 @@ $elasticaIndex->create(array(
 $elasticaType = $elasticaIndex->getType('tweet');
 
 // Define mapping
-$mapping = new Elastica_Type_Mapping();
+$mapping = new \Elastica\Type\Mapping();
 $mapping->setType($elasticaType);
 $mapping->setParam('index_analyzer', 'indexAnalyzer');
 $mapping->setParam('search_analyzer', 'searchAnalyzer');
@@ -209,18 +235,18 @@ $mapping->setParam('_boost', array('name' => '_boost', 'null_value' => 1.0));
 
 // Set mapping
 $mapping->setProperties(array(
-'id'      => array('type' => 'integer', 'include_in_all' => FALSE),
-'user'    => array(
-'type' => 'object',
-'properties' => array(
-	'name'      => array('type' => 'string', 'include_in_all' => TRUE),
-	'fullName'  => array('type' => 'string', 'include_in_all' => TRUE)
-),
-),
-'msg'     => array('type' => 'string', 'include_in_all' => TRUE),
-'tstamp'  => array('type' => 'date', 'include_in_all' => FALSE),
-'location'=> array('type' => 'geo_point', 'include_in_all' => FALSE),
-'_boost'  => array('type' => 'float', 'include_in_all' => FALSE)
+    'id'      => array('type' => 'integer', 'include_in_all' => FALSE),
+    'user'    => array(
+        'type' => 'object',
+        'properties' => array(
+            'name'      => array('type' => 'string', 'include_in_all' => TRUE),
+            'fullName'  => array('type' => 'string', 'include_in_all' => TRUE)
+        ),
+    ),
+    'msg'     => array('type' => 'string', 'include_in_all' => TRUE),
+    'tstamp'  => array('type' => 'date', 'include_in_all' => FALSE),
+    'location'=> array('type' => 'geo_point', 'include_in_all' => FALSE),
+    '_boost'  => array('type' => 'float', 'include_in_all' => FALSE)
 ));
 
 // Send mapping to type
@@ -230,7 +256,7 @@ $mapping->send();</pre>
 				Now that we have our index ready for the data, we just need to go ahead an put some data in there!
 			</p>
 			<p>
-				First we put together our document. In our example it's a tweet. This tweet is going to be a <code>Elastica_Document</code> which is then added to our type tweet in the index twitter.
+				First we put together our document. In our example it's a tweet. This tweet is going to be a <code>\Elastica\Document</code> which is then added to our type tweet in the index twitter.
 			</p>
 <pre class="prettyprint">
 // The Id of the document
@@ -238,17 +264,17 @@ $id = 1;
 
 // Create a document
 $tweet = array(
-'id'      => $id,
-'user'    => array(
-'name'      => 'mewantcookie',
-'fullName'  => 'Cookie Monster'
-),
-'msg'     => 'Me wish there were expression for cookies like there is for apples. "A cookie a day make the doctor diagnose you with diabetes" not catchy.',
-'tstamp'  => '1238081389',
-'location'=> '41.12,-71.34',
-'_boost'  => 1.0
+    'id'      => $id,
+    'user'    => array(
+        'name'      => 'mewantcookie',
+        'fullName'  => 'Cookie Monster'
+    ),
+    'msg'     => 'Me wish there were expression for cookies like there is for apples. "A cookie a day make the doctor diagnose you with diabetes" not catchy.',
+    'tstamp'  => '1238081389',
+    'location'=> '41.12,-71.34',
+    '_boost'  => 1.0
 );
-$tweetDocument = new Elastica_Document($id, $tweet);
+$tweetDocument = new \Elastica\Document($id, $tweet);
 
 // Add tweet to type
 $elasticaType->addDocument($tweetDocument);
@@ -258,6 +284,24 @@ $elasticaType->getIndex()->refresh();</pre>
 			<p>
 				Now the index contains a document. But that's not enough! Add more documents to the index, so a search makes sense!
 			</p>
+    <h3 id="section-bulk">Bulk indexing</h3>
+        <p>
+            Of course you can add one document after another. But what if you want to put the content of a large database this can be slow. It's better to create an array of documents and add them all at once:
+<pre class="prettyprint">
+$documents = array();
+while ( ... ) { // Fetching content from the database
+    $documents[] = new \Elastica\Document(
+        $id,
+        array(
+            ...
+        );
+    );
+}
+$elasticaType->addDocument($tweetDocument);
+$elasticaType->getIndex()->refresh();
+</pre>
+            A good start are 500 documents per bulk operation. Depending on the size of your documents you've to play around a little how many documents are a good number for your application.
+        </p>
 
 	<h2 id="section-search">Search documents</h2>
 		<p>
@@ -273,20 +317,23 @@ $elasticaType->getIndex()->refresh();</pre>
 			</p>
 <pre class="prettyprint">
 // Define a Query. We want a string query.
-$elasticaQueryString 	= new Elastica_Query_QueryString();
+$elasticaQueryString 	= new Elastica\Query\QueryString();
 $elasticaQueryString->setDefaultOperator('AND');
 $elasticaQueryString->setQuery('sesam street');
 
 // Create the actual search object with some data.
-$elasticaQuery 		= new Elastica_Query();
+$elasticaQuery 		= new Elastica\Query();
 $elasticaQuery->setQuery($elasticaQueryString);
-$elasticaQuery->setFrom(1);
-$elasticaQuery->setLimit(4);
 
 //Search on the index.
 $elasticaResultSet 	= $elasticaIndex->search($elasticaQuery);</pre>
-
 			<p>I know, at first it seems a bit complicated with the nesting of all the arrays. But it really isn't. The <code>$elasticaQuery</code> contains all the information regarding our query. We will add filter and facets later. Your search can always consist of only one query but as-much-as-you-like filters and facets.</p>
+            <p>If you want a pagination in your application you can use the following commands:
+<pre class="prettyprint">
+$elasticaQuery->setFrom(50);    // Where to start?
+$elasticaQuery->setLimit(25);   // How many?
+</pre>
+            </p>
 
 		<h3 id="section-retrieve">Retrieve results</h3>
 			<p>In the <code>$elasticaResultSet</code> all the resulting documents are stored. You can get them together with some statistics easily.</p>
@@ -295,7 +342,7 @@ $elasticaResults 	= $elasticaResultSet->getResults();
 $totalResults 		= $elasticaResultSet->getTotalHits();
 
 foreach ($elasticaResults as $elasticaResult) {
-var_dump($elasticaResult->getData());
+    var_dump($elasticaResult->getData());
 }</pre>
 
 		<h3 id="section-filter">Add filter</h3>
@@ -304,24 +351,24 @@ var_dump($elasticaResult->getData());
 			</p>
 <pre class="prettyprint">
 // Filter for being of color blue
-$elasticaFilterColorBlue	= new Elastica_Filter_Term();
+$elasticaFilterColorBlue	= new \Elastica\Filter\Term();
 $elasticaFilterColorBlue->setTerm('color', 'blue');
 
 // Filter for being of color green
-$elasticaFilterColorGreen	= new Elastica_Filter_Term();
+$elasticaFilterColorGreen	= new \Elastica\Filter\Term();
 $elasticaFilterColorGreen->setTerm('color', 'green');
 
 // Filter for liking cookies
-$elasticaFilterLikesCookies	= new Elastica_Filter_Term();
+$elasticaFilterLikesCookies	= new \Elastica\Filter\Term();
 $elasticaFilterLikesCookies->setTerm('likes', 'cookies');
 
 // Filter 'or' for the color, adding the color filters
-$elasticaFilterOr 	= new Elastica_Filter_Or();
+$elasticaFilterOr 	= new \Elastica\Filter\Or();
 $elasticaFilterOr->addFilter($elasticaFilterColorBlue);
 $elasticaFilterOr->addFilter($elasticaFilterColorGreen);
 
 // Filter 'and' for the colors and likes
-$elasticaFilterAnd 	= new Elastica_Filter_And();
+$elasticaFilterAnd 	= new \Elastica\Filter\And();
 $elasticaFilterAnd->addFilter($elasticaFilterOr);
 $elasticaFilterAnd->addFilter($elasticaFilterLikesCookies);
 
@@ -341,7 +388,7 @@ $elasticaQuery->setFilter($elasticaFilterAnd);</pre>
 			</p>
 <pre class="prettyprint">
 // Define a new facet.
-$elasticaFacet 	= new Elastica_Facet_Terms('myFacetName');
+$elasticaFacet 	= new \Elastica\Facet\Terms('myFacetName');
 $elasticaFacet->setField('tags');
 $elasticaFacet->setSize(10);
 $elasticaFacet->setOrder('reverse_count');
@@ -359,14 +406,16 @@ $elasticaFacets = $elasticaResultSet->getFacets();
 // Notice, that myFacetName is the same as above
 // when the facet was defined.
 foreach ($elasticaFacets['myFacetName']['terms'] as $elasticaFacet) {
-var_dump($elasticaFacet);
+    var_dump($elasticaFacet);
 }</pre>
-
+            <p>A good use case is using the different types in your index as a facet. To get this you've to define the facet like this:
+<pre class="prettyprint">
+$elasticaFacet = new \Elastica\Facet\Terms('Facettes');
+    $elasticaFacet->setField('_type');
+}</pre>
+            </p>
 
 	<h2 id="section-credits">Credits</h2>
 		<p>
 			Credits go to <a href="https://github.com/ruflin/Elastica/network/members">all users that gave feedback and committed code</a>.
 		</p>
-
-
-
