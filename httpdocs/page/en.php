@@ -125,9 +125,9 @@ spl_autoload_register('__autoload_elastica');
 
 //Or using anonymous function PHP 5.3.0>=
 spl_autoload_register(function($class){
-   $path = $path = str_replace('\\', '/', substr($class, 1));
-   if (file_exists('/var/www/' . $path . '.php')) {
-        require_once('/var/www/' . $path . '.php');
+   
+   if (file_exists('/var/www/' . $class . '.php')) {
+        require_once('/var/www/' . $class . '.php');
     }
 
 });
@@ -385,24 +385,23 @@ $elasticaFilterColorBlue->setTerm('color', 'blue');
 // Filter for being of color green
 $elasticaFilterColorGreen	= new \Elastica\Filter\Term();
 $elasticaFilterColorGreen->setTerm('color', 'green');
-<!-- 
-// Or can be write like that : 
-$elasticaFilterColorBlue->setTerm('color', array('blue','green')); 
-is it true ? 
--->
+
+
+<!--// Or can be write like that : 
+$elasticaFilterColorBlue->setTerm('color', array('blue','green')); -->
+
 // Filter for liking cookies
 $elasticaFilterLikesCookies	= new \Elastica\Filter\Term();
 $elasticaFilterLikesCookies->setTerm('likes', 'cookies');
 
-<!-- Elastica\Filter\Or not found in v.0.20.5.0 RC1 ? -->
+
 // Filter 'or' for the color, adding the color filters
-$elasticaFilterOr 	= new \Elastica\Filter\Or();
+$elasticaFilterOr 	= new \Elastica\Filter\BoolOr();
 $elasticaFilterOr->addFilter($elasticaFilterColorBlue);
 $elasticaFilterOr->addFilter($elasticaFilterColorGreen);
 
 // Filter 'and' for the colors and likes
-<!-- Elastica\Filter\And not found in v.0.20.5.0 RC1 ? -->
-$elasticaFilterAnd 	= new \Elastica\Filter\And();
+$elasticaFilterAnd 	= new \Elastica\Filter\BoolAnd();
 $elasticaFilterAnd->addFilter($elasticaFilterOr);
 $elasticaFilterAnd->addFilter($elasticaFilterLikesCookies);
 
@@ -465,15 +464,19 @@ $elasticaFacet = new \Elastica\Facet\Terms('Facettes');
 	$Document=new Elastica_Document($id,$documentArray);
 	//Now
 	$Document=new \Elastica\Document($id,$documentArray);
+	
+	//Before
+	$BoolOr=new Elastica_Filter_BoolOr();
+	//Now
+	$BoolOr=new Elastica\Filter\BoolOr();
 	</pre>
 	
 	
 	<h3>Migration on class</h3>
 	<h2>List of Deleted class</h2>
 		<ul>
-			<li>
-				
-			</li>
+			<li>Elastica_Filter_Or</li>
+			<li>Elastica_Filter_And</li>
 		</ul>
 	<h2>List of Deprecated class</h2>
 	<table>
@@ -483,10 +486,20 @@ $elasticaFacet = new \Elastica\Facet\Terms('Facettes');
 			<th>Comments</th>
 		</tr>
 		<tr>
+			<td>Elastica_Filter_Or</td>
+			<td>Elastica\Filter\BoolOr</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Elastica_Filter_And</td>
+			<td>Elastica\Filter\BoolAnd</td>
+			<td></td>
 		</tr>
 	</table>
 	<h2>List of new class</h2>
-	
+		<ul>
+			<li>Elastica\Connection()</li>
+		</ul>
 	<h3>Migration on methods</h3>
 	<h2>List of Deleted methods</h2>
 		<ul>
