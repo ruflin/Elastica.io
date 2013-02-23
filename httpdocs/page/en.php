@@ -18,6 +18,9 @@
 				<a href="#section-installation">Installation</a>
 				<ul>
 					<li>
+						<a href="#section-required">Required</a>
+					</li>
+					<li>
 						<a href="#section-download">Download</a>
 					</li>
                     <li>
@@ -66,11 +69,17 @@
 					</li>
 				</ul>
 			</li>
+			<li><a href="#section-migration">Migration Guide From  0.19 to 0.20</a></li>
 			<li><a href="#section-credits">Credits</a></li>
+			
 		</ul>
 	</nav>
 
 	<h2 id="section-installation">Installation</h2>
+		<h3 id="section-required">Required</h3>
+			<p>
+			    Elastica v.0.20.5 require <strong>PHP 5.3 >=</strong>, for using Elastica on PHP 5.2 let see <a href="https://github.com/ruflin/Elastica/tree/v0.19.8.0"> Elastica v0.19.8</a>
+			</p>
 		<h3 id="section-download">Download</h3>
 			<p>
 				You can download this project in either <a href="http://github.com/ruflin/Elastica/zipball/master">zip</a> or <a href="http://github.com/ruflin/Elastica/tarball/master">tar</a> formats.
@@ -99,7 +108,7 @@ require_once '../vendor/autoload.php';
                 </pre>
             </p>
 			<p>
-				If you don't use composer in your project you have to include Elastica. Best way to do this is to use PHP <a href="http://www.php.net/manual/en/language.oop5.autoload.php">autoload</a>. This function is automatically called in case you are trying to use a class/interface which hasn't been defined yet.
+				If you don't use composer in your project you have to include Elastica. Best way to do this is to use PHP <a href="http://php.net/manual/en/function.spl-autoload-register.php">spl_autoload_register</a>. This function is automatically called in case you are trying to use a class/interface which hasn't been defined yet.
 			</p>
 			<p>
 				So let's assume you installed Elastica to <code>/var/www/Elastica</code>. When you make an instance of <code>\Elastica\Client</code>, the function will check if there is a file with that class in <code>/var/www/Elastica/Client</code> and load it.
@@ -112,7 +121,18 @@ function __autoload_elastica ($class) {
         require_once('/var/www/' . $path . '.php');
     }
 }
-spl_autoload_register('__autoload_elastica');</pre>
+spl_autoload_register('__autoload_elastica');
+
+//Or using anonymous function PHP 5.3.0>=
+spl_autoload_register(function($class){
+   
+   if (file_exists('/var/www/' . $class . '.php')) {
+        require_once('/var/www/' . $class . '.php');
+    }
+
+});
+
+</pre>
 			<p>
 				Now you are ready to use elasticsearch in your PHP project! Hurray!
 			</p>
@@ -127,7 +147,7 @@ spl_autoload_register('__autoload_elastica');</pre>
                 <p>If you are developing under windows just go to the bin folder and run</p>
                 <pre>> elasticsearch.bat</pre>
 				<p>
-					You can start multiple nodes by running the command multiple times. As you will see, the first node will be started on port 9200. If you start another node it will listen on port 9201 and so on. Elasticsearch automatically discovers the other nodes and creates a cluster.
+					<strong>You can start multiple nodes</strong> by running the command multiple times. As you will see, the first node will be started on port 9200. If you start another node it will listen on port 9201 and so on. Elasticsearch automatically discovers the other nodes and creates a cluster.
 				</p>
 				<h4 id="section-connect-single">Running a single node</h4>
 					<p>
@@ -181,6 +201,9 @@ $elasticaClient = new \Elastica\Client(array(
 			<p>
 				Let's create an index called twitter! So in the <code>indexAnalyzer</code> we define how the data will be analyzed when it's indexed and then we define how elasticsearch will analyze the search query in the <code>searchAnalyzer</code>. In this example we'll also use a custom snowball filter for the data.
 			</p>
+			<p>
+			    The second argument of <code>\Elastica\Index</code> is an OPTIONAL bool=> (true) Deletes index first if already exists (default = false)
+			</p>
 <pre class="prettyprint">
 // Load index
 $elasticaIndex = $elasticaClient->getIndex('twitter');
@@ -221,7 +244,7 @@ $elasticaIndex->create(
 				In our example, we will create an type called tweet which is in our index twitter. So first we create that type and afterwards we define the mapping. Note that it is possible to boost data in elasticsearch. You can either boost a specific field or you can boost a complete document. To boost a document, we'll use the field <code>_boost</code>. If we boost a field it's defined just like the kind of the field.
 			</p>
 <pre class="prettyprint">
-// Load type
+//Create a type
 $elasticaType = $elasticaIndex->getType('tweet');
 
 // Define mapping
@@ -274,6 +297,7 @@ $tweet = array(
     'location'=> '41.12,-71.34',
     '_boost'  => 1.0
 );
+// First parameter is the id of document.
 $tweetDocument = new \Elastica\Document($id, $tweet);
 
 // Add tweet to type
@@ -297,7 +321,8 @@ while ( ... ) { // Fetching content from the database
         );
     );
 }
-$elasticaType->addDocument($tweetDocument);
+// \Elastica\Type::addDocuments(array \Elastica\Document);
+$elasticaType->addDocuments($tweetDocument);
 $elasticaType->getIndex()->refresh();
 </pre>
             A good start are 500 documents per bulk operation. Depending on the size of your documents you've to play around a little how many documents are a good number for your application.
@@ -318,6 +343,8 @@ $elasticaType->getIndex()->refresh();
 <pre class="prettyprint">
 // Define a Query. We want a string query.
 $elasticaQueryString 	= new Elastica\Query\QueryString();
+
+//'And' or 'Or' default : 'Or'
 $elasticaQueryString->setDefaultOperator('AND');
 $elasticaQueryString->setQuery('sesam street');
 
@@ -352,23 +379,29 @@ foreach ($elasticaResults as $elasticaResult) {
 <pre class="prettyprint">
 // Filter for being of color blue
 $elasticaFilterColorBlue	= new \Elastica\Filter\Term();
+//search 'color' = 'blue'
 $elasticaFilterColorBlue->setTerm('color', 'blue');
 
 // Filter for being of color green
 $elasticaFilterColorGreen	= new \Elastica\Filter\Term();
 $elasticaFilterColorGreen->setTerm('color', 'green');
 
+
+<!--// Or can be write like that : 
+$elasticaFilterColorBlue->setTerm('color', array('blue','green')); -->
+
 // Filter for liking cookies
 $elasticaFilterLikesCookies	= new \Elastica\Filter\Term();
 $elasticaFilterLikesCookies->setTerm('likes', 'cookies');
 
+
 // Filter 'or' for the color, adding the color filters
-$elasticaFilterOr 	= new \Elastica\Filter\Or();
+$elasticaFilterOr 	= new \Elastica\Filter\BoolOr();
 $elasticaFilterOr->addFilter($elasticaFilterColorBlue);
 $elasticaFilterOr->addFilter($elasticaFilterColorGreen);
 
 // Filter 'and' for the colors and likes
-$elasticaFilterAnd 	= new \Elastica\Filter\And();
+$elasticaFilterAnd 	= new \Elastica\Filter\BoolAnd();
 $elasticaFilterAnd->addFilter($elasticaFilterOr);
 $elasticaFilterAnd->addFilter($elasticaFilterLikesCookies);
 
@@ -415,6 +448,88 @@ $elasticaFacet = new \Elastica\Facet\Terms('Facettes');
 }</pre>
             </p>
 
+			
+	<h2 id="section-migration">Migration Guide From  0.19 to 0.20</h2>
+	<p>
+		First you had to meet the <a href="#section-required">conditions</a> <a href="#">and install Elastica 0.20 version which work with elasticsearch 0.20.</a> 
+		Elastica 0.20 uses namespace that's why PHP5.3 is required , and each class belongs of a namespace.
+		For understanding namespace , and how use it let see <a href="http://php.net/manual/en/language.namespaces.php">php.net</a>
+	</p>
+	<p>
+		Each class which call with an underscore , is include in a namespace.
+		Example : 
+	</p>
+	<pre>
+	//Before
+	$Document=new Elastica_Document($id,$documentArray);
+	//Now
+	$Document=new \Elastica\Document($id,$documentArray);
+	
+	//Before
+	$BoolOr=new Elastica_Filter_BoolOr();
+	//Now
+	$BoolOr=new Elastica\Filter\BoolOr();
+	</pre>
+	
+	
+	<h3>Migration on class</h3>
+	<h2>List of Deleted class</h2>
+		<ul>
+			<li>Elastica_Filter_Or</li>
+			<li>Elastica_Filter_And</li>
+		</ul>
+	<h2>List of Deprecated class</h2>
+	<table>
+		<tr>
+			<th>Ex method</th>
+			<th>New method</th>
+			<th>Comments</th>
+		</tr>
+		<tr>
+			<td>Elastica_Filter_Or</td>
+			<td>Elastica\Filter\BoolOr</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Elastica_Filter_And</td>
+			<td>Elastica\Filter\BoolAnd</td>
+			<td></td>
+		</tr>
+	</table>
+	<h2>List of new class</h2>
+		<ul>
+			<li>Elastica\Connection()</li>
+		</ul>
+	<h3>Migration on methods</h3>
+	<h2>List of Deleted methods</h2>
+		<ul>
+			<li>\Elastica\Type::getType()</li>
+			<li>\Elastica\Filter\Script::setQuery()</li>
+			<!-- Seem to be here again... Changes.txt 2013-01-31 ?-->
+			<!--<li>\Elastica\Query\QueryString::setTieBraker()</li>-->
+			<li>\Elastica\Query\QueryString::setQueryString()</li>
+			<li>\Elastica\Query\Builder::minimumShouldMatch()</li>
+			<li>\Elastica\Query\Builder::tieBreaker()</li>
+		</ul>
+	<h2>List of Deprecated methods</h2>
+	<table>
+		<tr>
+			<th>Ex method</th>
+			<th>New method</th>
+			<th>Comments</th>
+		</tr>
+		<tr>
+			<td>Elastica_Document::add($key,$value)</td>
+			<td>Elastica\Document::set($key,$value)</td>
+			<td></td>
+		</tr>
+	</table>
+	<h2>List of new methods</h2>
+		<ul>
+		<li>\Elastica\Facet\Terms::setScript()</li>
+		<li>\Elastica\Document::set() && get() && has() && remove()</li>
+		</ul>
+			
 	<h2 id="section-credits">Credits</h2>
 		<p>
 			Credits go to <a href="https://github.com/ruflin/Elastica/network/members">all users that gave feedback and committed code</a>.
