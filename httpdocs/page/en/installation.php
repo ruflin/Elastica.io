@@ -1,3 +1,7 @@
+<?php
+	$this->title = 'Elastica Installation - Elastica.io';
+?>
+
 <ul>
 	<li>
 		<a href="#section-required">Required</a>

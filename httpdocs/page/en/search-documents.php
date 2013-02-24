@@ -1,3 +1,7 @@
+<?php
+	$this->title = 'Search Documents - Elastica.io';
+?>
+
 <ul>
 	<li>
 		<a href="#section-query">Search query</a>

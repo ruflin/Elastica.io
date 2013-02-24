@@ -1,3 +1,7 @@
+<?php
+	$this->title = 'Storing and Indexing Documents - Elastica.io';
+?>
+
 <ul>
 	<li>
 		<a href="#section-analysis">Define Analysis</a>
