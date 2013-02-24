@@ -21,7 +21,7 @@ include('../vendor/centralway/xBoilerplate/autoload.php');
 $content = '';
 try {
 
-    if ($_SERVER['REDIRECT_URL']){
+    if (isset($_SERVER['REDIRECT_URL'])){
         $uri = parse_url($_SERVER['REDIRECT_URL']);
     } else {
         $uri = parse_url($_SERVER['REQUEST_URI']);
