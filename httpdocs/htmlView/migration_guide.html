@@ -1,0 +1,146 @@
+<html>
+    <head>
+        <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body onload="sh_highlightDocument();">
+        <header class="jumbotron subhead" id="overview">
+            <div class="navbar navbar-inverse">
+                <div class="navbar-inner">
+                    <div class="container" style="width: auto;">
+                        <a class="brand" href="#">Elastica</a><a class="subbrand" href="">A PHP script for Elasticsearch</a>
+                        <div class="nav-collapse">
+                            <ul class="nav">
+                                <li ><a href="/">Home</a></li>
+                                <li ><a href="/">Examples</a></li>
+                                <li><a href="#">API</a></li>
+                                <li><a href="#">Releases</a></li>
+                                <li><a  class="active" href="migration_guide.html">Migration guide</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+
+        <div class="row">
+            <div class="bs-docs-sidebar">
+                <nav class="span3" id="menu">
+                    <ul class="nav nav-list bs-docs-sidenav affix">
+                        <li class=""><a href="#section-migration">Migration From 0.19 to 0.20</a></li>
+                        <li class=""><a href="#section-class">On Class</a></li>
+                        <li class=""><a href="#section-methods">On methods</a></li>
+                        <li class=""><a href="#overview">To top</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <section class="span11">
+                <h2 id="section-migration">Migration Guide From  0.19 to 0.20</h2>
+                <p>
+                    First you had to meet the <a href="#section-required">conditions</a> <a href="#">and install Elastica 0.20 version which work with elasticsearch 0.20.</a> 
+                    Elastica 0.20 uses namespace that's why PHP5.3 is required , and each class belongs of a namespace.
+                    For understanding namespace , and how use it let see <a href="http://php.net/manual/en/language.namespaces.php">php.net</a>
+                </p>
+                <p>
+                    Each class which call with an underscore , is include in a namespace.
+                    Example : 
+                </p>
+                <pre class="prettyprint sh_php">
+	//Before
+	$Document=new Elastica_Document($id,$documentArray);
+	//Now
+	$Document=new \Elastica\Document($id,$documentArray);
+	
+	//Before
+	$BoolOr=new Elastica_Filter_BoolOr();
+	//Now
+	$BoolOr=new Elastica\Filter\BoolOr();
+                </pre>
+
+
+                <h3 id="section-class">Migration on class</h3>
+                <h4>List of Deleted class</h4>
+                <ul>
+                    <li>Elastica_Filter_Or</li>
+                    <li>Elastica_Filter_And</li>
+                </ul>
+                <h4>List of Deprecated class</h4>
+                <table class="table table-bordered table-striped table-hover">
+                    <thead class="highlight">
+                        <tr>
+                            <th>Ex method</th>
+                            <th>New method</th>
+                            <th>Comments</th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td>Elastica_Filter_Or</td>
+                        <td>Elastica\Filter\BoolOr</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Elastica_Filter_And</td>
+                        <td>Elastica\Filter\BoolAnd</td>
+                        <td></td>
+                    </tr>
+                </table>
+                <h4>List of new class</h4>
+                <ul>
+                    <li>Elastica\Connection()</li>
+                </ul>
+                <h3 id="section-methods">Migration on methods</h3>
+                <h4>List of Deleted methods</h4>
+                <ul>
+                    <li>\Elastica\Type::getType()</li>
+                    <li>\Elastica\Filter\Script::setQuery()</li>
+                    <!-- Seem to be here again... Changes.txt 2013-01-31 ?-->
+                    <!--<li>\Elastica\Query\QueryString::setTieBraker()</li>-->
+                    <li>\Elastica\Query\QueryString::setQueryString()</li>
+                    <li>\Elastica\Query\Builder::minimumShouldMatch()</li>
+                    <li>\Elastica\Query\Builder::tieBreaker()</li>
+                </ul>
+                <h4>List of Deprecated methods</h4>
+                <table>
+                    <tr>
+                        <th>Ex method</th>
+                        <th>New method</th>
+                        <th>Comments</th>
+                    </tr>
+                    <tr>
+                        <td>Elastica_Document::add($key,$value)</td>
+                        <td>Elastica\Document::set($key,$value)</td>
+                        <td></td>
+                    </tr>
+                </table>
+                <h4>List of new methods</h4>
+                <ul>
+                    <li>\Elastica\Facet\Terms::setScript()</li>
+                    <li>\Elastica\Document::set() && get() && has() && remove()</li>
+                </ul>
+            </section>
+        </div>
+        <footer id="footer">
+            <div class="row">
+                <div class="span4"></div>
+                <div class="links  span4 border-rightclean">
+                    <ul class="nav">
+                        <li><a href="">Elastica on GoogleGroup</a></li>
+                        <li><a href="http://github.com/ruflin/Elastica">Elastica On GitHub</a></li>
+                        <li><a href="https://github.com/ruflin/Elastica/network/members">Contributors</a></li>
+                    </ul>
+                </div>
+                <div class="links  span4 border-rightclean">
+                    <a href="">ElasticSearch</a>
+                </div>
+            </div>
+        </footer>
+        <script src="js/bootstrap.min.s"/></script>
+    <script src="js/pre_php.js" ></script>
+
+</body>
+</html>
