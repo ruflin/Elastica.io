@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--[if lt IE 9]>
+                  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+                <![endif]-->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+    </head>
+
+    <body onload="sh_highlightDocument();">
+        <header class="jumbotron subhead" id="overview">
+            <div class="navbar navbar-inverse">
+                <div class="navbar-inner">
+                    <div class="container" style="width: auto;">
+                        <a class="brand" href="#">Elastica</a><a class="subbrand" href="">A PHP script for Elasticsearch</a>
+                        <div class="nav-collapse">
+                            <ul class="nav">
+                                <li class="active"><a href="/">Home</a></li>
+                                <li ><a href="/">Examples</a></li>
+                                <li><a href="#">API</a></li>
+                                <li><a href="#">Releases</a></li>
+                                <li><a href="migration_guide.html">Migration guide</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="row">
+            <div class="bs-docs-sidebar">
+                <nav class="span3" id="menu">
+                    <ul class="nav nav-list bs-docs-sidenav affix">
+                        <li class=""><a href="#section-installation">Installation & First steps</a></li>
+                        <li class=""><a href="#section-storing">Storing and indexing</a></li>
+                        <li class=""><a href="#section-search">Search query</a></li>
+                        <li class=""><a href="#overview">To top</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <section class="span11">
+					 <pre  class="prettyprint sh_php" >
+						$queryCmd ='{
+							"query": {
+								"bool": {
+									"should": [
+										{
+											"text": {
+												"title": "hello"
+											}
+										},
+										{
+											"has_child": {
+												"type": "post",
+												"query": {
+													"text": {
+														"post_text": "hello"
+													}
+												}
+											}
+										}
+									]
+								}
+							}
+						}';
+					</pre>
+
+				<pre  class="prettyprint sh_php">
+					$es_text1 = new Elastica_Query_Text();
+					$es_text1 -> setField("title", "hello");
+					$es_text2 = new Elastica_Query_Text();
+					$es_text2 -> setField("post_text", "hello");
+					$es_child = new Elastica_Query_HasChild($es_text2,"post");
+
+					$es_bool = new Elastica_Query_Bool();
+					$es_bool ->addShould($es_text1);
+					$es_bool ->addShould($es_child);
+
+					$es_query = new Elastica_Query($es_bool);
+					$q = $es_query->toArray();
+					echo json_encode($q);
+					$es_search = new Elastica_Search($elastica_client);
+					$rs = $es_search->addIndex('forum')->search($es_query, 10);
+				</pre>
+            </section>
+        </div>
+
+        <footer id="footer">
+            <div class="row">
+                <div class="span4"></div>
+                <div class="links  span4 border-rightclean">
+                    <ul class="nav">
+                        <li><a href="">Elastica on GoogleGroup</a></li>
+                        <li><a href="http://github.com/ruflin/Elastica">Elastica On GitHub</a></li>
+                        <li><a href="https://github.com/ruflin/Elastica/network/members">Contributors</a></li>
+                    </ul>
+                </div>
+                <div class="links  span4 border-rightclean">
+                    <a href="">ElasticSearch</a>
+                </div>
+            </div>
+        </footer>
+        <script src="js/bootstrap.min.s"/></script>
+    <script src="js/pre_php.js" ></script>
+</body>
+</html>
+
+
+
+
