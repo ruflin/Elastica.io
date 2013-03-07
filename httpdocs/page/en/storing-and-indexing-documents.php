@@ -34,7 +34,7 @@
 				Data in elasticsearch is analyzed at two different times. Once, when you index a document it's analyzed and this information is put in the index. The other time is when do a search. Elasticsearch analyzes the search query and looks up the gained information in the index. To see all possible analyzers and filter check out the <a href="http://www.elasticsearch.org/guide/reference/index-modules/analysis/">Analysis</a> reference.
 			</p>
 			<p>
-				Let's create an index called twitter! So in the <code>indexAnalyzer</code> we define how the data will be analyzed when it's indexed and then we define how elasticsearch will analyze the search query in the <code>searchAnalyzer</code>. In this example we'll also use a custom snowball filter for the data.
+				Let's create an index called twitter! We'll include two analyzers. Let's call them  <code>indexAnalyzer</code> and <code>searchAnalyzer</code>, but you can use any name. <code>indexAnalyzer</code> defines how the data will be analyzed when it's indexed and <code>searchAnalyzer</code> defines how elasticsearch will analyze the search query. We'll reference these when we create the Mapping below. In this example we'll also use a custom snowball filter for the data.
 			</p>
 			<p>
 			    The second argument of <code>\Elastica\Index</code> is an OPTIONAL bool=> (true) Deletes index first if already exists (default = false)
@@ -73,7 +73,10 @@ $elasticaIndex->create(
 );</pre>
 		<h3 id="section-mapping">Define Mapping</h3>
 			<p>
-				The Mapping defines what kind of data is in which field. If no mapping is defined, elasticsearch will guess the kind of the data and map it. To see all possibilities, check out the <a href="http://www.elasticsearch.org/guide/reference/mapping/">Mapping</a> reference.
+				The Mapping defines what kind of data is in which field. If no mapping is defined, elasticsearch will guess the kind of the data and map it automatically. To see all of the possibilities, check out the <a href="http://www.elasticsearch.org/guide/reference/mapping/">Mapping</a> reference.</p>
+				
+			<p>
+			If you aren't going to define a mapping, you should probably change the name of the analyzers we defined above to <code>default_index</code> and <code>default_search</code>. These will be used automatically when no analyzer is specified. An analyzer named <code>default</code> can be used for both searching and indexing.
 			</p>
 			<p>
 				In our example, we will create an type called tweet which is in our index twitter. So first we create that type and afterwards we define the mapping. Note that it is possible to boost data in elasticsearch. You can either boost a specific field or you can boost a complete document. To boost a document, we'll use the field <code>_boost</code>. If we boost a field it's defined just like the kind of the field.
