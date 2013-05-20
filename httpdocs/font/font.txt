@@ -1,3 +1,0 @@
-Fonts go in this folder.
-
-<?php echo $this->font(); ?> to get the path to this folder
