@@ -19,17 +19,17 @@ These instructions give you an overview of how to use <em>Elastica</em>. You can
 
 <nav class="toc">
 <ul>
-<li><a href="/en/releases">Releases</a></li>
+<li><a href="/releases">Releases</a></li>
 <li>
-<a href="/en/installation">Installation</a>
+<a href="/installation">Installation</a>
 </li>
 <li>
-<a href="/en/storing-and-indexing-documents">Storing and indexing documents</a>
+<a href="/storing-and-indexing-documents">Storing and indexing documents</a>
 </li>
 <li>
-<a href="/en/search-documents">Search documents</a>
+<a href="/search-documents">Search documents</a>
 </li>
-<li><a href="/en/release/v0.20.5.0">Migration Guide From  0.19 to 0.20</a></li>
+<li><a href="/release/v0.20.5.0">Migration Guide From  0.19 to 0.20</a></li>
 <li><a href="#section-credits">Credits</a></li>
 
 </ul>

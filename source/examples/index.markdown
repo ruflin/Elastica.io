@@ -7,6 +7,4 @@ sharing: true
 footer: true
 ---
 
-<ul>
-	<li><a href="/example/bool-query">Bool query</a></li>
-</ul>
+* [Bool query](/example/bool-query)
