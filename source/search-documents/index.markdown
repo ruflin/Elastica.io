@@ -102,9 +102,7 @@ $elasticaQuery->setFilter($elasticaFilterAnd);
 With the filters added, the search is ready to be executed. Probably this would return the cookie monster. But that depends on the data you added to your index, of course.
 
 <h3 id="section-facets">Facets</h3>
-<p>
 A facet returns some information on the data in your database, depending on your search query. So let's say there is a field <code>tag</code> in our documents. In the results of our query we want to know, which tags are used by the results and how many documents have a certain tag. Read more in the <a href="http://www.elasticsearch.org/guide/reference/api/search/facets/">facets API</a>.
-</p>
 
 Here is a quick example on how to define a facet for your query:
 

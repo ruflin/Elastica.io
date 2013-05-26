@@ -26,14 +26,14 @@ All changes can be found in the [changes.txt](https://github.com/ruflin/Elastica
 
 
 ### Changes
-* Remove old style path creation through params in Elastica_Index::create and Elastica_Search::search</li>
-* PSR1/PSR2 Style enforced</li>
+* Remove old style path creation through params in Elastica_Index::create and Elastica_Search::search
+* PSR1/PSR2 Style enforced<
 
 
 ### Additions
-* Elastica_Query_Prefix added</li>
-* Added Elastica_ScriptFields</li>
-* Added Elastica_Filter_Limit</li>
-* Facet scope added</li>
-* Added Elastica_Filter_MatchAll</li>
-* Added Elastica_Filter_Limit</li>
+* Elastica_Query_Prefix added
+* Added Elastica_ScriptFields
+* Added Elastica_Filter_Limit
+* Facet scope added
+* Added Elastica_Filter_MatchAll
+* Added Elastica_Filter_Limit
