@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "search-documents"
-date: 2013-05-20 22:31
 comments: true
 sharing: true
 footer: true

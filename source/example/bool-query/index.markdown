@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "bool-query"
-date: 2013-05-20 22:12
 comments: true
 sharing: true
 footer: true

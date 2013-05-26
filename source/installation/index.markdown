@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "installation"
-date: 2013-05-20 22:30
 comments: true
 sharing: true
 footer: true

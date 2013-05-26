@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "storing-and-indexing-documents"
-date: 2013-05-20 22:32
 comments: true
 sharing: true
 footer: true
