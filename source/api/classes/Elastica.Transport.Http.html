@@ -1,0 +1,589 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>Elastica » \Elastica\Transport\Http</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">Elastica</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/Elastica.html"><i class="icon-th"></i> Elastica</a></li>
+<li><a>Packages</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+<li><a href="../packages/Elastica.html"><i class="icon-folder-open"></i> Elastica</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">416</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul><li>todo 
+                <span class="label label-info">9</span>
+</li></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">3</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public inherited"><a href="#method___construct" title="__construct :: Construct transport"><span class="description">Construct transport</span><pre>__construct()</pre></a></li>
+<li class="method public inherited"><a href="#method_addParam" title="addParam :: Adds a param to the list"><span class="description">Adds a param to the list</span><pre>addParam()</pre></a></li>
+<li class="method public inherited"><a href="#method_create" title="create :: Create a transport"><span class="description">Create a transport</span><pre>create()</pre></a></li>
+<li class="method public "><a href="#method_exec" title="exec :: Makes calls to the elasticsearch server"><span class="description">Makes calls to the elasticsearch server</span><pre>exec()</pre></a></li>
+<li class="method public inherited"><a href="#method_getConnection" title="getConnection :: "><span class="description">getConnection()
+        </span><pre>getConnection()</pre></a></li>
+<li class="method public inherited"><a href="#method_getParam" title="getParam :: Returns a specific param"><span class="description">Returns a specific param</span><pre>getParam()</pre></a></li>
+<li class="method public inherited"><a href="#method_getParams" title="getParams :: Returns the params array"><span class="description">Returns the params array</span><pre>getParams()</pre></a></li>
+<li class="method public inherited"><a href="#method_hasParam" title="hasParam :: Test if a param is set"><span class="description">Test if a param is set</span><pre>hasParam()</pre></a></li>
+<li class="method public inherited"><a href="#method_setConnection" title="setConnection :: "><span class="description">setConnection()
+        </span><pre>setConnection()</pre></a></li>
+<li class="method public inherited"><a href="#method_setParam" title="setParam :: Sets (overwrites) the value at the given key"><span class="description">Sets (overwrites) the value at the given key</span><pre>setParam()</pre></a></li>
+<li class="method public inherited"><a href="#method_setParams" title="setParams :: Sets (overwrites) all params of this object"><span class="description">Sets (overwrites) all params of this object</span><pre>setParams()</pre></a></li>
+<li class="method public inherited"><a href="#method_toArray" title="toArray :: Converts the params to an array."><span class="description">Converts the params to an array.</span><pre>toArray()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header protected">» Protected
+                    <ul>
+<li class="method protected inherited"><a href="#method__getBaseName" title="_getBaseName :: Param's name
+Picks the last part of the class name and makes it snake_case
+You can override this method if you want to change the name"><span class="description">Param's name
+Picks the last part of the class name and makes it snake_case
+You can override this method if you want to change the name</span><pre>_getBaseName()</pre></a></li>
+<li class="method protected "><a href="#method__getConnection" title="_getConnection :: Return Curl resource"><span class="description">Return Curl resource</span><pre>_getConnection()</pre></a></li>
+<li class="method protected inherited"><a href="#method__setRawParam" title="_setRawParam :: Sets params not inside params array"><span class="description">Sets params not inside params array</span><pre>_setRawParam()</pre></a></li>
+<li class="method protected "><a href="#method__setupCurl" title="_setupCurl :: Called to add additional curl params"><span class="description">Called to add additional curl params</span><pre>_setupCurl()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties
+                    <ul></ul>
+</li>
+<li class="nav-header protected">» Protected
+                    <ul>
+<li class="property protected inherited"><a href="#property__connection" title="$_connection :: "><span class="description"></span><pre>$_connection</pre></a></li>
+<li class="property protected "><a href="#property__curlConnection" title="$_curlConnection :: Curl resource to reuse"><span class="description"></span><pre>$_curlConnection</pre></a></li>
+<li class="property protected inherited"><a href="#property__params" title="$_params :: Params"><span class="description"></span><pre>$_params</pre></a></li>
+<li class="property protected inherited"><a href="#property__rawParams" title="$_rawParams :: Raw Params"><span class="description"></span><pre>$_rawParams</pre></a></li>
+<li class="property protected "><a href="#property__scheme" title="$_scheme :: Http scheme"><span class="description"></span><pre>$_scheme</pre></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="span8">
+<a id="\Elastica\Transport\Http"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/Elastica.html">Elastica</a></li>
+<li>
+<span class="divider">\</span><a href="../namespaces/Elastica.Transport.html">Transport</a>
+</li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/Elastica.Transport.Http.html">Http</a>
+</li>
+</ul>
+<div class="element class">
+<p class="short_description">Elastica Http Transport object</p>
+<div class="details">
+<div class="long_description"><p>This function can be used to handle params for queries, filter, facets</p></div>
+<table class="table table-bordered">
+<tr>
+<th>category</th>
+<td>Xodoa</td>
+</tr>
+<tr>
+<th>package</th>
+<td><a href="../packages/Elastica.html">Elastica</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:spam@ruflin.com">Nicolas Ruflin</a></td>
+</tr>
+</table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a id="method___construct"></a><div class="element clickable method public method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
+<h2>Construct transport</h2>
+<pre>__construct(\Elastica\Connection $connection) </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Elastica\Transport\AbstractTransport::__construct()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$connection</h4>
+<code><a href="../classes/Elastica.Connection.html">\Elastica\Connection</a></code><p>Connection object</p></div>
+</div></div>
+</div>
+<a id="method_addParam"></a><div class="element clickable method public method_addParam" data-toggle="collapse" data-target=".method_addParam .collapse">
+<h2>Adds a param to the list</h2>
+<pre>addParam(string $key, mixed $value) : <a href="../classes/Elastica.Param.html">\Elastica\Param</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>This function can be used to add an array of params</p></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Param::addParam()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Transport\AbstractTransport::addParam()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$key</h4>
+<code>string</code><p>Param key</p></div>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>mixed</code><p>Value to set</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Param.html">\Elastica\Param</a></code></div>
+</div></div>
+</div>
+<a id="method_create"></a><div class="element clickable method public method_create" data-toggle="collapse" data-target=".method_create .collapse">
+<h2>Create a transport</h2>
+<pre>create(mixed $transport, \Elastica\Connection $connection, array $params) : <a href="../classes/Elastica.Transport.AbstractTransport.html">\Elastica\Transport\AbstractTransport</a></pre>
+<div class="labels">
+<span class="label">Inherited</span><span class="label">Static</span>
+</div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>The $transport parameter can be one of the following values:</p>
+
+<ul>
+<li>string: The short name of a transport. For instance "Http", "Memcache" or "Thrift"</li>
+<li>object: An already instantiated instance of a transport</li>
+<li>array: An array with a "type" key which must be set to one of the two options. All other
+     keys in the array will be set as parameters in the transport instance</li>
+</ul></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Elastica\Transport\AbstractTransport::create()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$transport</h4>
+<code>mixed</code><p>A transport definition</p></div>
+<div class="subelement argument">
+<h4>$connection</h4>
+<code><a href="../classes/Elastica.Connection.html">\Elastica\Connection</a></code><p>A connection instance</p></div>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>array</code><p>Parameters for the transport class</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="../classes/Elastica.Exception.InvalidException.html">\Elastica\Exception\InvalidException</a></code></th>
+<td></td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Transport.AbstractTransport.html">\Elastica\Transport\AbstractTransport</a></code></div>
+</div></div>
+</div>
+<a id="method_exec"></a><div class="element clickable method public method_exec" data-toggle="collapse" data-target=".method_exec .collapse">
+<h2>Makes calls to the elasticsearch server</h2>
+<pre>exec(\Elastica\Request $request, array $params) : <a href="../classes/Elastica.Response.html">\Elastica\Response</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>All calls that are made to the server are done through this function</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$request</h4>
+<code><a href="../classes/Elastica.Request.html">\Elastica\Request</a></code>
+</div>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>array</code><p>Host, Port, ...</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered">
+<tr>
+<th><code><a href="../classes/Elastica.Exception.ConnectionException.html">\Elastica\Exception\ConnectionException</a></code></th>
+<td></td>
+</tr>
+<tr>
+<th><code><a href="../classes/Elastica.Exception.ResponseException.html">\Elastica\Exception\ResponseException</a></code></th>
+<td></td>
+</tr>
+<tr>
+<th><code><a href="../classes/Elastica.Exception.Connection.HttpException.html">\Elastica\Exception\Connection\HttpException</a></code></th>
+<td></td>
+</tr>
+</table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/Elastica.Response.html">\Elastica\Response</a></code>Response object</div>
+</div></div>
+</div>
+<a id="method_getConnection"></a><div class="element clickable method public method_getConnection" data-toggle="collapse" data-target=".method_getConnection .collapse">
+<h2>getConnection()
+        </h2>
+<pre>getConnection() : <a href="../classes/Elastica.Connection.html">\Elastica\Connection</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Elastica\Transport\AbstractTransport::getConnection()</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/Elastica.Connection.html">\Elastica\Connection</a></code>Connection object</div>
+</div></div>
+</div>
+<a id="method_getParam"></a><div class="element clickable method public method_getParam" data-toggle="collapse" data-target=".method_getParam .collapse">
+<h2>Returns a specific param</h2>
+<pre>getParam(string $key) : mixed</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Param::getParam()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Transport\AbstractTransport::getParam()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$key</h4>
+<code>string</code><p>Key to return</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="../classes/Elastica.Exception.InvalidException.html">\Elastica\Exception\InvalidException</a></code></th>
+<td>If requested key is not set</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>mixed</code>Key value</div>
+</div></div>
+</div>
+<a id="method_getParams"></a><div class="element clickable method public method_getParams" data-toggle="collapse" data-target=".method_getParams .collapse">
+<h2>Returns the params array</h2>
+<pre>getParams() : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Param::getParams()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Transport\AbstractTransport::getParams()</td>
+</tr>
+</table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>Params</div>
+</div></div>
+</div>
+<a id="method_hasParam"></a><div class="element clickable method public method_hasParam" data-toggle="collapse" data-target=".method_hasParam .collapse">
+<h2>Test if a param is set</h2>
+<pre>hasParam(string $key) : boolean</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Param::hasParam()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Transport\AbstractTransport::hasParam()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$key</h4>
+<code>string</code><p>Key to test</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>True if the param is set, false otherwise</div>
+</div></div>
+</div>
+<a id="method_setConnection"></a><div class="element clickable method public method_setConnection" data-toggle="collapse" data-target=".method_setConnection .collapse">
+<h2>setConnection()
+        </h2>
+<pre>setConnection(\Elastica\Connection $connection) </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Elastica\Transport\AbstractTransport::setConnection()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$connection</h4>
+<code><a href="../classes/Elastica.Connection.html">\Elastica\Connection</a></code><p>Connection object</p></div>
+</div></div>
+</div>
+<a id="method_setParam"></a><div class="element clickable method public method_setParam" data-toggle="collapse" data-target=".method_setParam .collapse">
+<h2>Sets (overwrites) the value at the given key</h2>
+<pre>setParam(string $key, mixed $value) : <a href="../classes/Elastica.Param.html">\Elastica\Param</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Param::setParam()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Transport\AbstractTransport::setParam()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$key</h4>
+<code>string</code><p>Key to set</p></div>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>mixed</code><p>Key Value</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Param.html">\Elastica\Param</a></code></div>
+</div></div>
+</div>
+<a id="method_setParams"></a><div class="element clickable method public method_setParams" data-toggle="collapse" data-target=".method_setParams .collapse">
+<h2>Sets (overwrites) all params of this object</h2>
+<pre>setParams(array $params) : <a href="../classes/Elastica.Param.html">\Elastica\Param</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Param::setParams()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Transport\AbstractTransport::setParams()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>array</code><p>Parameter list</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Param.html">\Elastica\Param</a></code></div>
+</div></div>
+</div>
+<a id="method_toArray"></a><div class="element clickable method public method_toArray" data-toggle="collapse" data-target=".method_toArray .collapse">
+<h2>Converts the params to an array.</h2>
+<pre>toArray() : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>A default implementation exist to create
+the an array out of the class name (last part of the class name)
+and the params</p></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Param::toArray()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Transport\AbstractTransport::toArray()</td>
+</tr>
+</table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>Filter array</div>
+</div></div>
+</div>
+<a id="method__getBaseName"></a><div class="element clickable method protected method__getBaseName" data-toggle="collapse" data-target=".method__getBaseName .collapse">
+<h2>Param's name
+Picks the last part of the class name and makes it snake_case
+You can override this method if you want to change the name</h2>
+<pre>_getBaseName() : string</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Param::_getBaseName()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Transport\AbstractTransport::_getBaseName()</td>
+</tr>
+</table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>name</div>
+</div></div>
+</div>
+<a id="method__getConnection"></a><div class="element clickable method protected method__getConnection" data-toggle="collapse" data-target=".method__getConnection .collapse">
+<h2>Return Curl resource</h2>
+<pre>_getConnection(bool $persistent) : resource</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$persistent</h4>
+<code>bool</code><p>False if not persistent connection</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>resource</code>Connection resource</div>
+</div></div>
+</div>
+<a id="method__setRawParam"></a><div class="element clickable method protected method__setRawParam" data-toggle="collapse" data-target=".method__setRawParam .collapse">
+<h2>Sets params not inside params array</h2>
+<pre>_setRawParam(string $key, mixed $value) : <a href="../classes/Elastica.Param.html">\Elastica\Param</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Param::_setRawParam()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Transport\AbstractTransport::_setRawParam()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$key</h4>
+<code>string</code>
+</div>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>mixed</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Param.html">\Elastica\Param</a></code></div>
+</div></div>
+</div>
+<a id="method__setupCurl"></a><div class="element clickable method protected method__setupCurl" data-toggle="collapse" data-target=".method__setupCurl .collapse">
+<h2>Called to add additional curl params</h2>
+<pre>_setupCurl(resource $curlConnection) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$curlConnection</h4>
+<code>resource</code><p>Curl connection</p></div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a id="property__connection"> </a><div class="element clickable property protected property__connection" data-toggle="collapse" data-target=".property__connection .collapse">
+<h2></h2>
+<pre>$_connection : <a href="../classes/Elastica.Connection.html">\Elastica\Connection</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Elastica\Transport\AbstractTransport::$$_connection</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property__curlConnection"> </a><div class="element clickable property protected property__curlConnection" data-toggle="collapse" data-target=".property__curlConnection .collapse">
+<h2></h2>
+<pre>$_curlConnection : resource</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property__params"> </a><div class="element clickable property protected property__params" data-toggle="collapse" data-target=".property__params .collapse">
+<h2></h2>
+<pre>$_params : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Param::$$_params</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Transport\AbstractTransport::$$_params</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a id="property__rawParams"> </a><div class="element clickable property protected property__rawParams" data-toggle="collapse" data-target=".property__rawParams .collapse">
+<h2></h2>
+<pre>$_rawParams : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Param::$$_rawParams</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Transport\AbstractTransport::$$_rawParams</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a id="property__scheme"> </a><div class="element clickable property protected property__scheme" data-toggle="collapse" data-target=".property__scheme .collapse">
+<h2></h2>
+<pre>$_scheme : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
+            generated on 2013-05-26T18:20:59+02:00.<br></footer></div>
+</div>
+</body>
+</html>

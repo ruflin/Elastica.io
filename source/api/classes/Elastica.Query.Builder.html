@@ -1,0 +1,1322 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>Elastica » \Elastica\Query\Builder</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">Elastica</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/Elastica.html"><i class="icon-th"></i> Elastica</a></li>
+<li><a>Packages</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+<li><a href="../packages/Elastica.html"><i class="icon-folder-open"></i> Elastica</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">416</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul><li>todo 
+                <span class="label label-info">9</span>
+</li></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">3</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public "><a href="#method___construct" title="__construct :: Constructor"><span class="description">Constructor</span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#method___toString" title="__toString :: Output the query string."><span class="description">Output the query string.</span><pre>__toString()</pre></a></li>
+<li class="method public inherited"><a href="#method_addParam" title="addParam :: Adds a param to the list"><span class="description">Adds a param to the list</span><pre>addParam()</pre></a></li>
+<li class="method public "><a href="#method_allowLeadingWildcard" title="allowLeadingWildcard :: Allow wildcards (*, ?) as the first character in a query."><span class="description">Allow wildcards (*, ?) as the first character in a query.</span><pre>allowLeadingWildcard()</pre></a></li>
+<li class="method public "><a href="#method_analyzeWildcard" title="analyzeWildcard :: Enable best effort analysis of wildcard terms."><span class="description">Enable best effort analysis of wildcard terms.</span><pre>analyzeWildcard()</pre></a></li>
+<li class="method public "><a href="#method_analyzer" title="analyzer :: Set the analyzer name used to analyze the query string."><span class="description">Set the analyzer name used to analyze the query string.</span><pre>analyzer()</pre></a></li>
+<li class="method public "><a href="#method_autoGeneratePhraseQueries" title="autoGeneratePhraseQueries :: Autogenerate phrase queries."><span class="description">Autogenerate phrase queries.</span><pre>autoGeneratePhraseQueries()</pre></a></li>
+<li class="method public "><a href="#method_bool" title="bool :: Bool Query."><span class="description">Bool Query.</span><pre>bool()</pre></a></li>
+<li class="method public "><a href="#method_boolClose" title="boolClose :: Close a 'bool' block."><span class="description">Close a 'bool' block.</span><pre>boolClose()</pre></a></li>
+<li class="method public "><a href="#method_boost" title="boost :: Sets the boost value of the query."><span class="description">Sets the boost value of the query.</span><pre>boost()</pre></a></li>
+<li class="method public "><a href="#method_close" title="close :: Close a previously opened brace."><span class="description">Close a previously opened brace.</span><pre>close()</pre></a></li>
+<li class="method public "><a href="#method_constantScore" title="constantScore :: Constant Score Query."><span class="description">Constant Score Query.</span><pre>constantScore()</pre></a></li>
+<li class="method public "><a href="#method_constantScoreClose" title="constantScoreClose :: Close a 'constant_score' block."><span class="description">Close a 'constant_score' block.</span><pre>constantScoreClose()</pre></a></li>
+<li class="method public "><a href="#method_defaultField" title="defaultField :: The default field for query terms if no prefix field is specified."><span class="description">The default field for query terms if no prefix field is specified.</span><pre>defaultField()</pre></a></li>
+<li class="method public "><a href="#method_defaultOperator" title="defaultOperator :: The default operator used if no explicit operator is specified."><span class="description">The default operator used if no explicit operator is specified.</span><pre>defaultOperator()</pre></a></li>
+<li class="method public "><a href="#method_disMax" title="disMax :: Dis Max Query."><span class="description">Dis Max Query.</span><pre>disMax()</pre></a></li>
+<li class="method public "><a href="#method_disMaxClose" title="disMaxClose :: Close a 'dis_max' block."><span class="description">Close a 'dis_max' block.</span><pre>disMaxClose()</pre></a></li>
+<li class="method public "><a href="#method_enablePositionIncrements" title="enablePositionIncrements :: Enable position increments in result queries."><span class="description">Enable position increments in result queries.</span><pre>enablePositionIncrements()</pre></a></li>
+<li class="method public "><a href="#method_explain" title="explain :: Enables explanation for each hit on how its score was computed."><span class="description">Enables explanation for each hit on how its score was computed.</span><pre>explain()</pre></a></li>
+<li class="method public "><a href="#method_facets" title="facets :: Open 'facets' block."><span class="description">Open 'facets' block.</span><pre>facets()</pre></a></li>
+<li class="method public "><a href="#method_facetsClose" title="facetsClose :: Close a facets block."><span class="description">Close a facets block.</span><pre>facetsClose()</pre></a></li>
+<li class="method public "><a href="#method_factory" title="factory :: Factory method."><span class="description">Factory method.</span><pre>factory()</pre></a></li>
+<li class="method public "><a href="#method_field" title="field :: Add a specific field / value entry."><span class="description">Add a specific field / value entry.</span><pre>field()</pre></a></li>
+<li class="method public "><a href="#method_fieldClose" title="fieldClose :: Close a field block."><span class="description">Close a field block.</span><pre>fieldClose()</pre></a></li>
+<li class="method public "><a href="#method_fieldOpen" title="fieldOpen :: Open a node for the specified name."><span class="description">Open a node for the specified name.</span><pre>fieldOpen()</pre></a></li>
+<li class="method public "><a href="#method_fields" title="fields :: Explicitly define fields to return."><span class="description">Explicitly define fields to return.</span><pre>fields()</pre></a></li>
+<li class="method public "><a href="#method_filter" title="filter :: Open a 'filter' block."><span class="description">Open a 'filter' block.</span><pre>filter()</pre></a></li>
+<li class="method public "><a href="#method_filterClose" title="filterClose :: Close a filter block."><span class="description">Close a filter block.</span><pre>filterClose()</pre></a></li>
+<li class="method public "><a href="#method_filteredQuery" title="filteredQuery :: Query."><span class="description">Query.</span><pre>filteredQuery()</pre></a></li>
+<li class="method public "><a href="#method_filteredQueryClose" title="filteredQueryClose :: Close a 'filtered_query' block."><span class="description">Close a 'filtered_query' block.</span><pre>filteredQueryClose()</pre></a></li>
+<li class="method public "><a href="#method_from" title="from :: Set the from parameter (offset)."><span class="description">Set the from parameter (offset).</span><pre>from()</pre></a></li>
+<li class="method public "><a href="#method_fuzzyMinSim" title="fuzzyMinSim :: Set the minimum similarity for fuzzy queries."><span class="description">Set the minimum similarity for fuzzy queries.</span><pre>fuzzyMinSim()</pre></a></li>
+<li class="method public "><a href="#method_fuzzyPrefixLength" title="fuzzyPrefixLength :: Set the prefix length for fuzzy queries."><span class="description">Set the prefix length for fuzzy queries.</span><pre>fuzzyPrefixLength()</pre></a></li>
+<li class="method public inherited"><a href="#method_getParam" title="getParam :: Returns a specific param"><span class="description">Returns a specific param</span><pre>getParam()</pre></a></li>
+<li class="method public inherited"><a href="#method_getParams" title="getParams :: Returns the params array"><span class="description">Returns the params array</span><pre>getParams()</pre></a></li>
+<li class="method public "><a href="#method_gt" title="gt :: Add a greater than (gt) clause."><span class="description">Add a greater than (gt) clause.</span><pre>gt()</pre></a></li>
+<li class="method public "><a href="#method_gte" title="gte :: Add a greater than or equal to (gte) clause."><span class="description">Add a greater than or equal to (gte) clause.</span><pre>gte()</pre></a></li>
+<li class="method public inherited"><a href="#method_hasParam" title="hasParam :: Test if a param is set"><span class="description">Test if a param is set</span><pre>hasParam()</pre></a></li>
+<li class="method public "><a href="#method_lowercaseExpandedTerms" title="lowercaseExpandedTerms :: Automatically lower-case terms of wildcard, prefix, fuzzy, and range queries."><span class="description">Automatically lower-case terms of wildcard, prefix, fuzzy, and range queries.</span><pre>lowercaseExpandedTerms()</pre></a></li>
+<li class="method public "><a href="#method_lt" title="lt :: Add a less than (lt) clause."><span class="description">Add a less than (lt) clause.</span><pre>lt()</pre></a></li>
+<li class="method public "><a href="#method_lte" title="lte :: Add a less than or equal to (lte) clause."><span class="description">Add a less than or equal to (lte) clause.</span><pre>lte()</pre></a></li>
+<li class="method public "><a href="#method_matchAll" title="matchAll :: Match All Query."><span class="description">Match All Query.</span><pre>matchAll()</pre></a></li>
+<li class="method public "><a href="#method_minimumNumberShouldMatch" title="minimumNumberShouldMatch :: The minimum number of should clauses to match."><span class="description">The minimum number of should clauses to match.</span><pre>minimumNumberShouldMatch()</pre></a></li>
+<li class="method public "><a href="#method_must" title="must :: The clause (query) must appear in matching documents."><span class="description">The clause (query) must appear in matching documents.</span><pre>must()</pre></a></li>
+<li class="method public "><a href="#method_mustClose" title="mustClose :: Close a 'must' block."><span class="description">Close a 'must' block.</span><pre>mustClose()</pre></a></li>
+<li class="method public "><a href="#method_mustNot" title="mustNot :: The clause (query) must not appear in the matching documents."><span class="description">The clause (query) must not appear in the matching documents.</span><pre>mustNot()</pre></a></li>
+<li class="method public "><a href="#method_mustNotClose" title="mustNotClose :: Close a 'must_not' block."><span class="description">Close a 'must_not' block.</span><pre>mustNotClose()</pre></a></li>
+<li class="method public "><a href="#method_open" title="open :: Add an opening brace."><span class="description">Add an opening brace.</span><pre>open()</pre></a></li>
+<li class="method public "><a href="#method_phraseSlop" title="phraseSlop :: Sets the default slop for phrases."><span class="description">Sets the default slop for phrases.</span><pre>phraseSlop()</pre></a></li>
+<li class="method public "><a href="#method_prefix" title="prefix :: Query."><span class="description">Query.</span><pre>prefix()</pre></a></li>
+<li class="method public "><a href="#method_prefixClose" title="prefixClose :: Close a 'prefix' block."><span class="description">Close a 'prefix' block.</span><pre>prefixClose()</pre></a></li>
+<li class="method public "><a href="#method_queries" title="queries :: Queries to run within a dis_max query."><span class="description">Queries to run within a dis_max query.</span><pre>queries()</pre></a></li>
+<li class="method public "><a href="#method_query" title="query :: Open a query block."><span class="description">Open a query block.</span><pre>query()</pre></a></li>
+<li class="method public "><a href="#method_queryClose" title="queryClose :: Close a query block."><span class="description">Close a query block.</span><pre>queryClose()</pre></a></li>
+<li class="method public "><a href="#method_queryString" title="queryString :: Query String Query."><span class="description">Query String Query.</span><pre>queryString()</pre></a></li>
+<li class="method public "><a href="#method_queryStringClose" title="queryStringClose :: Close a 'query_string' block."><span class="description">Close a 'query_string' block.</span><pre>queryStringClose()</pre></a></li>
+<li class="method public "><a href="#method_range" title="range :: Open a range block."><span class="description">Open a range block.</span><pre>range()</pre></a></li>
+<li class="method public "><a href="#method_rangeClose" title="rangeClose :: Close a range block."><span class="description">Close a range block.</span><pre>rangeClose()</pre></a></li>
+<li class="method public inherited"><a href="#method_setParam" title="setParam :: Sets (overwrites) the value at the given key"><span class="description">Sets (overwrites) the value at the given key</span><pre>setParam()</pre></a></li>
+<li class="method public inherited"><a href="#method_setParams" title="setParams :: Sets (overwrites) all params of this object"><span class="description">Sets (overwrites) all params of this object</span><pre>setParams()</pre></a></li>
+<li class="method public "><a href="#method_should" title="should :: The clause (query) should appear in the matching document."><span class="description">The clause (query) should appear in the matching document.</span><pre>should()</pre></a></li>
+<li class="method public "><a href="#method_shouldClose" title="shouldClose :: Close a 'should' block."><span class="description">Close a 'should' block.</span><pre>shouldClose()</pre></a></li>
+<li class="method public "><a href="#method_size" title="size :: Set the size parameter (number of records to return)."><span class="description">Set the size parameter (number of records to return).</span><pre>size()</pre></a></li>
+<li class="method public "><a href="#method_sort" title="sort :: Allows to add one or more sort on specific fields."><span class="description">Allows to add one or more sort on specific fields.</span><pre>sort()</pre></a></li>
+<li class="method public "><a href="#method_sortClose" title="sortClose :: Close a sort block."><span class="description">Close a sort block.</span><pre>sortClose()</pre></a></li>
+<li class="method public "><a href="#method_sortField" title="sortField :: Add a field to sort on."><span class="description">Add a field to sort on.</span><pre>sortField()</pre></a></li>
+<li class="method public "><a href="#method_sortFields" title="sortFields :: Sort on multiple fields"><span class="description">Sort on multiple fields</span><pre>sortFields()</pre></a></li>
+<li class="method public "><a href="#method_term" title="term :: Term Query."><span class="description">Term Query.</span><pre>term()</pre></a></li>
+<li class="method public "><a href="#method_termClose" title="termClose :: Close a 'term' block."><span class="description">Close a 'term' block.</span><pre>termClose()</pre></a></li>
+<li class="method public "><a href="#method_textPhrase" title="textPhrase :: Open a 'text_phrase' block."><span class="description">Open a 'text_phrase' block.</span><pre>textPhrase()</pre></a></li>
+<li class="method public "><a href="#method_textPhraseClose" title="textPhraseClose :: Close a 'text_phrase' block."><span class="description">Close a 'text_phrase' block.</span><pre>textPhraseClose()</pre></a></li>
+<li class="method public "><a href="#method_tieBreakerMultiplier" title="tieBreakerMultiplier :: When using dis_max, the disjunction max tie breaker."><span class="description">When using dis_max, the disjunction max tie breaker.</span><pre>tieBreakerMultiplier()</pre></a></li>
+<li class="method public "><a href="#method_toArray" title="toArray :: Converts the params to an array."><span class="description">Converts the params to an array.</span><pre>toArray()</pre></a></li>
+<li class="method public "><a href="#method_wildcard" title="wildcard :: Query."><span class="description">Query.</span><pre>wildcard()</pre></a></li>
+<li class="method public "><a href="#method_wildcardClose" title="wildcardClose :: Close a 'wildcard' block."><span class="description">Close a 'wildcard' block.</span><pre>wildcardClose()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header protected">» Protected
+                    <ul>
+<li class="method protected inherited"><a href="#method__getBaseName" title="_getBaseName :: Param's name
+Picks the last part of the class name and makes it snake_case
+You can override this method if you want to change the name"><span class="description">Param's name
+Picks the last part of the class name and makes it snake_case
+You can override this method if you want to change the name</span><pre>_getBaseName()</pre></a></li>
+<li class="method protected inherited"><a href="#method__setRawParam" title="_setRawParam :: Sets params not inside params array"><span class="description">Sets params not inside params array</span><pre>_setRawParam()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties
+                    <ul></ul>
+</li>
+<li class="nav-header protected">» Protected
+                    <ul>
+<li class="property protected inherited"><a href="#property__params" title="$_params :: Params"><span class="description"></span><pre>$_params</pre></a></li>
+<li class="property protected inherited"><a href="#property__rawParams" title="$_rawParams :: Raw Params"><span class="description"></span><pre>$_rawParams</pre></a></li>
+</ul>
+</li>
+<li class="nav-header private">» Private
+                    <ul><li class="property private "><a href="#property__string" title="$_string :: Query string."><span class="description"></span><pre>$_string</pre></a></li></ul>
+</li>
+</ul>
+</div>
+<div class="span8">
+<a id="\Elastica\Query\Builder"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/Elastica.html">Elastica</a></li>
+<li>
+<span class="divider">\</span><a href="../namespaces/Elastica.Query.html">Query</a>
+</li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/Elastica.Query.Builder.html">Builder</a>
+</li>
+</ul>
+<div class="element class">
+<p class="short_description">Query Builder.</p>
+<div class="details">
+<div class="long_description"><p>Should be extended by all query types.</p></div>
+<table class="table table-bordered">
+<tr>
+<th>category</th>
+<td>Xodoa</td>
+</tr>
+<tr>
+<th>package</th>
+<td><a href="../packages/Elastica.html">Elastica</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:chris@gedr.im">Chris Gedrim</a></td>
+</tr>
+<tr>
+<th>link</th>
+<td><a href="http://www.elasticsearch.org/">http://www.elasticsearch.org/</a></td>
+</tr>
+</table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a id="method___construct"></a><div class="element clickable method public method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
+<h2>Constructor</h2>
+<pre>__construct(string $string) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$string</h4>
+<code>string</code><p>JSON encoded string to use as query.</p></div>
+</div></div>
+</div>
+<a id="method___toString"></a><div class="element clickable method public method___toString" data-toggle="collapse" data-target=".method___toString .collapse">
+<h2>Output the query string.</h2>
+<pre>__toString() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_addParam"></a><div class="element clickable method public method_addParam" data-toggle="collapse" data-target=".method_addParam .collapse">
+<h2>Adds a param to the list</h2>
+<pre>addParam(string $key, mixed $value) : <a href="../classes/Elastica.Param.html">\Elastica\Param</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>This function can be used to add an array of params</p></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Param::addParam()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Query\AbstractQuery::addParam()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$key</h4>
+<code>string</code><p>Param key</p></div>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>mixed</code><p>Value to set</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Param.html">\Elastica\Param</a></code></div>
+</div></div>
+</div>
+<a id="method_allowLeadingWildcard"></a><div class="element clickable method public method_allowLeadingWildcard" data-toggle="collapse" data-target=".method_allowLeadingWildcard .collapse">
+<h2>Allow wildcards (*, ?) as the first character in a query.</h2>
+<pre>allowLeadingWildcard(boolean $bool) : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$bool</h4>
+<code>boolean</code><p>Defaults to true.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_analyzeWildcard"></a><div class="element clickable method public method_analyzeWildcard" data-toggle="collapse" data-target=".method_analyzeWildcard .collapse">
+<h2>Enable best effort analysis of wildcard terms.</h2>
+<pre>analyzeWildcard(boolean $bool) : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$bool</h4>
+<code>boolean</code><p>Defaults to true.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_analyzer"></a><div class="element clickable method public method_analyzer" data-toggle="collapse" data-target=".method_analyzer .collapse">
+<h2>Set the analyzer name used to analyze the query string.</h2>
+<pre>analyzer(string $analyzer) : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$analyzer</h4>
+<code>string</code><p>Analyzer to use.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_autoGeneratePhraseQueries"></a><div class="element clickable method public method_autoGeneratePhraseQueries" data-toggle="collapse" data-target=".method_autoGeneratePhraseQueries .collapse">
+<h2>Autogenerate phrase queries.</h2>
+<pre>autoGeneratePhraseQueries(boolean $bool) : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$bool</h4>
+<code>boolean</code><p>Defaults to true.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_bool"></a><div class="element clickable method public method_bool" data-toggle="collapse" data-target=".method_bool .collapse">
+<h2>Bool Query.</h2>
+<pre>bool() : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>A query that matches documents matching boolean combinations of other queries.</p>
+
+<p>The bool query maps to Lucene BooleanQuery.</p>
+
+<p>It is built using one or more boolean clauses, each clause with a typed
+occurrence.</p>
+
+<p>The occurrence types are: must, should, must_not.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_boolClose"></a><div class="element clickable method public method_boolClose" data-toggle="collapse" data-target=".method_boolClose .collapse">
+<h2>Close a 'bool' block.</h2>
+<pre>boolClose() : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Alias of close() for ease of reading in source.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_boost"></a><div class="element clickable method public method_boost" data-toggle="collapse" data-target=".method_boost .collapse">
+<h2>Sets the boost value of the query.</h2>
+<pre>boost(float $boost) : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$boost</h4>
+<code>float</code><p>Defaults to 1.0.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_close"></a><div class="element clickable method public method_close" data-toggle="collapse" data-target=".method_close .collapse">
+<h2>Close a previously opened brace.</h2>
+<pre>close() : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_constantScore"></a><div class="element clickable method public method_constantScore" data-toggle="collapse" data-target=".method_constantScore .collapse">
+<h2>Constant Score Query.</h2>
+<pre>constantScore() : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>A query that wraps a filter or another query and simply returns a constant
+score equal to the query boost for every document in the filter.</p>
+
+<p>Maps to Lucene ConstantScoreQuery.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_constantScoreClose"></a><div class="element clickable method public method_constantScoreClose" data-toggle="collapse" data-target=".method_constantScoreClose .collapse">
+<h2>Close a 'constant_score' block.</h2>
+<pre>constantScoreClose() : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Alias of close() for ease of reading in source.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_defaultField"></a><div class="element clickable method public method_defaultField" data-toggle="collapse" data-target=".method_defaultField .collapse">
+<h2>The default field for query terms if no prefix field is specified.</h2>
+<pre>defaultField(string $field) : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$field</h4>
+<code>string</code><p>Defaults to _all.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_defaultOperator"></a><div class="element clickable method public method_defaultOperator" data-toggle="collapse" data-target=".method_defaultOperator .collapse">
+<h2>The default operator used if no explicit operator is specified.</h2>
+<pre>defaultOperator(string $operator) : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>For example, with a default operator of OR, the query "capital of Hungary"
+is translated to "capital OR of OR Hungary", and with default operator of
+AND, the same query is translated to "capital AND of AND Hungary".</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$operator</h4>
+<code>string</code><p>Defaults to OR.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_disMax"></a><div class="element clickable method public method_disMax" data-toggle="collapse" data-target=".method_disMax .collapse">
+<h2>Dis Max Query.</h2>
+<pre>disMax() : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>A query that generates the union of documents produced by its subqueries,
+and that scores each document with the maximum score for that document as
+produced by any subquery, plus a tie breaking increment for any additional
+matching subqueries.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_disMaxClose"></a><div class="element clickable method public method_disMaxClose" data-toggle="collapse" data-target=".method_disMaxClose .collapse">
+<h2>Close a 'dis_max' block.</h2>
+<pre>disMaxClose() : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Alias of close() for ease of reading in source.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_enablePositionIncrements"></a><div class="element clickable method public method_enablePositionIncrements" data-toggle="collapse" data-target=".method_enablePositionIncrements .collapse">
+<h2>Enable position increments in result queries.</h2>
+<pre>enablePositionIncrements(boolean $bool) : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$bool</h4>
+<code>boolean</code><p>Defaults to true.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_explain"></a><div class="element clickable method public method_explain" data-toggle="collapse" data-target=".method_explain .collapse">
+<h2>Enables explanation for each hit on how its score was computed.</h2>
+<pre>explain(boolean $value) : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>boolean</code><p>Turn on / off explain.</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_facets"></a><div class="element clickable method public method_facets" data-toggle="collapse" data-target=".method_facets .collapse">
+<h2>Open 'facets' block.</h2>
+<pre>facets() : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Facets provide aggregated data based on a search query.</p>
+
+<p>In the simple case, a facet can return facet counts for various facet
+values for a specific field.</p>
+
+<p>ElasticSearch supports more advanced facet implementations, such as
+statistical or date histogram facets.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_facetsClose"></a><div class="element clickable method public method_facetsClose" data-toggle="collapse" data-target=".method_facetsClose .collapse">
+<h2>Close a facets block.</h2>
+<pre>facetsClose() : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Alias of close() for ease of reading in source.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_factory"></a><div class="element clickable method public method_factory" data-toggle="collapse" data-target=".method_factory .collapse">
+<h2>Factory method.</h2>
+<pre>factory(string $string) : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"><span class="label">Static</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$string</h4>
+<code>string</code><p>JSON encoded string to use as query.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_field"></a><div class="element clickable method public method_field" data-toggle="collapse" data-target=".method_field .collapse">
+<h2>Add a specific field / value entry.</h2>
+<pre>field(string $name, mixed $value) : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>string</code><p>Field to add.</p></div>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>mixed</code><p>Value to set.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_fieldClose"></a><div class="element clickable method public method_fieldClose" data-toggle="collapse" data-target=".method_fieldClose .collapse">
+<h2>Close a field block.</h2>
+<pre>fieldClose() : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Alias of close() for ease of reading in source.
+Passed parameters will be ignored, however they can be useful in source for
+seeing which field is being closed.</p>
+
+<p>Builder::factory()
+    ->query()
+    ->range()
+    ->fieldOpen('created')
+    ->gte('2011-07-18 00:00:00')
+    ->lt('2011-07-19 00:00:00')
+    ->fieldClose('created')
+    ->rangeClose()
+    ->queryClose();</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_fieldOpen"></a><div class="element clickable method public method_fieldOpen" data-toggle="collapse" data-target=".method_fieldOpen .collapse">
+<h2>Open a node for the specified name.</h2>
+<pre>fieldOpen(string $name) : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>string</code><p>Field name.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_fields"></a><div class="element clickable method public method_fields" data-toggle="collapse" data-target=".method_fields .collapse">
+<h2>Explicitly define fields to return.</h2>
+<pre>fields(array $fields) : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$fields</h4>
+<code>array</code><p>Array of fields to return.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_filter"></a><div class="element clickable method public method_filter" data-toggle="collapse" data-target=".method_filter .collapse">
+<h2>Open a 'filter' block.</h2>
+<pre>filter() : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_filterClose"></a><div class="element clickable method public method_filterClose" data-toggle="collapse" data-target=".method_filterClose .collapse">
+<h2>Close a filter block.</h2>
+<pre>filterClose() : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_filteredQuery"></a><div class="element clickable method public method_filteredQuery" data-toggle="collapse" data-target=".method_filteredQuery .collapse">
+<h2>Query.</h2>
+<pre>filteredQuery() : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_filteredQueryClose"></a><div class="element clickable method public method_filteredQueryClose" data-toggle="collapse" data-target=".method_filteredQueryClose .collapse">
+<h2>Close a 'filtered_query' block.</h2>
+<pre>filteredQueryClose() : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Alias of close() for ease of reading in source.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_from"></a><div class="element clickable method public method_from" data-toggle="collapse" data-target=".method_from .collapse">
+<h2>Set the from parameter (offset).</h2>
+<pre>from(integer $value) : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>integer</code><p>Result number to start from.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_fuzzyMinSim"></a><div class="element clickable method public method_fuzzyMinSim" data-toggle="collapse" data-target=".method_fuzzyMinSim .collapse">
+<h2>Set the minimum similarity for fuzzy queries.</h2>
+<pre>fuzzyMinSim(float $value) : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>float</code><p>Defaults to 0.5.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_fuzzyPrefixLength"></a><div class="element clickable method public method_fuzzyPrefixLength" data-toggle="collapse" data-target=".method_fuzzyPrefixLength .collapse">
+<h2>Set the prefix length for fuzzy queries.</h2>
+<pre>fuzzyPrefixLength(integer $value) : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>integer</code><p>Defaults to 0.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_getParam"></a><div class="element clickable method public method_getParam" data-toggle="collapse" data-target=".method_getParam .collapse">
+<h2>Returns a specific param</h2>
+<pre>getParam(string $key) : mixed</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Param::getParam()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Query\AbstractQuery::getParam()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$key</h4>
+<code>string</code><p>Key to return</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="../classes/Elastica.Exception.InvalidException.html">\Elastica\Exception\InvalidException</a></code></th>
+<td>If requested key is not set</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>mixed</code>Key value</div>
+</div></div>
+</div>
+<a id="method_getParams"></a><div class="element clickable method public method_getParams" data-toggle="collapse" data-target=".method_getParams .collapse">
+<h2>Returns the params array</h2>
+<pre>getParams() : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Param::getParams()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Query\AbstractQuery::getParams()</td>
+</tr>
+</table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>Params</div>
+</div></div>
+</div>
+<a id="method_gt"></a><div class="element clickable method public method_gt" data-toggle="collapse" data-target=".method_gt .collapse">
+<h2>Add a greater than (gt) clause.</h2>
+<pre>gt(mixed $value) : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Used in range blocks.</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>mixed</code><p>Value to be gt.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_gte"></a><div class="element clickable method public method_gte" data-toggle="collapse" data-target=".method_gte .collapse">
+<h2>Add a greater than or equal to (gte) clause.</h2>
+<pre>gte(mixed $value) : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Used in range blocks.</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>mixed</code><p>Value to be gte to.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_hasParam"></a><div class="element clickable method public method_hasParam" data-toggle="collapse" data-target=".method_hasParam .collapse">
+<h2>Test if a param is set</h2>
+<pre>hasParam(string $key) : boolean</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Param::hasParam()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Query\AbstractQuery::hasParam()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$key</h4>
+<code>string</code><p>Key to test</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>True if the param is set, false otherwise</div>
+</div></div>
+</div>
+<a id="method_lowercaseExpandedTerms"></a><div class="element clickable method public method_lowercaseExpandedTerms" data-toggle="collapse" data-target=".method_lowercaseExpandedTerms .collapse">
+<h2>Automatically lower-case terms of wildcard, prefix, fuzzy, and range queries.</h2>
+<pre>lowercaseExpandedTerms(boolean $bool) : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$bool</h4>
+<code>boolean</code><p>Defaults to true.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_lt"></a><div class="element clickable method public method_lt" data-toggle="collapse" data-target=".method_lt .collapse">
+<h2>Add a less than (lt) clause.</h2>
+<pre>lt(mixed $value) : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Used in range blocks.</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>mixed</code><p>Value to be lt.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_lte"></a><div class="element clickable method public method_lte" data-toggle="collapse" data-target=".method_lte .collapse">
+<h2>Add a less than or equal to (lte) clause.</h2>
+<pre>lte(mixed $value) : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Used in range blocks.</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>mixed</code><p>Value to be lte to.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_matchAll"></a><div class="element clickable method public method_matchAll" data-toggle="collapse" data-target=".method_matchAll .collapse">
+<h2>Match All Query.</h2>
+<pre>matchAll(float $boost) : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>A query that matches all documents.</p>
+
+<p>Maps to Lucene MatchAllDocsQuery.</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$boost</h4>
+<code>float</code><p>Boost to use.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_minimumNumberShouldMatch"></a><div class="element clickable method public method_minimumNumberShouldMatch" data-toggle="collapse" data-target=".method_minimumNumberShouldMatch .collapse">
+<h2>The minimum number of should clauses to match.</h2>
+<pre>minimumNumberShouldMatch(integer $minimum) : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$minimum</h4>
+<code>integer</code><p>Minimum number that should match.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_must"></a><div class="element clickable method public method_must" data-toggle="collapse" data-target=".method_must .collapse">
+<h2>The clause (query) must appear in matching documents.</h2>
+<pre>must() : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_mustClose"></a><div class="element clickable method public method_mustClose" data-toggle="collapse" data-target=".method_mustClose .collapse">
+<h2>Close a 'must' block.</h2>
+<pre>mustClose() : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Alias of close() for ease of reading in source.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_mustNot"></a><div class="element clickable method public method_mustNot" data-toggle="collapse" data-target=".method_mustNot .collapse">
+<h2>The clause (query) must not appear in the matching documents.</h2>
+<pre>mustNot() : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Note that it is not possible to search on documents that only consists of
+a must_not clauses.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_mustNotClose"></a><div class="element clickable method public method_mustNotClose" data-toggle="collapse" data-target=".method_mustNotClose .collapse">
+<h2>Close a 'must_not' block.</h2>
+<pre>mustNotClose() : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Alias of close() for ease of reading in source.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_open"></a><div class="element clickable method public method_open" data-toggle="collapse" data-target=".method_open .collapse">
+<h2>Add an opening brace.</h2>
+<pre>open() : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_phraseSlop"></a><div class="element clickable method public method_phraseSlop" data-toggle="collapse" data-target=".method_phraseSlop .collapse">
+<h2>Sets the default slop for phrases.</h2>
+<pre>phraseSlop(integer $value) : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>If zero, then exact phrase matches are required.</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>integer</code><p>Defaults to 0.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_prefix"></a><div class="element clickable method public method_prefix" data-toggle="collapse" data-target=".method_prefix .collapse">
+<h2>Query.</h2>
+<pre>prefix() : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_prefixClose"></a><div class="element clickable method public method_prefixClose" data-toggle="collapse" data-target=".method_prefixClose .collapse">
+<h2>Close a 'prefix' block.</h2>
+<pre>prefixClose() : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Alias of close() for ease of reading in source.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_queries"></a><div class="element clickable method public method_queries" data-toggle="collapse" data-target=".method_queries .collapse">
+<h2>Queries to run within a dis_max query.</h2>
+<pre>queries(array $queries) : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$queries</h4>
+<code>array</code><p>Array of queries.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_query"></a><div class="element clickable method public method_query" data-toggle="collapse" data-target=".method_query .collapse">
+<h2>Open a query block.</h2>
+<pre>query() : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_queryClose"></a><div class="element clickable method public method_queryClose" data-toggle="collapse" data-target=".method_queryClose .collapse">
+<h2>Close a query block.</h2>
+<pre>queryClose() : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Alias of close() for ease of reading in source.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_queryString"></a><div class="element clickable method public method_queryString" data-toggle="collapse" data-target=".method_queryString .collapse">
+<h2>Query String Query.</h2>
+<pre>queryString() : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>A query that uses a query parser in order to parse its content</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_queryStringClose"></a><div class="element clickable method public method_queryStringClose" data-toggle="collapse" data-target=".method_queryStringClose .collapse">
+<h2>Close a 'query_string' block.</h2>
+<pre>queryStringClose() : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Alias of close() for ease of reading in source.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_range"></a><div class="element clickable method public method_range" data-toggle="collapse" data-target=".method_range .collapse">
+<h2>Open a range block.</h2>
+<pre>range() : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_rangeClose"></a><div class="element clickable method public method_rangeClose" data-toggle="collapse" data-target=".method_rangeClose .collapse">
+<h2>Close a range block.</h2>
+<pre>rangeClose() : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Alias of close() for ease of reading in source.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_setParam"></a><div class="element clickable method public method_setParam" data-toggle="collapse" data-target=".method_setParam .collapse">
+<h2>Sets (overwrites) the value at the given key</h2>
+<pre>setParam(string $key, mixed $value) : <a href="../classes/Elastica.Param.html">\Elastica\Param</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Param::setParam()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Query\AbstractQuery::setParam()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$key</h4>
+<code>string</code><p>Key to set</p></div>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>mixed</code><p>Key Value</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Param.html">\Elastica\Param</a></code></div>
+</div></div>
+</div>
+<a id="method_setParams"></a><div class="element clickable method public method_setParams" data-toggle="collapse" data-target=".method_setParams .collapse">
+<h2>Sets (overwrites) all params of this object</h2>
+<pre>setParams(array $params) : <a href="../classes/Elastica.Param.html">\Elastica\Param</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Param::setParams()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Query\AbstractQuery::setParams()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>array</code><p>Parameter list</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Param.html">\Elastica\Param</a></code></div>
+</div></div>
+</div>
+<a id="method_should"></a><div class="element clickable method public method_should" data-toggle="collapse" data-target=".method_should .collapse">
+<h2>The clause (query) should appear in the matching document.</h2>
+<pre>should() : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>A boolean query with no must clauses, one or more should clauses must
+match a document.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_shouldClose"></a><div class="element clickable method public method_shouldClose" data-toggle="collapse" data-target=".method_shouldClose .collapse">
+<h2>Close a 'should' block.</h2>
+<pre>shouldClose() : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Alias of close() for ease of reading in source.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_size"></a><div class="element clickable method public method_size" data-toggle="collapse" data-target=".method_size .collapse">
+<h2>Set the size parameter (number of records to return).</h2>
+<pre>size(integer $value) : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>integer</code><p>Number of records to return.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_sort"></a><div class="element clickable method public method_sort" data-toggle="collapse" data-target=".method_sort .collapse">
+<h2>Allows to add one or more sort on specific fields.</h2>
+<pre>sort() : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_sortClose"></a><div class="element clickable method public method_sortClose" data-toggle="collapse" data-target=".method_sortClose .collapse">
+<h2>Close a sort block.</h2>
+<pre>sortClose() : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Alias of close() for ease of reading in source.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_sortField"></a><div class="element clickable method public method_sortField" data-toggle="collapse" data-target=".method_sortField .collapse">
+<h2>Add a field to sort on.</h2>
+<pre>sortField(string $name, boolean $reverse) : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>string</code><p>Field to sort.</p></div>
+<div class="subelement argument">
+<h4>$reverse</h4>
+<code>boolean</code><p>Reverse direction.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_sortFields"></a><div class="element clickable method public method_sortFields" data-toggle="collapse" data-target=".method_sortFields .collapse">
+<h2>Sort on multiple fields</h2>
+<pre>sortFields(array $fields) : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$fields</h4>
+<code>array</code><p>Associative array where the keys are field names to sort on, and the
+                     values are the sort order: "asc" or "desc"</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_term"></a><div class="element clickable method public method_term" data-toggle="collapse" data-target=".method_term .collapse">
+<h2>Term Query.</h2>
+<pre>term() : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Matches documents that have fields that contain a term (not analyzed).</p>
+
+<p>The term query maps to Lucene TermQuery.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_termClose"></a><div class="element clickable method public method_termClose" data-toggle="collapse" data-target=".method_termClose .collapse">
+<h2>Close a 'term' block.</h2>
+<pre>termClose() : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Alias of close() for ease of reading in source.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_textPhrase"></a><div class="element clickable method public method_textPhrase" data-toggle="collapse" data-target=".method_textPhrase .collapse">
+<h2>Open a 'text_phrase' block.</h2>
+<pre>textPhrase() : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_textPhraseClose"></a><div class="element clickable method public method_textPhraseClose" data-toggle="collapse" data-target=".method_textPhraseClose .collapse">
+<h2>Close a 'text_phrase' block.</h2>
+<pre>textPhraseClose() : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_tieBreakerMultiplier"></a><div class="element clickable method public method_tieBreakerMultiplier" data-toggle="collapse" data-target=".method_tieBreakerMultiplier .collapse">
+<h2>When using dis_max, the disjunction max tie breaker.</h2>
+<pre>tieBreakerMultiplier(float $multiplier) : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$multiplier</h4>
+<code>float</code><p>Multiplier to use.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_toArray"></a><div class="element clickable method public method_toArray" data-toggle="collapse" data-target=".method_toArray .collapse">
+<h2>Converts the params to an array.</h2>
+<pre>toArray() : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>A default implementation exist to create
+the an array out of the class name (last part of the class name)
+and the params</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>Filter array</div>
+</div></div>
+</div>
+<a id="method_wildcard"></a><div class="element clickable method public method_wildcard" data-toggle="collapse" data-target=".method_wildcard .collapse">
+<h2>Query.</h2>
+<pre>wildcard() : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method_wildcardClose"></a><div class="element clickable method public method_wildcardClose" data-toggle="collapse" data-target=".method_wildcardClose .collapse">
+<h2>Close a 'wildcard' block.</h2>
+<pre>wildcardClose() : <a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Alias of close() for ease of reading in source.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.Builder.html">\Elastica\Query\Builder</a></code></div>
+</div></div>
+</div>
+<a id="method__getBaseName"></a><div class="element clickable method protected method__getBaseName" data-toggle="collapse" data-target=".method__getBaseName .collapse">
+<h2>Param's name
+Picks the last part of the class name and makes it snake_case
+You can override this method if you want to change the name</h2>
+<pre>_getBaseName() : string</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Param::_getBaseName()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Query\AbstractQuery::_getBaseName()</td>
+</tr>
+</table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>name</div>
+</div></div>
+</div>
+<a id="method__setRawParam"></a><div class="element clickable method protected method__setRawParam" data-toggle="collapse" data-target=".method__setRawParam .collapse">
+<h2>Sets params not inside params array</h2>
+<pre>_setRawParam(string $key, mixed $value) : <a href="../classes/Elastica.Param.html">\Elastica\Param</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Param::_setRawParam()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Query\AbstractQuery::_setRawParam()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$key</h4>
+<code>string</code>
+</div>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>mixed</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Param.html">\Elastica\Param</a></code></div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a id="property__params"> </a><div class="element clickable property protected property__params" data-toggle="collapse" data-target=".property__params .collapse">
+<h2></h2>
+<pre>$_params : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Param::$$_params</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Query\AbstractQuery::$$_params</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a id="property__rawParams"> </a><div class="element clickable property protected property__rawParams" data-toggle="collapse" data-target=".property__rawParams .collapse">
+<h2></h2>
+<pre>$_rawParams : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Param::$$_rawParams</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Query\AbstractQuery::$$_rawParams</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a id="property__string"> </a><div class="element clickable property private property__string" data-toggle="collapse" data-target=".property__string .collapse">
+<h2></h2>
+<pre>$_string : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
+            generated on 2013-05-26T18:20:58+02:00.<br></footer></div>
+</div>
+</body>
+</html>

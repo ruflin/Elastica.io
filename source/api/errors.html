@@ -1,0 +1,3884 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>Elastica</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="css/template.css" rel="stylesheet" media="all">
+<script src="js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="js/bootstrap.js" type="text/javascript"></script><script src="js/template.js" type="text/javascript"></script><script src="js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="img/favicon.ico">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="index.html">Elastica</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="namespaces/Elastica.html"><i class="icon-th"></i> Elastica</a></li>
+<li><a>Packages</a></li>
+<li><a href="packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+<li><a href="packages/Elastica.html"><i class="icon-folder-open"></i> Elastica</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">416</span></a></li>
+<li><a href="markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul><li>todo 
+                <span class="label label-info">9</span>
+</li></ul></a></li>
+<li><a href="deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">3</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4"><ul class="side-nav nav nav-list">
+<li class="nav-header">Filter type</li>
+<li><div class="btn-group type-filter" data-toggle="buttons-checkbox">
+<button class="btn critical">Critical</button><button class="btn error">Error</button><button class="btn notice">Notice</button>
+</div></li>
+<li class="nav-header">Navigation</li>
+<li><a href="#Bulk/Action/AbstractDocument.php"><i class="icon-file"></i>Bulk/Action/AbstractDocument.php</a></li>
+<li><a href="#Bulk/Action/CreateDocument.php"><i class="icon-file"></i>Bulk/Action/CreateDocument.php</a></li>
+<li><a href="#Bulk/Action/DeleteDocument.php"><i class="icon-file"></i>Bulk/Action/DeleteDocument.php</a></li>
+<li><a href="#Bulk/Action/IndexDocument.php"><i class="icon-file"></i>Bulk/Action/IndexDocument.php</a></li>
+<li><a href="#Bulk/Action.php"><i class="icon-file"></i>Bulk/Action.php</a></li>
+<li><a href="#Bulk/Response.php"><i class="icon-file"></i>Bulk/Response.php</a></li>
+<li><a href="#Bulk/ResponseSet.php"><i class="icon-file"></i>Bulk/ResponseSet.php</a></li>
+<li><a href="#Bulk.php"><i class="icon-file"></i>Bulk.php</a></li>
+<li><a href="#Client.php"><i class="icon-file"></i>Client.php</a></li>
+<li><a href="#Cluster/Health/Index.php"><i class="icon-file"></i>Cluster/Health/Index.php</a></li>
+<li><a href="#Cluster/Health/Shard.php"><i class="icon-file"></i>Cluster/Health/Shard.php</a></li>
+<li><a href="#Cluster/Health.php"><i class="icon-file"></i>Cluster/Health.php</a></li>
+<li><a href="#Cluster/Settings.php"><i class="icon-file"></i>Cluster/Settings.php</a></li>
+<li><a href="#Cluster.php"><i class="icon-file"></i>Cluster.php</a></li>
+<li><a href="#Connection.php"><i class="icon-file"></i>Connection.php</a></li>
+<li><a href="#Document.php"><i class="icon-file"></i>Document.php</a></li>
+<li><a href="#Exception/Bulk/Response/ActionException.php"><i class="icon-file"></i>Exception/Bulk/Response/ActionException.php</a></li>
+<li><a href="#Exception/Bulk/ResponseException.php"><i class="icon-file"></i>Exception/Bulk/ResponseException.php</a></li>
+<li><a href="#Exception/Bulk/UdpException.php"><i class="icon-file"></i>Exception/Bulk/UdpException.php</a></li>
+<li><a href="#Exception/BulkException.php"><i class="icon-file"></i>Exception/BulkException.php</a></li>
+<li><a href="#Exception/ClientException.php"><i class="icon-file"></i>Exception/ClientException.php</a></li>
+<li><a href="#Exception/Connection/HttpException.php"><i class="icon-file"></i>Exception/Connection/HttpException.php</a></li>
+<li><a href="#Exception/Connection/ThriftException.php"><i class="icon-file"></i>Exception/Connection/ThriftException.php</a></li>
+<li><a href="#Exception/ConnectionException.php"><i class="icon-file"></i>Exception/ConnectionException.php</a></li>
+<li><a href="#Exception/ExceptionInterface.php"><i class="icon-file"></i>Exception/ExceptionInterface.php</a></li>
+<li><a href="#Exception/InvalidException.php"><i class="icon-file"></i>Exception/InvalidException.php</a></li>
+<li><a href="#Exception/NotFoundException.php"><i class="icon-file"></i>Exception/NotFoundException.php</a></li>
+<li><a href="#Exception/NotImplementedException.php"><i class="icon-file"></i>Exception/NotImplementedException.php</a></li>
+<li><a href="#Exception/ResponseException.php"><i class="icon-file"></i>Exception/ResponseException.php</a></li>
+<li><a href="#Exception/RuntimeException.php"><i class="icon-file"></i>Exception/RuntimeException.php</a></li>
+<li><a href="#Facet/AbstractFacet.php"><i class="icon-file"></i>Facet/AbstractFacet.php</a></li>
+<li><a href="#Facet/DateHistogram.php"><i class="icon-file"></i>Facet/DateHistogram.php</a></li>
+<li><a href="#Facet/Filter.php"><i class="icon-file"></i>Facet/Filter.php</a></li>
+<li><a href="#Facet/GeoDistance.php"><i class="icon-file"></i>Facet/GeoDistance.php</a></li>
+<li><a href="#Facet/Histogram.php"><i class="icon-file"></i>Facet/Histogram.php</a></li>
+<li><a href="#Facet/Query.php"><i class="icon-file"></i>Facet/Query.php</a></li>
+<li><a href="#Facet/Range.php"><i class="icon-file"></i>Facet/Range.php</a></li>
+<li><a href="#Facet/Statistical.php"><i class="icon-file"></i>Facet/Statistical.php</a></li>
+<li><a href="#Facet/Terms.php"><i class="icon-file"></i>Facet/Terms.php</a></li>
+<li><a href="#Facet/TermsStats.php"><i class="icon-file"></i>Facet/TermsStats.php</a></li>
+<li><a href="#Filter/AbstractFilter.php"><i class="icon-file"></i>Filter/AbstractFilter.php</a></li>
+<li><a href="#Filter/AbstractGeoDistance.php"><i class="icon-file"></i>Filter/AbstractGeoDistance.php</a></li>
+<li><a href="#Filter/AbstractMulti.php"><i class="icon-file"></i>Filter/AbstractMulti.php</a></li>
+<li><a href="#Filter/Bool.php"><i class="icon-file"></i>Filter/Bool.php</a></li>
+<li><a href="#Filter/BoolAnd.php"><i class="icon-file"></i>Filter/BoolAnd.php</a></li>
+<li><a href="#Filter/BoolNot.php"><i class="icon-file"></i>Filter/BoolNot.php</a></li>
+<li><a href="#Filter/BoolOr.php"><i class="icon-file"></i>Filter/BoolOr.php</a></li>
+<li><a href="#Filter/Exists.php"><i class="icon-file"></i>Filter/Exists.php</a></li>
+<li><a href="#Filter/GeoBoundingBox.php"><i class="icon-file"></i>Filter/GeoBoundingBox.php</a></li>
+<li><a href="#Filter/GeoDistance.php"><i class="icon-file"></i>Filter/GeoDistance.php</a></li>
+<li><a href="#Filter/GeoDistanceRange.php"><i class="icon-file"></i>Filter/GeoDistanceRange.php</a></li>
+<li><a href="#Filter/GeoPolygon.php"><i class="icon-file"></i>Filter/GeoPolygon.php</a></li>
+<li><a href="#Filter/HasChild.php"><i class="icon-file"></i>Filter/HasChild.php</a></li>
+<li><a href="#Filter/HasParent.php"><i class="icon-file"></i>Filter/HasParent.php</a></li>
+<li><a href="#Filter/Ids.php"><i class="icon-file"></i>Filter/Ids.php</a></li>
+<li><a href="#Filter/Limit.php"><i class="icon-file"></i>Filter/Limit.php</a></li>
+<li><a href="#Filter/MatchAll.php"><i class="icon-file"></i>Filter/MatchAll.php</a></li>
+<li><a href="#Filter/Missing.php"><i class="icon-file"></i>Filter/Missing.php</a></li>
+<li><a href="#Filter/Nested.php"><i class="icon-file"></i>Filter/Nested.php</a></li>
+<li><a href="#Filter/NumericRange.php"><i class="icon-file"></i>Filter/NumericRange.php</a></li>
+<li><a href="#Filter/Prefix.php"><i class="icon-file"></i>Filter/Prefix.php</a></li>
+<li><a href="#Filter/Query.php"><i class="icon-file"></i>Filter/Query.php</a></li>
+<li><a href="#Filter/Range.php"><i class="icon-file"></i>Filter/Range.php</a></li>
+<li><a href="#Filter/Script.php"><i class="icon-file"></i>Filter/Script.php</a></li>
+<li><a href="#Filter/Term.php"><i class="icon-file"></i>Filter/Term.php</a></li>
+<li><a href="#Filter/Terms.php"><i class="icon-file"></i>Filter/Terms.php</a></li>
+<li><a href="#Filter/Type.php"><i class="icon-file"></i>Filter/Type.php</a></li>
+<li><a href="#Index/Settings.php"><i class="icon-file"></i>Index/Settings.php</a></li>
+<li><a href="#Index/Stats.php"><i class="icon-file"></i>Index/Stats.php</a></li>
+<li><a href="#Index/Status.php"><i class="icon-file"></i>Index/Status.php</a></li>
+<li><a href="#Index.php"><i class="icon-file"></i>Index.php</a></li>
+<li><a href="#Log.php"><i class="icon-file"></i>Log.php</a></li>
+<li><a href="#Multi/ResultSet.php"><i class="icon-file"></i>Multi/ResultSet.php</a></li>
+<li><a href="#Multi/Search.php"><i class="icon-file"></i>Multi/Search.php</a></li>
+<li><a href="#Node/Info.php"><i class="icon-file"></i>Node/Info.php</a></li>
+<li><a href="#Node/Stats.php"><i class="icon-file"></i>Node/Stats.php</a></li>
+<li><a href="#Node.php"><i class="icon-file"></i>Node.php</a></li>
+<li><a href="#Param.php"><i class="icon-file"></i>Param.php</a></li>
+<li><a href="#Percolator.php"><i class="icon-file"></i>Percolator.php</a></li>
+<li><a href="#Query/AbstractQuery.php"><i class="icon-file"></i>Query/AbstractQuery.php</a></li>
+<li><a href="#Query/Bool.php"><i class="icon-file"></i>Query/Bool.php</a></li>
+<li><a href="#Query/Builder.php"><i class="icon-file"></i>Query/Builder.php</a></li>
+<li><a href="#Query/ConstantScore.php"><i class="icon-file"></i>Query/ConstantScore.php</a></li>
+<li><a href="#Query/CustomFiltersScore.php"><i class="icon-file"></i>Query/CustomFiltersScore.php</a></li>
+<li><a href="#Query/CustomScore.php"><i class="icon-file"></i>Query/CustomScore.php</a></li>
+<li><a href="#Query/Field.php"><i class="icon-file"></i>Query/Field.php</a></li>
+<li><a href="#Query/Filtered.php"><i class="icon-file"></i>Query/Filtered.php</a></li>
+<li><a href="#Query/Fuzzy.php"><i class="icon-file"></i>Query/Fuzzy.php</a></li>
+<li><a href="#Query/FuzzyLikeThis.php"><i class="icon-file"></i>Query/FuzzyLikeThis.php</a></li>
+<li><a href="#Query/HasChild.php"><i class="icon-file"></i>Query/HasChild.php</a></li>
+<li><a href="#Query/HasParent.php"><i class="icon-file"></i>Query/HasParent.php</a></li>
+<li><a href="#Query/Ids.php"><i class="icon-file"></i>Query/Ids.php</a></li>
+<li><a href="#Query/Match.php"><i class="icon-file"></i>Query/Match.php</a></li>
+<li><a href="#Query/MatchAll.php"><i class="icon-file"></i>Query/MatchAll.php</a></li>
+<li><a href="#Query/MoreLikeThis.php"><i class="icon-file"></i>Query/MoreLikeThis.php</a></li>
+<li><a href="#Query/MultiMatch.php"><i class="icon-file"></i>Query/MultiMatch.php</a></li>
+<li><a href="#Query/Nested.php"><i class="icon-file"></i>Query/Nested.php</a></li>
+<li><a href="#Query/Prefix.php"><i class="icon-file"></i>Query/Prefix.php</a></li>
+<li><a href="#Query/QueryString.php"><i class="icon-file"></i>Query/QueryString.php</a></li>
+<li><a href="#Query/Range.php"><i class="icon-file"></i>Query/Range.php</a></li>
+<li><a href="#Query/Simple.php"><i class="icon-file"></i>Query/Simple.php</a></li>
+<li><a href="#Query/Term.php"><i class="icon-file"></i>Query/Term.php</a></li>
+<li><a href="#Query/Terms.php"><i class="icon-file"></i>Query/Terms.php</a></li>
+<li><a href="#Query/Text.php"><i class="icon-file"></i>Query/Text.php</a></li>
+<li><a href="#Query/TopChildren.php"><i class="icon-file"></i>Query/TopChildren.php</a></li>
+<li><a href="#Query/Wildcard.php"><i class="icon-file"></i>Query/Wildcard.php</a></li>
+<li><a href="#Query.php"><i class="icon-file"></i>Query.php</a></li>
+<li><a href="#Request.php"><i class="icon-file"></i>Request.php</a></li>
+<li><a href="#Response.php"><i class="icon-file"></i>Response.php</a></li>
+<li><a href="#Result.php"><i class="icon-file"></i>Result.php</a></li>
+<li><a href="#ResultSet.php"><i class="icon-file"></i>ResultSet.php</a></li>
+<li><a href="#Script.php"><i class="icon-file"></i>Script.php</a></li>
+<li><a href="#ScriptFields.php"><i class="icon-file"></i>ScriptFields.php</a></li>
+<li><a href="#Search.php"><i class="icon-file"></i>Search.php</a></li>
+<li><a href="#SearchableInterface.php"><i class="icon-file"></i>SearchableInterface.php</a></li>
+<li><a href="#Status.php"><i class="icon-file"></i>Status.php</a></li>
+<li><a href="#Transport/AbstractTransport.php"><i class="icon-file"></i>Transport/AbstractTransport.php</a></li>
+<li><a href="#Transport/Http.php"><i class="icon-file"></i>Transport/Http.php</a></li>
+<li><a href="#Transport/Https.php"><i class="icon-file"></i>Transport/Https.php</a></li>
+<li><a href="#Transport/Memcache.php"><i class="icon-file"></i>Transport/Memcache.php</a></li>
+<li><a href="#Transport/Null.php"><i class="icon-file"></i>Transport/Null.php</a></li>
+<li><a href="#Transport/Thrift.php"><i class="icon-file"></i>Transport/Thrift.php</a></li>
+<li><a href="#Type/AbstractType.php"><i class="icon-file"></i>Type/AbstractType.php</a></li>
+<li><a href="#Type/Mapping.php"><i class="icon-file"></i>Type/Mapping.php</a></li>
+<li><a href="#Type.php"><i class="icon-file"></i>Type.php</a></li>
+<li><a href="#Util.php"><i class="icon-file"></i>Util.php</a></li>
+</ul></div>
+<div class="span8">
+<ul class="breadcrumb">
+<li>
+<a href=""><i class="icon-remove-sign"></i></a><span class="divider">\</span>
+</li>
+<li>Compilation Errors</li>
+</ul>
+<div class="package-contents">
+<a name="Bulk/Action/AbstractDocument.php" id="Bulk/Action/AbstractDocument.php"></a><h3>
+<i class="icon-file"></i>Bulk/Action/AbstractDocument.php<small style="float: right;padding-right: 10px;">8</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Bulk/Action/AbstractDocument.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>8</td>
+<td>No DocBlock was found for \Elastica\Bulk\Action\AbstractDocument</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>10</td>
+<td>No short description for property $_document</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>15</td>
+<td>No short description for method __construct()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>23</td>
+<td>No short description for method setDocument()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>38</td>
+<td>No short description for method getDocument()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>46</td>
+<td>No short description for method _getMetadataByDocument()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>52</td>
+<td>No short description for method create()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Bulk/Action/CreateDocument.php" id="Bulk/Action/CreateDocument.php"></a><h3>
+<i class="icon-file"></i>Bulk/Action/CreateDocument.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Bulk/Action/CreateDocument.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>5</td>
+<td>No DocBlock was found for \Elastica\Bulk\Action\CreateDocument</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>7</td>
+<td>No short description for property $_opType</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Bulk/Action/DeleteDocument.php" id="Bulk/Action/DeleteDocument.php"></a><h3>
+<i class="icon-file"></i>Bulk/Action/DeleteDocument.php<small style="float: right;padding-right: 10px;">4</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Bulk/Action/DeleteDocument.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>7</td>
+<td>No DocBlock was found for \Elastica\Bulk\Action\DeleteDocument</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>9</td>
+<td>No short description for property $_opType</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>14</td>
+<td>No short description for method _getMetadataByDocument()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Bulk/Action/IndexDocument.php" id="Bulk/Action/IndexDocument.php"></a><h3>
+<i class="icon-file"></i>Bulk/Action/IndexDocument.php<small style="float: right;padding-right: 10px;">5</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Bulk/Action/IndexDocument.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>8</td>
+<td>No DocBlock was found for \Elastica\Bulk\Action\IndexDocument</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>10</td>
+<td>No short description for property $_opType</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>15</td>
+<td>No short description for method setDocument()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>28</td>
+<td>No short description for method _getMetadataByDocument()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Bulk/Action.php" id="Bulk/Action.php"></a><h3>
+<i class="icon-file"></i>Bulk/Action.php<small style="float: right;padding-right: 10px;">21</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Bulk/Action.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>9</td>
+<td>No DocBlock was found for \Elastica\Bulk\Action</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>15</td>
+<td>No short description for property $opTypes</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>24</td>
+<td>No short description for property $_opType</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>29</td>
+<td>No short description for property $_metadata</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>34</td>
+<td>No short description for property $_source</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>39</td>
+<td>No short description for method __construct()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>51</td>
+<td>No short description for method setOpType()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>62</td>
+<td>No short description for method getOpType()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>70</td>
+<td>No short description for method setMetadata()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>81</td>
+<td>No short description for method getMetadata()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>89</td>
+<td>No short description for method getActionMetadata()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>97</td>
+<td>No short description for method setSource()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>108</td>
+<td>No short description for method getSource()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>116</td>
+<td>No short description for method hasSource()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>124</td>
+<td>No short description for method setIndex()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>138</td>
+<td>No short description for method setType()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>153</td>
+<td>No short description for method setId()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>164</td>
+<td>No short description for method toArray()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>176</td>
+<td>No short description for method toString()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>194</td>
+<td>No short description for method isValidOpType()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Bulk/Response.php" id="Bulk/Response.php"></a><h3>
+<i class="icon-file"></i>Bulk/Response.php<small style="float: right;padding-right: 10px;">7</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Bulk/Response.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>7</td>
+<td>No DocBlock was found for \Elastica\Bulk\Response</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>9</td>
+<td>No short description for property $_action</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>14</td>
+<td>No short description for property $_opType</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>19</td>
+<td>No short description for method __construct()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>32</td>
+<td>No short description for method getAction()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>40</td>
+<td>No short description for method getOpType()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Bulk/ResponseSet.php" id="Bulk/ResponseSet.php"></a><h3>
+<i class="icon-file"></i>Bulk/ResponseSet.php<small style="float: right;padding-right: 10px;">14</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Bulk/ResponseSet.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>7</td>
+<td>No DocBlock was found for \Elastica\Bulk\ResponseSet</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>9</td>
+<td>No short description for property $_bulkResponses</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>14</td>
+<td>No short description for property $_position</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>19</td>
+<td>No short description for method __construct()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>30</td>
+<td>No short description for method getBulkResponses()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>57</td>
+<td>No short description for method isOk()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>74</td>
+<td>No short description for method hasError()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>91</td>
+<td>No short description for method current()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>103</td>
+<td>No short description for method next()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>111</td>
+<td>No short description for method key()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>119</td>
+<td>No short description for method valid()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>127</td>
+<td>No short description for method rewind()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>135</td>
+<td>No short description for method count()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Bulk.php" id="Bulk.php"></a><h3>
+<i class="icon-file"></i>Bulk.php<small style="float: right;padding-right: 10px;">26</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Bulk.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>19</td>
+<td>No DocBlock was found for \Elastica\Bulk</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>26</td>
+<td>No short description for property $_client</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>31</td>
+<td>No short description for property $_actions</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>36</td>
+<td>No short description for property $_index</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>41</td>
+<td>No short description for property $_type</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>46</td>
+<td>No short description for method __construct()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>54</td>
+<td>No short description for method setIndex()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>69</td>
+<td>No short description for method getIndex()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>77</td>
+<td>No short description for method hasIndex()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>85</td>
+<td>No short description for method setType()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>101</td>
+<td>No short description for method getType()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>109</td>
+<td>No short description for method hasType()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>117</td>
+<td>No short description for method getPath()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>133</td>
+<td>No short description for method addAction()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>143</td>
+<td>No short description for method addActions()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>156</td>
+<td>No short description for method getActions()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>164</td>
+<td>No short description for method addDocument()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>176</td>
+<td>No short description for method addDocuments()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>190</td>
+<td>No short description for method addRawData()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>227</td>
+<td>No short description for method __toString()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>235</td>
+<td>No short description for method toString()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>247</td>
+<td>No short description for method toArray()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>261</td>
+<td>No short description for method send()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>274</td>
+<td>No short description for method _processResponse()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>327</td>
+<td>No short description for method sendUdp()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Client.php" id="Client.php"></a><h3>
+<i class="icon-file"></i>Client.php<small style="float: right;padding-right: 10px;">14</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Client.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>48</td>
+<td>No short description for property $_callback</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>53</td>
+<td>No short description for property $_lastRequest</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>58</td>
+<td>No short description for property $_lastResponse</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>99</td>
+<td>No short description for method _configureParams()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>167</td>
+<td>No short description for method getConfigValue()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>331</td>
+<td>No short description for method _populateDocumentFieldsFromResponse()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>396</td>
+<td>No short description for method addConnection()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>407</td>
+<td>No short description for method getConnection()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>429</td>
+<td>No short description for method getConnections()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>437</td>
+<td>No short description for method setConnections()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>559</td>
+<td>No short description for method _log()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>570</td>
+<td>No short description for method getLastRequest()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>578</td>
+<td>No short description for method getLastResponse()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Cluster/Health/Index.php" id="Cluster/Health/Index.php"></a><h3>
+<i class="icon-file"></i>Cluster/Health/Index.php<small style="float: right;padding-right: 10px;">2</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Cluster/Health/Index.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>28</td>
+<td>No short description for method __construct()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Cluster/Health/Shard.php" id="Cluster/Health/Shard.php"></a><h3>
+<i class="icon-file"></i>Cluster/Health/Shard.php<small style="float: right;padding-right: 10px;">2</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Cluster/Health/Shard.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>28</td>
+<td>No short description for method __construct()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Cluster/Health.php" id="Cluster/Health.php"></a><h3>
+<i class="icon-file"></i>Cluster/Health.php<small style="float: right;padding-right: 10px;">2</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Cluster/Health.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>31</td>
+<td>No short description for method __construct()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Cluster/Settings.php" id="Cluster/Settings.php"></a><h3>
+<i class="icon-file"></i>Cluster/Settings.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Cluster/Settings.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Cluster.php" id="Cluster.php"></a><h3>
+<i class="icon-file"></i>Cluster.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Cluster.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Connection.php" id="Connection.php"></a><h3>
+<i class="icon-file"></i>Connection.php<small style="float: right;padding-right: 10px;">17</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Connection.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>55</td>
+<td>No short description for method getPort()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>63</td>
+<td>No short description for method setPort()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>72</td>
+<td>No short description for method getHost()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>80</td>
+<td>No short description for method setHost()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>89</td>
+<td>No short description for method getTransport()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>97</td>
+<td>No short description for method setTransport()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>106</td>
+<td>No short description for method getPath()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>114</td>
+<td>No short description for method setPath()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>123</td>
+<td>No short description for method setTimeout()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>132</td>
+<td>No short description for method getTimeout()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>151</td>
+<td>No short description for method isEnabled()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>172</td>
+<td>No short description for method isPersistent()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>180</td>
+<td>No short description for method setConfig()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>189</td>
+<td>No short description for method addConfig()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>201</td>
+<td>No short description for method hasConfig()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>234</td>
+<td>No short description for method create()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Document.php" id="Document.php"></a><h3>
+<i class="icon-file"></i>Document.php<small style="float: right;padding-right: 10px;">48</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Document.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>26</td>
+<td>No short description for property $_script</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>31</td>
+<td>No short description for property $_autoPopulate</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>73</td>
+<td>No short description for method hasId()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>81</td>
+<td>No short description for method __get()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>90</td>
+<td>No short description for method __set()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>99</td>
+<td>No short description for method __isset()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>108</td>
+<td>No short description for method __unset()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>116</td>
+<td>No short description for method get()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>129</td>
+<td>No short description for method set()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>145</td>
+<td>No short description for method has()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>154</td>
+<td>No short description for method remove()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>267</td>
+<td>No short description for method getTtl()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>275</td>
+<td>No short description for method hasTtl()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>366</td>
+<td>No short description for method hasVersion()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>397</td>
+<td>No short description for method hasVersionType()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>427</td>
+<td>No short description for method hasParent()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>455</td>
+<td>No short description for method hasOpType()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>484</td>
+<td>No short description for method hasPercolate()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>513</td>
+<td>No short description for method hasRouting()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>521</td>
+<td>No short description for method setFields()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>533</td>
+<td>No short description for method setFieldsSource()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>541</td>
+<td>No short description for method getFields()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>549</td>
+<td>No short description for method hasFields()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>557</td>
+<td>No short description for method setRetryOnConflict()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>566</td>
+<td>No short description for method getRetryOnConflict()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>574</td>
+<td>No short description for method hasRetryOnConflict()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>582</td>
+<td>No short description for method setTimestamp()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>591</td>
+<td>No short description for method getTimestamp()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>599</td>
+<td>No short description for method hasTimestamp()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>607</td>
+<td>No short description for method setRefresh()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>616</td>
+<td>No short description for method getRefresh()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>624</td>
+<td>No short description for method hasRefresh()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>632</td>
+<td>No short description for method setTimeout()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>641</td>
+<td>No short description for method getTimeout()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>649</td>
+<td>No short description for method hasTimeout()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>657</td>
+<td>No short description for method setConsistency()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>666</td>
+<td>No short description for method getConsistency()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>674</td>
+<td>No short description for method hasConsistency()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>682</td>
+<td>No short description for method setReplication()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>691</td>
+<td>No short description for method getReplication()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>699</td>
+<td>No short description for method hasReplication()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>707</td>
+<td>No short description for method setScript()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>719</td>
+<td>No short description for method getScript()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>727</td>
+<td>No short description for method hasScript()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>735</td>
+<td>No short description for method setAutoPopulate()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>746</td>
+<td>No short description for method isAutoPopulate()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>766</td>
+<td>No short description for method getOptions()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Exception/Bulk/Response/ActionException.php" id="Exception/Bulk/Response/ActionException.php"></a><h3>
+<i class="icon-file"></i>Exception/Bulk/Response/ActionException.php<small style="float: right;padding-right: 10px;">7</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Exception/Bulk/Response/ActionException.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>9</td>
+<td>No DocBlock was found for \Elastica\Exception\Bulk\Response\ActionException</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>11</td>
+<td>No short description for property $_response</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>16</td>
+<td>No short description for method __construct()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>26</td>
+<td>No short description for method getAction()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>34</td>
+<td>No short description for method getResponse()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>42</td>
+<td>No short description for method getErrorMessage()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Exception/Bulk/ResponseException.php" id="Exception/Bulk/ResponseException.php"></a><h3>
+<i class="icon-file"></i>Exception/Bulk/ResponseException.php<small style="float: right;padding-right: 10px;">5</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Exception/Bulk/ResponseException.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>24</td>
+<td>No short description for property $_actionExceptions</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>44</td>
+<td>No short description for method _init()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>84</td>
+<td>No short description for method getActionExceptions()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>92</td>
+<td>No short description for method getActionExceptionsAsString()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Exception/Bulk/UdpException.php" id="Exception/Bulk/UdpException.php"></a><h3>
+<i class="icon-file"></i>Exception/Bulk/UdpException.php<small style="float: right;padding-right: 10px;">2</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Exception/Bulk/UdpException.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>7</td>
+<td>No DocBlock was found for \Elastica\Exception\Bulk\UdpException</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Exception/BulkException.php" id="Exception/BulkException.php"></a><h3>
+<i class="icon-file"></i>Exception/BulkException.php<small style="float: right;padding-right: 10px;">2</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Exception/BulkException.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>5</td>
+<td>No DocBlock was found for \Elastica\Exception\BulkException</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Exception/ClientException.php" id="Exception/ClientException.php"></a><h3>
+<i class="icon-file"></i>Exception/ClientException.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Exception/ClientException.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Exception/Connection/HttpException.php" id="Exception/Connection/HttpException.php"></a><h3>
+<i class="icon-file"></i>Exception/Connection/HttpException.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Exception/Connection/HttpException.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Exception/Connection/ThriftException.php" id="Exception/Connection/ThriftException.php"></a><h3>
+<i class="icon-file"></i>Exception/Connection/ThriftException.php<small style="float: right;padding-right: 10px;">5</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Exception/Connection/ThriftException.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>19</td>
+<td>No short description for property $_thriftException</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>24</td>
+<td>No short description for method __construct()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>36</td>
+<td>No short description for method getErrorMessage()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>44</td>
+<td>No short description for method getThriftException()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Exception/ConnectionException.php" id="Exception/ConnectionException.php"></a><h3>
+<i class="icon-file"></i>Exception/ConnectionException.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Exception/ConnectionException.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Exception/ExceptionInterface.php" id="Exception/ExceptionInterface.php"></a><h3>
+<i class="icon-file"></i>Exception/ExceptionInterface.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Exception/ExceptionInterface.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Exception/InvalidException.php" id="Exception/InvalidException.php"></a><h3>
+<i class="icon-file"></i>Exception/InvalidException.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Exception/InvalidException.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Exception/NotFoundException.php" id="Exception/NotFoundException.php"></a><h3>
+<i class="icon-file"></i>Exception/NotFoundException.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Exception/NotFoundException.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Exception/NotImplementedException.php" id="Exception/NotImplementedException.php"></a><h3>
+<i class="icon-file"></i>Exception/NotImplementedException.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Exception/NotImplementedException.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Exception/ResponseException.php" id="Exception/ResponseException.php"></a><h3>
+<i class="icon-file"></i>Exception/ResponseException.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Exception/ResponseException.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Exception/RuntimeException.php" id="Exception/RuntimeException.php"></a><h3>
+<i class="icon-file"></i>Exception/RuntimeException.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Exception/RuntimeException.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Facet/AbstractFacet.php" id="Facet/AbstractFacet.php"></a><h3>
+<i class="icon-file"></i>Facet/AbstractFacet.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Facet/AbstractFacet.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Facet/DateHistogram.php" id="Facet/DateHistogram.php"></a><h3>
+<i class="icon-file"></i>Facet/DateHistogram.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Facet/DateHistogram.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Facet/Filter.php" id="Facet/Filter.php"></a><h3>
+<i class="icon-file"></i>Facet/Filter.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Facet/Filter.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Facet/GeoDistance.php" id="Facet/GeoDistance.php"></a><h3>
+<i class="icon-file"></i>Facet/GeoDistance.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Facet/GeoDistance.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Facet/Histogram.php" id="Facet/Histogram.php"></a><h3>
+<i class="icon-file"></i>Facet/Histogram.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Facet/Histogram.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Facet/Query.php" id="Facet/Query.php"></a><h3>
+<i class="icon-file"></i>Facet/Query.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Facet/Query.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Facet/Range.php" id="Facet/Range.php"></a><h3>
+<i class="icon-file"></i>Facet/Range.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Facet/Range.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Facet/Statistical.php" id="Facet/Statistical.php"></a><h3>
+<i class="icon-file"></i>Facet/Statistical.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Facet/Statistical.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Facet/Terms.php" id="Facet/Terms.php"></a><h3>
+<i class="icon-file"></i>Facet/Terms.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Facet/Terms.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Facet/TermsStats.php" id="Facet/TermsStats.php"></a><h3>
+<i class="icon-file"></i>Facet/TermsStats.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Facet/TermsStats.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Filter/AbstractFilter.php" id="Filter/AbstractFilter.php"></a><h3>
+<i class="icon-file"></i>Filter/AbstractFilter.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Filter/AbstractFilter.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Filter/AbstractGeoDistance.php" id="Filter/AbstractGeoDistance.php"></a><h3>
+<i class="icon-file"></i>Filter/AbstractGeoDistance.php<small style="float: right;padding-right: 10px;">8</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Filter/AbstractGeoDistance.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>73</td>
+<td>No short description for method setKey()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>84</td>
+<td>No short description for method setLocation()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>115</td>
+<td>No short description for method setLatitude()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>127</td>
+<td>No short description for method setLongitude()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>139</td>
+<td>No short description for method setGeohash()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>151</td>
+<td>No short description for method _getLocationData()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>180</td>
+<td>No short description for method toArray()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Filter/AbstractMulti.php" id="Filter/AbstractMulti.php"></a><h3>
+<i class="icon-file"></i>Filter/AbstractMulti.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Filter/AbstractMulti.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>50</td>
+<td>No short description for method getFilters()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>58</td>
+<td>No short description for method toArray()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Filter/Bool.php" id="Filter/Bool.php"></a><h3>
+<i class="icon-file"></i>Filter/Bool.php<small style="float: right;padding-right: 10px;">2</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Filter/Bool.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>17</td>
+<td>No short description for property $_boost</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Filter/BoolAnd.php" id="Filter/BoolAnd.php"></a><h3>
+<i class="icon-file"></i>Filter/BoolAnd.php<small style="float: right;padding-right: 10px;">2</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Filter/BoolAnd.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>15</td>
+<td>No short description for method _getBaseName()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Filter/BoolNot.php" id="Filter/BoolNot.php"></a><h3>
+<i class="icon-file"></i>Filter/BoolNot.php<small style="float: right;padding-right: 10px;">2</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Filter/BoolNot.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>36</td>
+<td>No short description for method _getBaseName()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Filter/BoolOr.php" id="Filter/BoolOr.php"></a><h3>
+<i class="icon-file"></i>Filter/BoolOr.php<small style="float: right;padding-right: 10px;">2</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Filter/BoolOr.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>15</td>
+<td>No short description for method _getBaseName()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Filter/Exists.php" id="Filter/Exists.php"></a><h3>
+<i class="icon-file"></i>Filter/Exists.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Filter/Exists.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Filter/GeoBoundingBox.php" id="Filter/GeoBoundingBox.php"></a><h3>
+<i class="icon-file"></i>Filter/GeoBoundingBox.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Filter/GeoBoundingBox.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Filter/GeoDistance.php" id="Filter/GeoDistance.php"></a><h3>
+<i class="icon-file"></i>Filter/GeoDistance.php<small style="float: right;padding-right: 10px;">2</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Filter/GeoDistance.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>37</td>
+<td>No short description for method setDistance()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Filter/GeoDistanceRange.php" id="Filter/GeoDistanceRange.php"></a><h3>
+<i class="icon-file"></i>Filter/GeoDistanceRange.php<small style="float: right;padding-right: 10px;">6</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Filter/GeoDistanceRange.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>27</td>
+<td>No short description for property $_ranges</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>32</td>
+<td>No short description for method __construct()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>47</td>
+<td>No short description for method setRanges()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>62</td>
+<td>No short description for method setRange()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>90</td>
+<td>No short description for method toArray()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Filter/GeoPolygon.php" id="Filter/GeoPolygon.php"></a><h3>
+<i class="icon-file"></i>Filter/GeoPolygon.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Filter/GeoPolygon.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Filter/HasChild.php" id="Filter/HasChild.php"></a><h3>
+<i class="icon-file"></i>Filter/HasChild.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Filter/HasChild.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Filter/HasParent.php" id="Filter/HasParent.php"></a><h3>
+<i class="icon-file"></i>Filter/HasParent.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Filter/HasParent.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Filter/Ids.php" id="Filter/Ids.php"></a><h3>
+<i class="icon-file"></i>Filter/Ids.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Filter/Ids.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Filter/Limit.php" id="Filter/Limit.php"></a><h3>
+<i class="icon-file"></i>Filter/Limit.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Filter/Limit.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Filter/MatchAll.php" id="Filter/MatchAll.php"></a><h3>
+<i class="icon-file"></i>Filter/MatchAll.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Filter/MatchAll.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Filter/Missing.php" id="Filter/Missing.php"></a><h3>
+<i class="icon-file"></i>Filter/Missing.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Filter/Missing.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Filter/Nested.php" id="Filter/Nested.php"></a><h3>
+<i class="icon-file"></i>Filter/Nested.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Filter/Nested.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Filter/NumericRange.php" id="Filter/NumericRange.php"></a><h3>
+<i class="icon-file"></i>Filter/NumericRange.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Filter/NumericRange.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Filter/Prefix.php" id="Filter/Prefix.php"></a><h3>
+<i class="icon-file"></i>Filter/Prefix.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Filter/Prefix.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Filter/Query.php" id="Filter/Query.php"></a><h3>
+<i class="icon-file"></i>Filter/Query.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Filter/Query.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>58</td>
+<td>No short description for method _getBaseName()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>70</td>
+<td>No short description for method toArray()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Filter/Range.php" id="Filter/Range.php"></a><h3>
+<i class="icon-file"></i>Filter/Range.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Filter/Range.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Filter/Script.php" id="Filter/Script.php"></a><h3>
+<i class="icon-file"></i>Filter/Script.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Filter/Script.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Filter/Term.php" id="Filter/Term.php"></a><h3>
+<i class="icon-file"></i>Filter/Term.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Filter/Term.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Filter/Terms.php" id="Filter/Terms.php"></a><h3>
+<i class="icon-file"></i>Filter/Terms.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Filter/Terms.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Filter/Type.php" id="Filter/Type.php"></a><h3>
+<i class="icon-file"></i>Filter/Type.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Filter/Type.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Index/Settings.php" id="Index/Settings.php"></a><h3>
+<i class="icon-file"></i>Index/Settings.php<small style="float: right;padding-right: 10px;">7</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Index/Settings.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>107</td>
+<td>No short description for method getBlocksRead()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>115</td>
+<td>No short description for method setBlocksRead()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>126</td>
+<td>No short description for method getBlocksWrite()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>134</td>
+<td>No short description for method setBlocksWrite()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>145</td>
+<td>No short description for method getBlocksMetadata()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>153</td>
+<td>No short description for method setBlocksMetadata()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Index/Stats.php" id="Index/Stats.php"></a><h3>
+<i class="icon-file"></i>Index/Stats.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Index/Stats.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Index/Status.php" id="Index/Status.php"></a><h3>
+<i class="icon-file"></i>Index/Status.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Index/Status.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Index.php" id="Index.php"></a><h3>
+<i class="icon-file"></i>Index.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Index.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>227</td>
+<td>No short description for method createSearch()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>367</td>
+<td>Argument $refresh is missing from the Docblock of flush()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Log.php" id="Log.php"></a><h3>
+<i class="icon-file"></i>Log.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Log.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Multi/ResultSet.php" id="Multi/ResultSet.php"></a><h3>
+<i class="icon-file"></i>Multi/ResultSet.php<small style="float: right;padding-right: 10px;">13</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Multi/ResultSet.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>52</td>
+<td>No short description for method _init()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>82</td>
+<td>No short description for method getResultSets()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>116</td>
+<td>No short description for method current()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>128</td>
+<td>No short description for method next()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>136</td>
+<td>No short description for method key()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>144</td>
+<td>No short description for method valid()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>152</td>
+<td>No short description for method rewind()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>160</td>
+<td>No short description for method count()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>168</td>
+<td>No short description for method offsetExists()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>177</td>
+<td>No short description for method offsetGet()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>186</td>
+<td>No short description for method offsetSet()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>200</td>
+<td>No short description for method offsetUnset()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Multi/Search.php" id="Multi/Search.php"></a><h3>
+<i class="icon-file"></i>Multi/Search.php<small style="float: right;padding-right: 10px;">16</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Multi/Search.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>19</td>
+<td>No short description for property $_searches</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>24</td>
+<td>No short description for property $_options</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>29</td>
+<td>No short description for property $_client</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>44</td>
+<td>No short description for method getClient()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>52</td>
+<td>No short description for method setClient()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>63</td>
+<td>No short description for method clearSearches()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>73</td>
+<td>No short description for method addSearch()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>89</td>
+<td>No short description for method addSearches()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>102</td>
+<td>No short description for method setSearches()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>114</td>
+<td>No short description for method getSearches()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>122</td>
+<td>No short description for method setSearchType()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>133</td>
+<td>No short description for method search()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>150</td>
+<td>No short description for method _getData()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>163</td>
+<td>No short description for method _getSearchData()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>179</td>
+<td>No short description for method _getSearchDataHeader()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Node/Info.php" id="Node/Info.php"></a><h3>
+<i class="icon-file"></i>Node/Info.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Node/Info.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Node/Stats.php" id="Node/Stats.php"></a><h3>
+<i class="icon-file"></i>Node/Stats.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Node/Stats.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Node.php" id="Node.php"></a><h3>
+<i class="icon-file"></i>Node.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Node.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Param.php" id="Param.php"></a><h3>
+<i class="icon-file"></i>Param.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Param.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Percolator.php" id="Percolator.php"></a><h3>
+<i class="icon-file"></i>Percolator.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Percolator.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Query/AbstractQuery.php" id="Query/AbstractQuery.php"></a><h3>
+<i class="icon-file"></i>Query/AbstractQuery.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Query/AbstractQuery.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Query/Bool.php" id="Query/Bool.php"></a><h3>
+<i class="icon-file"></i>Query/Bool.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Query/Bool.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Query/Builder.php" id="Query/Builder.php"></a><h3>
+<i class="icon-file"></i>Query/Builder.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Query/Builder.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Query/ConstantScore.php" id="Query/ConstantScore.php"></a><h3>
+<i class="icon-file"></i>Query/ConstantScore.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Query/ConstantScore.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Query/CustomFiltersScore.php" id="Query/CustomFiltersScore.php"></a><h3>
+<i class="icon-file"></i>Query/CustomFiltersScore.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Query/CustomFiltersScore.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>26</td>
+<td>No short description for method __construct()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>106</td>
+<td>No short description for method setScoreMode()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Query/CustomScore.php" id="Query/CustomScore.php"></a><h3>
+<i class="icon-file"></i>Query/CustomScore.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Query/CustomScore.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Query/Field.php" id="Query/Field.php"></a><h3>
+<i class="icon-file"></i>Query/Field.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Query/Field.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Query/Filtered.php" id="Query/Filtered.php"></a><h3>
+<i class="icon-file"></i>Query/Filtered.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Query/Filtered.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Query/Fuzzy.php" id="Query/Fuzzy.php"></a><h3>
+<i class="icon-file"></i>Query/Fuzzy.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Query/Fuzzy.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>68</td>
+<td>Argument $fieldName is missing from the Docblock of addField()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>68</td>
+<td>Argument $args is missing from the Docblock of addField()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Query/FuzzyLikeThis.php" id="Query/FuzzyLikeThis.php"></a><h3>
+<i class="icon-file"></i>Query/FuzzyLikeThis.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Query/FuzzyLikeThis.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Query/HasChild.php" id="Query/HasChild.php"></a><h3>
+<i class="icon-file"></i>Query/HasChild.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Query/HasChild.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Query/HasParent.php" id="Query/HasParent.php"></a><h3>
+<i class="icon-file"></i>Query/HasParent.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Query/HasParent.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Query/Ids.php" id="Query/Ids.php"></a><h3>
+<i class="icon-file"></i>Query/Ids.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Query/Ids.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Query/Match.php" id="Query/Match.php"></a><h3>
+<i class="icon-file"></i>Query/Match.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Query/Match.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Query/MatchAll.php" id="Query/MatchAll.php"></a><h3>
+<i class="icon-file"></i>Query/MatchAll.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Query/MatchAll.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Query/MoreLikeThis.php" id="Query/MoreLikeThis.php"></a><h3>
+<i class="icon-file"></i>Query/MoreLikeThis.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Query/MoreLikeThis.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Query/MultiMatch.php" id="Query/MultiMatch.php"></a><h3>
+<i class="icon-file"></i>Query/MultiMatch.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Query/MultiMatch.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Query/Nested.php" id="Query/Nested.php"></a><h3>
+<i class="icon-file"></i>Query/Nested.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Query/Nested.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Query/Prefix.php" id="Query/Prefix.php"></a><h3>
+<i class="icon-file"></i>Query/Prefix.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Query/Prefix.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Query/QueryString.php" id="Query/QueryString.php"></a><h3>
+<i class="icon-file"></i>Query/QueryString.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Query/QueryString.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Query/Range.php" id="Query/Range.php"></a><h3>
+<i class="icon-file"></i>Query/Range.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Query/Range.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Query/Simple.php" id="Query/Simple.php"></a><h3>
+<i class="icon-file"></i>Query/Simple.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Query/Simple.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Query/Term.php" id="Query/Term.php"></a><h3>
+<i class="icon-file"></i>Query/Term.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Query/Term.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Query/Terms.php" id="Query/Terms.php"></a><h3>
+<i class="icon-file"></i>Query/Terms.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Query/Terms.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Query/Text.php" id="Query/Text.php"></a><h3>
+<i class="icon-file"></i>Query/Text.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Query/Text.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Query/TopChildren.php" id="Query/TopChildren.php"></a><h3>
+<i class="icon-file"></i>Query/TopChildren.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Query/TopChildren.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Query/Wildcard.php" id="Query/Wildcard.php"></a><h3>
+<i class="icon-file"></i>Query/Wildcard.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Query/Wildcard.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Query.php" id="Query.php"></a><h3>
+<i class="icon-file"></i>Query.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Query.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Request.php" id="Request.php"></a><h3>
+<i class="icon-file"></i>Request.php<small style="float: right;padding-right: 10px;">6</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Request.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>21</td>
+<td>No short description for property $_connection</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>121</td>
+<td>No short description for method setQuery()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>130</td>
+<td>No short description for method setConnection()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>169</td>
+<td>No short description for method toArray()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>191</td>
+<td>No short description for method __toString()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Response.php" id="Response.php"></a><h3>
+<i class="icon-file"></i>Response.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Response.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Result.php" id="Result.php"></a><h3>
+<i class="icon-file"></i>Result.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Result.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="ResultSet.php" id="ResultSet.php"></a><h3>
+<i class="icon-file"></i>ResultSet.php<small style="float: right;padding-right: 10px;">6</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file ResultSet.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>45</td>
+<td>No short description for property $_took</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>50</td>
+<td>No short description for property $_timedOut</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>55</td>
+<td>No short description for property $_totalHits</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>60</td>
+<td>No short description for property $_maxScore</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>182</td>
+<td>No short description for method getQuery()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Script.php" id="Script.php"></a><h3>
+<i class="icon-file"></i>Script.php<small style="float: right;padding-right: 10px;">11</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Script.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>23</td>
+<td>No short description for property $_script</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>27</td>
+<td>No short description for property $_lang</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>32</td>
+<td>No short description for method __construct()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>48</td>
+<td>No short description for method setLang()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>56</td>
+<td>No short description for method getLang()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>64</td>
+<td>No short description for method setScript()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>72</td>
+<td>No short description for method getScript()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>80</td>
+<td>No short description for method create()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>100</td>
+<td>No short description for method _createFromArray()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>126</td>
+<td>No short description for method toArray()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="ScriptFields.php" id="ScriptFields.php"></a><h3>
+<i class="icon-file"></i>ScriptFields.php<small style="float: right;padding-right: 10px;">5</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file ScriptFields.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>16</td>
+<td>No short description for method __construct()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>26</td>
+<td>No short description for method addScript()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>42</td>
+<td>No short description for method setScripts()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>56</td>
+<td>No short description for method toArray()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Search.php" id="Search.php"></a><h3>
+<i class="icon-file"></i>Search.php<small style="float: right;padding-right: 10px;">19</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Search.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>51</td>
+<td>No short description for property $_query</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>56</td>
+<td>No short description for property $_options</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>152</td>
+<td>No short description for method setQuery()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>163</td>
+<td>No short description for method setOption()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>177</td>
+<td>No short description for method setOptions()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>192</td>
+<td>No short description for method clearOptions()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>202</td>
+<td>No short description for method addOption()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>220</td>
+<td>No short description for method hasOption()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>229</td>
+<td>No short description for method getOption()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>243</td>
+<td>No short description for method getOptions()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>251</td>
+<td>No short description for method _validateOption()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>292</td>
+<td>No short description for method hasIndices()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>300</td>
+<td>No short description for method hasIndex()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>323</td>
+<td>No short description for method hasTypes()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>331</td>
+<td>No short description for method hasType()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>344</td>
+<td>No short description for method getQuery()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>422</td>
+<td>No short description for method count()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>445</td>
+<td>No short description for method setOptionsAndQuery()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="SearchableInterface.php" id="SearchableInterface.php"></a><h3>
+<i class="icon-file"></i>SearchableInterface.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file SearchableInterface.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>14</td>
+<td>Argument $options is missing from the Docblock of search()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>46</td>
+<td>No short description for method createSearch()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Status.php" id="Status.php"></a><h3>
+<i class="icon-file"></i>Status.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Status.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Transport/AbstractTransport.php" id="Transport/AbstractTransport.php"></a><h3>
+<i class="icon-file"></i>Transport/AbstractTransport.php<small style="float: right;padding-right: 10px;">4</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Transport/AbstractTransport.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>19</td>
+<td>No short description for property $_connection</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>36</td>
+<td>No short description for method getConnection()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>44</td>
+<td>No short description for method setConnection()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Transport/Http.php" id="Transport/Http.php"></a><h3>
+<i class="icon-file"></i>Transport/Http.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Transport/Http.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Transport/Https.php" id="Transport/Https.php"></a><h3>
+<i class="icon-file"></i>Transport/Https.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Transport/Https.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Transport/Memcache.php" id="Transport/Memcache.php"></a><h3>
+<i class="icon-file"></i>Transport/Memcache.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Transport/Memcache.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Transport/Null.php" id="Transport/Null.php"></a><h3>
+<i class="icon-file"></i>Transport/Null.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Transport/Null.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Transport/Thrift.php" id="Transport/Thrift.php"></a><h3>
+<i class="icon-file"></i>Transport/Thrift.php<small style="float: right;padding-right: 10px;">4</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Transport/Thrift.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>30</td>
+<td>No short description for property $_clients</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>49</td>
+<td>No short description for method _createClient()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>83</td>
+<td>No short description for method _getClient()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Type/AbstractType.php" id="Type/AbstractType.php"></a><h3>
+<i class="icon-file"></i>Type/AbstractType.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Type/AbstractType.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>134</td>
+<td>No short description for method createSearch()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>144</td>
+<td>Argument $options is missing from the Docblock of search()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Type/Mapping.php" id="Type/Mapping.php"></a><h3>
+<i class="icon-file"></i>Type/Mapping.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Type/Mapping.php</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Type.php" id="Type.php"></a><h3>
+<i class="icon-file"></i>Type.php<small style="float: right;padding-right: 10px;">4</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Type.php</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>111</td>
+<td>No short description for method addObject()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>224</td>
+<td>No short description for method createDocument()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>331</td>
+<td>No short description for method deleteDocument()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Util.php" id="Util.php"></a><h3>
+<i class="icon-file"></i>Util.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>0</td>
+<td>No page-level DocBlock was found in file Util.php</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
+            generated on 2013-05-26T18:20:59+02:00.<br></footer></div>
+</div>
+</body>
+</html>

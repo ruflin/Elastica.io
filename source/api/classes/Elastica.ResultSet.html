@@ -1,0 +1,377 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>Elastica » \Elastica\ResultSet</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">Elastica</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/Elastica.html"><i class="icon-th"></i> Elastica</a></li>
+<li><a>Packages</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+<li><a href="../packages/Elastica.html"><i class="icon-folder-open"></i> Elastica</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">416</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul><li>todo 
+                <span class="label label-info">9</span>
+</li></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">3</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public "><a href="#method___construct" title="__construct :: Constructs ResultSet object"><span class="description">Constructs ResultSet object</span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#method_count" title="count :: Returns size of current set"><span class="description">Returns size of current set</span><pre>count()</pre></a></li>
+<li class="method public "><a href="#method_current" title="current :: Returns the current object of the set"><span class="description">Returns the current object of the set</span><pre>current()</pre></a></li>
+<li class="method public "><a href="#method_getFacets" title="getFacets :: Returns all facets results"><span class="description">Returns all facets results</span><pre>getFacets()</pre></a></li>
+<li class="method public "><a href="#method_getMaxScore" title="getMaxScore :: Returns the max score of the results found"><span class="description">Returns the max score of the results found</span><pre>getMaxScore()</pre></a></li>
+<li class="method public "><a href="#method_getQuery" title="getQuery :: "><span class="description">getQuery()
+        </span><pre>getQuery()</pre></a></li>
+<li class="method public "><a href="#method_getResponse" title="getResponse :: Returns response object"><span class="description">Returns response object</span><pre>getResponse()</pre></a></li>
+<li class="method public "><a href="#method_getResults" title="getResults :: Returns all results"><span class="description">Returns all results</span><pre>getResults()</pre></a></li>
+<li class="method public "><a href="#method_getTotalHits" title="getTotalHits :: Returns the total number of found hits"><span class="description">Returns the total number of found hits</span><pre>getTotalHits()</pre></a></li>
+<li class="method public "><a href="#method_getTotalTime" title="getTotalTime :: Returns the total number of ms for this search to complete"><span class="description">Returns the total number of ms for this search to complete</span><pre>getTotalTime()</pre></a></li>
+<li class="method public "><a href="#method_hasFacets" title="hasFacets :: Returns whether facets exist"><span class="description">Returns whether facets exist</span><pre>hasFacets()</pre></a></li>
+<li class="method public "><a href="#method_hasTimedOut" title="hasTimedOut :: Returns true iff the query has timed out"><span class="description">Returns true iff the query has timed out</span><pre>hasTimedOut()</pre></a></li>
+<li class="method public "><a href="#method_key" title="key :: Returns the position of the current entry"><span class="description">Returns the position of the current entry</span><pre>key()</pre></a></li>
+<li class="method public "><a href="#method_next" title="next :: Sets pointer (current) to the next item of the set"><span class="description">Sets pointer (current) to the next item of the set</span><pre>next()</pre></a></li>
+<li class="method public "><a href="#method_rewind" title="rewind :: Resets position to 0, restarts iterator"><span class="description">Resets position to 0, restarts iterator</span><pre>rewind()</pre></a></li>
+<li class="method public "><a href="#method_valid" title="valid :: Check if an object exists at the current position"><span class="description">Check if an object exists at the current position</span><pre>valid()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header protected">» Protected
+                    <ul><li class="method protected "><a href="#method__init" title="_init :: Loads all data into the results object (initialisation)"><span class="description">Loads all data into the results object (initialisation)</span><pre>_init()</pre></a></li></ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties
+                    <ul></ul>
+</li>
+<li class="nav-header protected">» Protected
+                    <ul>
+<li class="property protected "><a href="#property__maxScore" title="$_maxScore :: "><span class="description"></span><pre>$_maxScore</pre></a></li>
+<li class="property protected "><a href="#property__position" title="$_position :: Current position"><span class="description"></span><pre>$_position</pre></a></li>
+<li class="property protected "><a href="#property__query" title="$_query :: Query"><span class="description"></span><pre>$_query</pre></a></li>
+<li class="property protected "><a href="#property__response" title="$_response :: Response"><span class="description"></span><pre>$_response</pre></a></li>
+<li class="property protected "><a href="#property__results" title="$_results :: Results"><span class="description"></span><pre>$_results</pre></a></li>
+<li class="property protected "><a href="#property__timedOut" title="$_timedOut :: "><span class="description"></span><pre>$_timedOut</pre></a></li>
+<li class="property protected "><a href="#property__took" title="$_took :: "><span class="description"></span><pre>$_took</pre></a></li>
+<li class="property protected "><a href="#property__totalHits" title="$_totalHits :: "><span class="description"></span><pre>$_totalHits</pre></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="span8">
+<a id="\Elastica\ResultSet"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/Elastica.html">Elastica</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/Elastica.ResultSet.html">ResultSet</a>
+</li>
+</ul>
+<div class="element class">
+<p class="short_description">Elastica result set</p>
+<div class="details">
+<div class="long_description"><p>List of all hits that are returned for a search on elasticsearch
+Result set implements iterator</p></div>
+<table class="table table-bordered">
+<tr>
+<th>category</th>
+<td>Xodoa</td>
+</tr>
+<tr>
+<th>package</th>
+<td><a href="../packages/Elastica.html">Elastica</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:spam@ruflin.com">Nicolas Ruflin</a></td>
+</tr>
+</table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a id="method___construct"></a><div class="element clickable method public method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
+<h2>Constructs ResultSet object</h2>
+<pre>__construct(\Elastica\Response $response, \Elastica\Query $query) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$response</h4>
+<code><a href="../classes/Elastica.Response.html">\Elastica\Response</a></code><p>Response object</p></div>
+<div class="subelement argument">
+<h4>$query</h4>
+<code><a href="../classes/Elastica.Query.html">\Elastica\Query</a></code><p>Query object</p></div>
+</div></div>
+</div>
+<a id="method_count"></a><div class="element clickable method public method_count" data-toggle="collapse" data-target=".method_count .collapse">
+<h2>Returns size of current set</h2>
+<pre>count() : int</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>int</code>Size of set</div>
+</div></div>
+</div>
+<a id="method_current"></a><div class="element clickable method public method_current" data-toggle="collapse" data-target=".method_current .collapse">
+<h2>Returns the current object of the set</h2>
+<pre>current() : <a href="../classes/Elastica.Result.html">\Elastica\Result</a> | bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/Elastica.Result.html">\Elastica\Result</a></code><code>bool</code>Set object or false if not valid (no more entries)</div>
+</div></div>
+</div>
+<a id="method_getFacets"></a><div class="element clickable method public method_getFacets" data-toggle="collapse" data-target=".method_getFacets .collapse">
+<h2>Returns all facets results</h2>
+<pre>getFacets() : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>Facet results</div>
+</div></div>
+</div>
+<a id="method_getMaxScore"></a><div class="element clickable method public method_getMaxScore" data-toggle="collapse" data-target=".method_getMaxScore .collapse">
+<h2>Returns the max score of the results found</h2>
+<pre>getMaxScore() : float</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>float</code>Max Score</div>
+</div></div>
+</div>
+<a id="method_getQuery"></a><div class="element clickable method public method_getQuery" data-toggle="collapse" data-target=".method_getQuery .collapse">
+<h2>getQuery()
+        </h2>
+<pre>getQuery() : <a href="../classes/Elastica.Query.html">\Elastica\Query</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.html">\Elastica\Query</a></code></div>
+</div></div>
+</div>
+<a id="method_getResponse"></a><div class="element clickable method public method_getResponse" data-toggle="collapse" data-target=".method_getResponse .collapse">
+<h2>Returns response object</h2>
+<pre>getResponse() : <a href="../classes/Elastica.Response.html">\Elastica\Response</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/Elastica.Response.html">\Elastica\Response</a></code>Response object</div>
+</div></div>
+</div>
+<a id="method_getResults"></a><div class="element clickable method public method_getResults" data-toggle="collapse" data-target=".method_getResults .collapse">
+<h2>Returns all results</h2>
+<pre>getResults() : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>Results</div>
+</div></div>
+</div>
+<a id="method_getTotalHits"></a><div class="element clickable method public method_getTotalHits" data-toggle="collapse" data-target=".method_getTotalHits .collapse">
+<h2>Returns the total number of found hits</h2>
+<pre>getTotalHits() : int</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>int</code>Total hits</div>
+</div></div>
+</div>
+<a id="method_getTotalTime"></a><div class="element clickable method public method_getTotalTime" data-toggle="collapse" data-target=".method_getTotalTime .collapse">
+<h2>Returns the total number of ms for this search to complete</h2>
+<pre>getTotalTime() : int</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>int</code>Total time</div>
+</div></div>
+</div>
+<a id="method_hasFacets"></a><div class="element clickable method public method_hasFacets" data-toggle="collapse" data-target=".method_hasFacets .collapse">
+<h2>Returns whether facets exist</h2>
+<pre>hasFacets() : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>Facet existence</div>
+</div></div>
+</div>
+<a id="method_hasTimedOut"></a><div class="element clickable method public method_hasTimedOut" data-toggle="collapse" data-target=".method_hasTimedOut .collapse">
+<h2>Returns true iff the query has timed out</h2>
+<pre>hasTimedOut() : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>bool</code>Timed out</div>
+</div></div>
+</div>
+<a id="method_key"></a><div class="element clickable method public method_key" data-toggle="collapse" data-target=".method_key .collapse">
+<h2>Returns the position of the current entry</h2>
+<pre>key() : int</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>int</code>Current position</div>
+</div></div>
+</div>
+<a id="method_next"></a><div class="element clickable method public method_next" data-toggle="collapse" data-target=".method_next .collapse">
+<h2>Sets pointer (current) to the next item of the set</h2>
+<pre>next() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_rewind"></a><div class="element clickable method public method_rewind" data-toggle="collapse" data-target=".method_rewind .collapse">
+<h2>Resets position to 0, restarts iterator</h2>
+<pre>rewind() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_valid"></a><div class="element clickable method public method_valid" data-toggle="collapse" data-target=".method_valid .collapse">
+<h2>Check if an object exists at the current position</h2>
+<pre>valid() : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>bool</code>True if object exists</div>
+</div></div>
+</div>
+<a id="method__init"></a><div class="element clickable method protected method__init" data-toggle="collapse" data-target=".method__init .collapse">
+<h2>Loads all data into the results object (initialisation)</h2>
+<pre>_init(\Elastica\Response $response) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$response</h4>
+<code><a href="../classes/Elastica.Response.html">\Elastica\Response</a></code><p>Response object</p></div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a id="property__maxScore"> </a><div class="element clickable property protected property__maxScore" data-toggle="collapse" data-target=".property__maxScore .collapse">
+<h2></h2>
+<pre>$_maxScore : float</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property__position"> </a><div class="element clickable property protected property__position" data-toggle="collapse" data-target=".property__position .collapse">
+<h2></h2>
+<pre>$_position : int</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property__query"> </a><div class="element clickable property protected property__query" data-toggle="collapse" data-target=".property__query .collapse">
+<h2></h2>
+<pre>$_query : <a href="../classes/Elastica.Query.html">\Elastica\Query</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property__response"> </a><div class="element clickable property protected property__response" data-toggle="collapse" data-target=".property__response .collapse">
+<h2></h2>
+<pre>$_response : <a href="../classes/Elastica.Response.html">\Elastica\Response</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property__results"> </a><div class="element clickable property protected property__results" data-toggle="collapse" data-target=".property__results .collapse">
+<h2></h2>
+<pre>$_results : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property__timedOut"> </a><div class="element clickable property protected property__timedOut" data-toggle="collapse" data-target=".property__timedOut .collapse">
+<h2></h2>
+<pre>$_timedOut : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property__took"> </a><div class="element clickable property protected property__took" data-toggle="collapse" data-target=".property__took .collapse">
+<h2></h2>
+<pre>$_took : int</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property__totalHits"> </a><div class="element clickable property protected property__totalHits" data-toggle="collapse" data-target=".property__totalHits .collapse">
+<h2></h2>
+<pre>$_totalHits : int</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
+            generated on 2013-05-26T18:20:59+02:00.<br></footer></div>
+</div>
+</body>
+</html>

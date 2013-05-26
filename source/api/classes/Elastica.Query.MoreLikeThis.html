@@ -1,0 +1,620 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>Elastica » \Elastica\Query\MoreLikeThis</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">Elastica</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/Elastica.html"><i class="icon-th"></i> Elastica</a></li>
+<li><a>Packages</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+<li><a href="../packages/Elastica.html"><i class="icon-folder-open"></i> Elastica</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">416</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul><li>todo 
+                <span class="label label-info">9</span>
+</li></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">3</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public inherited"><a href="#method_addParam" title="addParam :: Adds a param to the list"><span class="description">Adds a param to the list</span><pre>addParam()</pre></a></li>
+<li class="method public inherited"><a href="#method_getParam" title="getParam :: Returns a specific param"><span class="description">Returns a specific param</span><pre>getParam()</pre></a></li>
+<li class="method public inherited"><a href="#method_getParams" title="getParams :: Returns the params array"><span class="description">Returns the params array</span><pre>getParams()</pre></a></li>
+<li class="method public inherited"><a href="#method_hasParam" title="hasParam :: Test if a param is set"><span class="description">Test if a param is set</span><pre>hasParam()</pre></a></li>
+<li class="method public "><a href="#method_setAnalyzer" title="setAnalyzer :: Set analyzer"><span class="description">Set analyzer</span><pre>setAnalyzer()</pre></a></li>
+<li class="method public "><a href="#method_setBoost" title="setBoost :: Set boost"><span class="description">Set boost</span><pre>setBoost()</pre></a></li>
+<li class="method public "><a href="#method_setBoostTerms" title="setBoostTerms :: Set boost terms"><span class="description">Set boost terms</span><pre>setBoostTerms()</pre></a></li>
+<li class="method public "><a href="#method_setFields" title="setFields :: Adds field to mlt query"><span class="description">Adds field to mlt query</span><pre>setFields()</pre></a></li>
+<li class="method public "><a href="#method_setLikeText" title='setLikeText :: Set the "like_text" value'><span class="description">Set the "like_text" value</span><pre>setLikeText()</pre></a></li>
+<li class="method public "><a href="#method_setMaxDocFrequency" title="setMaxDocFrequency :: set max document frequency"><span class="description">set max document frequency</span><pre>setMaxDocFrequency()</pre></a></li>
+<li class="method public "><a href="#method_setMaxQueryTerms" title="setMaxQueryTerms :: Set max_query_terms"><span class="description">Set max_query_terms</span><pre>setMaxQueryTerms()</pre></a></li>
+<li class="method public "><a href="#method_setMaxWordLength" title="setMaxWordLength :: Set max word length"><span class="description">Set max word length</span><pre>setMaxWordLength()</pre></a></li>
+<li class="method public "><a href="#method_setMinDocFrequency" title="setMinDocFrequency :: set min document frequency"><span class="description">set min document frequency</span><pre>setMinDocFrequency()</pre></a></li>
+<li class="method public "><a href="#method_setMinTermFrequency" title="setMinTermFrequency :: Set min term frequency"><span class="description">Set min term frequency</span><pre>setMinTermFrequency()</pre></a></li>
+<li class="method public "><a href="#method_setMinWordLength" title="setMinWordLength :: Set min word length"><span class="description">Set min word length</span><pre>setMinWordLength()</pre></a></li>
+<li class="method public inherited"><a href="#method_setParam" title="setParam :: Sets (overwrites) the value at the given key"><span class="description">Sets (overwrites) the value at the given key</span><pre>setParam()</pre></a></li>
+<li class="method public inherited"><a href="#method_setParams" title="setParams :: Sets (overwrites) all params of this object"><span class="description">Sets (overwrites) all params of this object</span><pre>setParams()</pre></a></li>
+<li class="method public "><a href="#method_setPercentTermsToMatch" title="setPercentTermsToMatch :: Set percent terms to match"><span class="description">Set percent terms to match</span><pre>setPercentTermsToMatch()</pre></a></li>
+<li class="method public "><a href="#method_setStopWords" title="setStopWords :: Set stop words"><span class="description">Set stop words</span><pre>setStopWords()</pre></a></li>
+<li class="method public inherited"><a href="#method_toArray" title="toArray :: Converts the params to an array."><span class="description">Converts the params to an array.</span><pre>toArray()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header protected">» Protected
+                    <ul>
+<li class="method protected inherited"><a href="#method__getBaseName" title="_getBaseName :: Param's name
+Picks the last part of the class name and makes it snake_case
+You can override this method if you want to change the name"><span class="description">Param's name
+Picks the last part of the class name and makes it snake_case
+You can override this method if you want to change the name</span><pre>_getBaseName()</pre></a></li>
+<li class="method protected inherited"><a href="#method__setRawParam" title="_setRawParam :: Sets params not inside params array"><span class="description">Sets params not inside params array</span><pre>_setRawParam()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties
+                    <ul></ul>
+</li>
+<li class="nav-header protected">» Protected
+                    <ul>
+<li class="property protected inherited"><a href="#property__params" title="$_params :: Params"><span class="description"></span><pre>$_params</pre></a></li>
+<li class="property protected inherited"><a href="#property__rawParams" title="$_rawParams :: Raw Params"><span class="description"></span><pre>$_rawParams</pre></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="span8">
+<a id="\Elastica\Query\MoreLikeThis"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/Elastica.html">Elastica</a></li>
+<li>
+<span class="divider">\</span><a href="../namespaces/Elastica.Query.html">Query</a>
+</li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/Elastica.Query.MoreLikeThis.html">MoreLikeThis</a>
+</li>
+</ul>
+<div class="element class">
+<p class="short_description">More Like This query</p>
+<div class="details">
+<div class="long_description"><p>Should be extended by all query types.</p></div>
+<table class="table table-bordered">
+<tr>
+<th>category</th>
+<td>Xodoa</td>
+</tr>
+<tr>
+<th>package</th>
+<td><a href="../packages/Elastica.html">Elastica</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:juneym@gmail.com">Raul Martinez, Jr</a></td>
+</tr>
+<tr>
+<th>link</th>
+<td><a href="http://www.elasticsearch.org/guide/reference/query-dsl/mlt-query.html">http://www.elasticsearch.org/guide/reference/query-dsl/mlt-query.html</a></td>
+</tr>
+</table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a id="method_addParam"></a><div class="element clickable method public method_addParam" data-toggle="collapse" data-target=".method_addParam .collapse">
+<h2>Adds a param to the list</h2>
+<pre>addParam(string $key, mixed $value) : <a href="../classes/Elastica.Param.html">\Elastica\Param</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>This function can be used to add an array of params</p></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Param::addParam()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Query\AbstractQuery::addParam()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$key</h4>
+<code>string</code><p>Param key</p></div>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>mixed</code><p>Value to set</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Param.html">\Elastica\Param</a></code></div>
+</div></div>
+</div>
+<a id="method_getParam"></a><div class="element clickable method public method_getParam" data-toggle="collapse" data-target=".method_getParam .collapse">
+<h2>Returns a specific param</h2>
+<pre>getParam(string $key) : mixed</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Param::getParam()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Query\AbstractQuery::getParam()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$key</h4>
+<code>string</code><p>Key to return</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="../classes/Elastica.Exception.InvalidException.html">\Elastica\Exception\InvalidException</a></code></th>
+<td>If requested key is not set</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>mixed</code>Key value</div>
+</div></div>
+</div>
+<a id="method_getParams"></a><div class="element clickable method public method_getParams" data-toggle="collapse" data-target=".method_getParams .collapse">
+<h2>Returns the params array</h2>
+<pre>getParams() : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Param::getParams()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Query\AbstractQuery::getParams()</td>
+</tr>
+</table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>Params</div>
+</div></div>
+</div>
+<a id="method_hasParam"></a><div class="element clickable method public method_hasParam" data-toggle="collapse" data-target=".method_hasParam .collapse">
+<h2>Test if a param is set</h2>
+<pre>hasParam(string $key) : boolean</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Param::hasParam()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Query\AbstractQuery::hasParam()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$key</h4>
+<code>string</code><p>Key to test</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>True if the param is set, false otherwise</div>
+</div></div>
+</div>
+<a id="method_setAnalyzer"></a><div class="element clickable method public method_setAnalyzer" data-toggle="collapse" data-target=".method_setAnalyzer .collapse">
+<h2>Set analyzer</h2>
+<pre>setAnalyzer(string $analyzer) : <a href="../classes/Elastica.Query.MoreLikeThis.html">\Elastica\Query\MoreLikeThis</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$analyzer</h4>
+<code>string</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.MoreLikeThis.html">\Elastica\Query\MoreLikeThis</a></code></div>
+</div></div>
+</div>
+<a id="method_setBoost"></a><div class="element clickable method public method_setBoost" data-toggle="collapse" data-target=".method_setBoost .collapse">
+<h2>Set boost</h2>
+<pre>setBoost(float $boost) : <a href="../classes/Elastica.Query.MoreLikeThis.html">\Elastica\Query\MoreLikeThis</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$boost</h4>
+<code>float</code><p>Boost value</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/Elastica.Query.MoreLikeThis.html">\Elastica\Query\MoreLikeThis</a></code>Query object</div>
+</div></div>
+</div>
+<a id="method_setBoostTerms"></a><div class="element clickable method public method_setBoostTerms" data-toggle="collapse" data-target=".method_setBoostTerms .collapse">
+<h2>Set boost terms</h2>
+<pre>setBoostTerms(bool $boostTerms) : <a href="../classes/Elastica.Query.MoreLikeThis.html">\Elastica\Query\MoreLikeThis</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>link</th>
+<td><a href="http://www.elasticsearch.org/guide/reference/query-dsl/mlt-query.html">http://www.elasticsearch.org/guide/reference/query-dsl/mlt-query.html</a></td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$boostTerms</h4>
+<code>bool</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.MoreLikeThis.html">\Elastica\Query\MoreLikeThis</a></code></div>
+</div></div>
+</div>
+<a id="method_setFields"></a><div class="element clickable method public method_setFields" data-toggle="collapse" data-target=".method_setFields .collapse">
+<h2>Adds field to mlt query</h2>
+<pre>setFields(array $fields) : <a href="../classes/Elastica.Query.MoreLikeThis.html">\Elastica\Query\MoreLikeThis</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$fields</h4>
+<code>array</code><p>Field names</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/Elastica.Query.MoreLikeThis.html">\Elastica\Query\MoreLikeThis</a></code>Current object</div>
+</div></div>
+</div>
+<a id="method_setLikeText"></a><div class="element clickable method public method_setLikeText" data-toggle="collapse" data-target=".method_setLikeText .collapse">
+<h2>Set the "like_text" value</h2>
+<pre>setLikeText(string $likeText) : <a href="../classes/Elastica.Query.MoreLikeThis.html">\Elastica\Query\MoreLikeThis</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$likeText</h4>
+<code>string</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/Elastica.Query.MoreLikeThis.html">\Elastica\Query\MoreLikeThis</a></code>This current object</div>
+</div></div>
+</div>
+<a id="method_setMaxDocFrequency"></a><div class="element clickable method public method_setMaxDocFrequency" data-toggle="collapse" data-target=".method_setMaxDocFrequency .collapse">
+<h2>set max document frequency</h2>
+<pre>setMaxDocFrequency(int $maxDocFreq) : <a href="../classes/Elastica.Query.MoreLikeThis.html">\Elastica\Query\MoreLikeThis</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$maxDocFreq</h4>
+<code>int</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.MoreLikeThis.html">\Elastica\Query\MoreLikeThis</a></code></div>
+</div></div>
+</div>
+<a id="method_setMaxQueryTerms"></a><div class="element clickable method public method_setMaxQueryTerms" data-toggle="collapse" data-target=".method_setMaxQueryTerms .collapse">
+<h2>Set max_query_terms</h2>
+<pre>setMaxQueryTerms(int $maxQueryTerms) : <a href="../classes/Elastica.Query.MoreLikeThis.html">\Elastica\Query\MoreLikeThis</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$maxQueryTerms</h4>
+<code>int</code><p>Max query terms value</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.MoreLikeThis.html">\Elastica\Query\MoreLikeThis</a></code></div>
+</div></div>
+</div>
+<a id="method_setMaxWordLength"></a><div class="element clickable method public method_setMaxWordLength" data-toggle="collapse" data-target=".method_setMaxWordLength .collapse">
+<h2>Set max word length</h2>
+<pre>setMaxWordLength(int $maxWordLength) : <a href="../classes/Elastica.Query.MoreLikeThis.html">\Elastica\Query\MoreLikeThis</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$maxWordLength</h4>
+<code>int</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.MoreLikeThis.html">\Elastica\Query\MoreLikeThis</a></code></div>
+</div></div>
+</div>
+<a id="method_setMinDocFrequency"></a><div class="element clickable method public method_setMinDocFrequency" data-toggle="collapse" data-target=".method_setMinDocFrequency .collapse">
+<h2>set min document frequency</h2>
+<pre>setMinDocFrequency(int $minDocFreq) : <a href="../classes/Elastica.Query.MoreLikeThis.html">\Elastica\Query\MoreLikeThis</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$minDocFreq</h4>
+<code>int</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.MoreLikeThis.html">\Elastica\Query\MoreLikeThis</a></code></div>
+</div></div>
+</div>
+<a id="method_setMinTermFrequency"></a><div class="element clickable method public method_setMinTermFrequency" data-toggle="collapse" data-target=".method_setMinTermFrequency .collapse">
+<h2>Set min term frequency</h2>
+<pre>setMinTermFrequency(int $minTermFreq) : <a href="../classes/Elastica.Query.MoreLikeThis.html">\Elastica\Query\MoreLikeThis</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$minTermFreq</h4>
+<code>int</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.MoreLikeThis.html">\Elastica\Query\MoreLikeThis</a></code></div>
+</div></div>
+</div>
+<a id="method_setMinWordLength"></a><div class="element clickable method public method_setMinWordLength" data-toggle="collapse" data-target=".method_setMinWordLength .collapse">
+<h2>Set min word length</h2>
+<pre>setMinWordLength(int $minWordLength) : <a href="../classes/Elastica.Query.MoreLikeThis.html">\Elastica\Query\MoreLikeThis</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$minWordLength</h4>
+<code>int</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.MoreLikeThis.html">\Elastica\Query\MoreLikeThis</a></code></div>
+</div></div>
+</div>
+<a id="method_setParam"></a><div class="element clickable method public method_setParam" data-toggle="collapse" data-target=".method_setParam .collapse">
+<h2>Sets (overwrites) the value at the given key</h2>
+<pre>setParam(string $key, mixed $value) : <a href="../classes/Elastica.Param.html">\Elastica\Param</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Param::setParam()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Query\AbstractQuery::setParam()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$key</h4>
+<code>string</code><p>Key to set</p></div>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>mixed</code><p>Key Value</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Param.html">\Elastica\Param</a></code></div>
+</div></div>
+</div>
+<a id="method_setParams"></a><div class="element clickable method public method_setParams" data-toggle="collapse" data-target=".method_setParams .collapse">
+<h2>Sets (overwrites) all params of this object</h2>
+<pre>setParams(array $params) : <a href="../classes/Elastica.Param.html">\Elastica\Param</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Param::setParams()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Query\AbstractQuery::setParams()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>array</code><p>Parameter list</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Param.html">\Elastica\Param</a></code></div>
+</div></div>
+</div>
+<a id="method_setPercentTermsToMatch"></a><div class="element clickable method public method_setPercentTermsToMatch" data-toggle="collapse" data-target=".method_setPercentTermsToMatch .collapse">
+<h2>Set percent terms to match</h2>
+<pre>setPercentTermsToMatch(float $percentTermsToMatch) : <a href="../classes/Elastica.Query.MoreLikeThis.html">\Elastica\Query\MoreLikeThis</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$percentTermsToMatch</h4>
+<code>float</code><p>Percentage</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.MoreLikeThis.html">\Elastica\Query\MoreLikeThis</a></code></div>
+</div></div>
+</div>
+<a id="method_setStopWords"></a><div class="element clickable method public method_setStopWords" data-toggle="collapse" data-target=".method_setStopWords .collapse">
+<h2>Set stop words</h2>
+<pre>setStopWords(array $stopWords) : <a href="../classes/Elastica.Query.MoreLikeThis.html">\Elastica\Query\MoreLikeThis</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$stopWords</h4>
+<code>array</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.MoreLikeThis.html">\Elastica\Query\MoreLikeThis</a></code></div>
+</div></div>
+</div>
+<a id="method_toArray"></a><div class="element clickable method public method_toArray" data-toggle="collapse" data-target=".method_toArray .collapse">
+<h2>Converts the params to an array.</h2>
+<pre>toArray() : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>A default implementation exist to create
+the an array out of the class name (last part of the class name)
+and the params</p></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Param::toArray()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Query\AbstractQuery::toArray()</td>
+</tr>
+</table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>Filter array</div>
+</div></div>
+</div>
+<a id="method__getBaseName"></a><div class="element clickable method protected method__getBaseName" data-toggle="collapse" data-target=".method__getBaseName .collapse">
+<h2>Param's name
+Picks the last part of the class name and makes it snake_case
+You can override this method if you want to change the name</h2>
+<pre>_getBaseName() : string</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Param::_getBaseName()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Query\AbstractQuery::_getBaseName()</td>
+</tr>
+</table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>name</div>
+</div></div>
+</div>
+<a id="method__setRawParam"></a><div class="element clickable method protected method__setRawParam" data-toggle="collapse" data-target=".method__setRawParam .collapse">
+<h2>Sets params not inside params array</h2>
+<pre>_setRawParam(string $key, mixed $value) : <a href="../classes/Elastica.Param.html">\Elastica\Param</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Param::_setRawParam()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Query\AbstractQuery::_setRawParam()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$key</h4>
+<code>string</code>
+</div>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>mixed</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Param.html">\Elastica\Param</a></code></div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a id="property__params"> </a><div class="element clickable property protected property__params" data-toggle="collapse" data-target=".property__params .collapse">
+<h2></h2>
+<pre>$_params : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Param::$$_params</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Query\AbstractQuery::$$_params</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a id="property__rawParams"> </a><div class="element clickable property protected property__rawParams" data-toggle="collapse" data-target=".property__rawParams .collapse">
+<h2></h2>
+<pre>$_rawParams : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Param::$$_rawParams</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Elastica\Query\AbstractQuery::$$_rawParams</td>
+</tr>
+</table>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
+            generated on 2013-05-26T18:20:59+02:00.<br></footer></div>
+</div>
+</body>
+</html>

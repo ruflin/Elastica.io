@@ -1,0 +1,714 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>Elastica » \Elastica\Search</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">Elastica</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/Elastica.html"><i class="icon-th"></i> Elastica</a></li>
+<li><a>Packages</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+<li><a href="../packages/Elastica.html"><i class="icon-folder-open"></i> Elastica</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">416</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul><li>todo 
+                <span class="label label-info">9</span>
+</li></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">3</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public "><a href="#method___construct" title="__construct :: Constructs search object"><span class="description">Constructs search object</span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#method_addIndex" title="addIndex :: Adds a index to the list"><span class="description">Adds a index to the list</span><pre>addIndex()</pre></a></li>
+<li class="method public "><a href="#method_addIndices" title="addIndices :: Add array of indices at once"><span class="description">Add array of indices at once</span><pre>addIndices()</pre></a></li>
+<li class="method public "><a href="#method_addOption" title="addOption :: "><span class="description">addOption()
+        </span><pre>addOption()</pre></a></li>
+<li class="method public "><a href="#method_addType" title="addType :: Adds a type to the current search"><span class="description">Adds a type to the current search</span><pre>addType()</pre></a></li>
+<li class="method public "><a href="#method_addTypes" title="addTypes :: Add array of types"><span class="description">Add array of types</span><pre>addTypes()</pre></a></li>
+<li class="method public "><a href="#method_clearOptions" title="clearOptions :: "><span class="description">clearOptions()
+        </span><pre>clearOptions()</pre></a></li>
+<li class="method public "><a href="#method_count" title="count :: "><span class="description">count()
+        </span><pre>count()</pre></a></li>
+<li class="method public "><a href="#method_create" title="create :: Creates new search object"><span class="description">Creates new search object</span><pre>create()</pre></a></li>
+<li class="method public "><a href="#method_getClient" title="getClient :: Return client object"><span class="description">Return client object</span><pre>getClient()</pre></a></li>
+<li class="method public "><a href="#method_getIndices" title="getIndices :: Return array of indices"><span class="description">Return array of indices</span><pre>getIndices()</pre></a></li>
+<li class="method public "><a href="#method_getOption" title="getOption :: "><span class="description">getOption()
+        </span><pre>getOption()</pre></a></li>
+<li class="method public "><a href="#method_getOptions" title="getOptions :: "><span class="description">getOptions()
+        </span><pre>getOptions()</pre></a></li>
+<li class="method public "><a href="#method_getPath" title="getPath :: Combines indices and types to the search request path"><span class="description">Combines indices and types to the search request path</span><pre>getPath()</pre></a></li>
+<li class="method public "><a href="#method_getQuery" title="getQuery :: "><span class="description">getQuery()
+        </span><pre>getQuery()</pre></a></li>
+<li class="method public "><a href="#method_getTypes" title="getTypes :: Return array of types"><span class="description">Return array of types</span><pre>getTypes()</pre></a></li>
+<li class="method public "><a href="#method_hasIndex" title="hasIndex :: "><span class="description">hasIndex()
+        </span><pre>hasIndex()</pre></a></li>
+<li class="method public "><a href="#method_hasIndices" title="hasIndices :: "><span class="description">hasIndices()
+        </span><pre>hasIndices()</pre></a></li>
+<li class="method public "><a href="#method_hasOption" title="hasOption :: "><span class="description">hasOption()
+        </span><pre>hasOption()</pre></a></li>
+<li class="method public "><a href="#method_hasType" title="hasType :: "><span class="description">hasType()
+        </span><pre>hasType()</pre></a></li>
+<li class="method public "><a href="#method_hasTypes" title="hasTypes :: "><span class="description">hasTypes()
+        </span><pre>hasTypes()</pre></a></li>
+<li class="method public "><a href="#method_search" title="search :: Search in the set indices, types"><span class="description">Search in the set indices, types</span><pre>search()</pre></a></li>
+<li class="method public "><a href="#method_setOption" title="setOption :: "><span class="description">setOption()
+        </span><pre>setOption()</pre></a></li>
+<li class="method public "><a href="#method_setOptions" title="setOptions :: "><span class="description">setOptions()
+        </span><pre>setOptions()</pre></a></li>
+<li class="method public "><a href="#method_setOptionsAndQuery" title="setOptionsAndQuery :: "><span class="description">setOptionsAndQuery()
+        </span><pre>setOptionsAndQuery()</pre></a></li>
+<li class="method public "><a href="#method_setQuery" title="setQuery :: "><span class="description">setQuery()
+        </span><pre>setQuery()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header protected">» Protected
+                    <ul><li class="method protected "><a href="#method__validateOption" title="_validateOption :: "><span class="description">_validateOption()
+        </span><pre>_validateOption()</pre></a></li></ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties
+                    <ul></ul>
+</li>
+<li class="nav-header protected">» Protected
+                    <ul>
+<li class="property protected "><a href="#property__client" title="$_client :: Client object"><span class="description"></span><pre>$_client</pre></a></li>
+<li class="property protected "><a href="#property__indices" title="$_indices :: Array of indices"><span class="description"></span><pre>$_indices</pre></a></li>
+<li class="property protected "><a href="#property__options" title="$_options :: "><span class="description"></span><pre>$_options</pre></a></li>
+<li class="property protected "><a href="#property__query" title="$_query :: "><span class="description"></span><pre>$_query</pre></a></li>
+<li class="property protected "><a href="#property__types" title="$_types :: Array of types"><span class="description"></span><pre>$_types</pre></a></li>
+</ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-constant"></i> Constants
+                    <ul>
+<li class="constant  "><a href="#constant_OPTION_FROM" title="OPTION_FROM :: "><span class="description">OPTION_FROM</span><pre>OPTION_FROM</pre></a></li>
+<li class="constant  "><a href="#constant_OPTION_PREFERENCE" title="OPTION_PREFERENCE :: "><span class="description">OPTION_PREFERENCE</span><pre>OPTION_PREFERENCE</pre></a></li>
+<li class="constant  "><a href="#constant_OPTION_ROUTING" title="OPTION_ROUTING :: "><span class="description">OPTION_ROUTING</span><pre>OPTION_ROUTING</pre></a></li>
+<li class="constant  "><a href="#constant_OPTION_SEARCH_TYPE" title="OPTION_SEARCH_TYPE :: "><span class="description">OPTION_SEARCH_TYPE</span><pre>OPTION_SEARCH_TYPE</pre></a></li>
+<li class="constant  "><a href="#constant_OPTION_SEARCH_TYPE_COUNT" title="OPTION_SEARCH_TYPE_COUNT :: "><span class="description">OPTION_SEARCH_TYPE_COUNT</span><pre>OPTION_SEARCH_TYPE_COUNT</pre></a></li>
+<li class="constant  "><a href="#constant_OPTION_SEARCH_TYPE_DFS_QUERY_AND_FETCH" title="OPTION_SEARCH_TYPE_DFS_QUERY_AND_FETCH :: "><span class="description">OPTION_SEARCH_TYPE_DFS_QUERY_AND_FETCH</span><pre>OPTION_SEARCH_TYPE_DFS_QUERY_AND_FETCH</pre></a></li>
+<li class="constant  "><a href="#constant_OPTION_SEARCH_TYPE_DFS_QUERY_THEN_FETCH" title="OPTION_SEARCH_TYPE_DFS_QUERY_THEN_FETCH :: "><span class="description">OPTION_SEARCH_TYPE_DFS_QUERY_THEN_FETCH</span><pre>OPTION_SEARCH_TYPE_DFS_QUERY_THEN_FETCH</pre></a></li>
+<li class="constant  "><a href="#constant_OPTION_SEARCH_TYPE_QUERY_AND_FETCH" title="OPTION_SEARCH_TYPE_QUERY_AND_FETCH :: "><span class="description">OPTION_SEARCH_TYPE_QUERY_AND_FETCH</span><pre>OPTION_SEARCH_TYPE_QUERY_AND_FETCH</pre></a></li>
+<li class="constant  "><a href="#constant_OPTION_SEARCH_TYPE_QUERY_THEN_FETCH" title="OPTION_SEARCH_TYPE_QUERY_THEN_FETCH :: "><span class="description">OPTION_SEARCH_TYPE_QUERY_THEN_FETCH</span><pre>OPTION_SEARCH_TYPE_QUERY_THEN_FETCH</pre></a></li>
+<li class="constant  "><a href="#constant_OPTION_SEARCH_TYPE_SCAN" title="OPTION_SEARCH_TYPE_SCAN :: "><span class="description">OPTION_SEARCH_TYPE_SCAN</span><pre>OPTION_SEARCH_TYPE_SCAN</pre></a></li>
+<li class="constant  "><a href="#constant_OPTION_SIZE" title="OPTION_SIZE :: "><span class="description">OPTION_SIZE</span><pre>OPTION_SIZE</pre></a></li>
+<li class="constant  "><a href="#constant_OPTION_TIMEOUT" title="OPTION_TIMEOUT :: "><span class="description">OPTION_TIMEOUT</span><pre>OPTION_TIMEOUT</pre></a></li>
+<li class="constant  "><a href="#constant_OPTION_VERSION" title="OPTION_VERSION :: "><span class="description">OPTION_VERSION</span><pre>OPTION_VERSION</pre></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="span8">
+<a id="\Elastica\Search"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/Elastica.html">Elastica</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/Elastica.Search.html">Search</a>
+</li>
+</ul>
+<div class="element class">
+<p class="short_description">Elastica search object</p>
+<div class="details">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>category</th>
+<td>Xodoa</td>
+</tr>
+<tr>
+<th>package</th>
+<td><a href="../packages/Elastica.html">Elastica</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:spam@ruflin.com">Nicolas Ruflin</a></td>
+</tr>
+</table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a id="method___construct"></a><div class="element clickable method public method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
+<h2>Constructs search object</h2>
+<pre>__construct(\Elastica\Client $client) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$client</h4>
+<code><a href="../classes/Elastica.Client.html">\Elastica\Client</a></code><p>Client object</p></div>
+</div></div>
+</div>
+<a id="method_addIndex"></a><div class="element clickable method public method_addIndex" data-toggle="collapse" data-target=".method_addIndex .collapse">
+<h2>Adds a index to the list</h2>
+<pre>addIndex(<a href="../classes/Elastica.Index.html">\Elastica\Index</a> | string $index) : <a href="../classes/Elastica.Search.html">\Elastica\Search</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$index</h4>
+<code><a href="../classes/Elastica.Index.html">\Elastica\Index</a></code><code>string</code><p>Index object or string</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="../classes/Elastica.Exception.InvalidException.html">\Elastica\Exception\InvalidException</a></code></th>
+<td></td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/Elastica.Search.html">\Elastica\Search</a></code>Current object</div>
+</div></div>
+</div>
+<a id="method_addIndices"></a><div class="element clickable method public method_addIndices" data-toggle="collapse" data-target=".method_addIndices .collapse">
+<h2>Add array of indices at once</h2>
+<pre>addIndices(array $indices) : <a href="../classes/Elastica.Search.html">\Elastica\Search</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$indices</h4>
+<code>array</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Search.html">\Elastica\Search</a></code></div>
+</div></div>
+</div>
+<a id="method_addOption"></a><div class="element clickable method public method_addOption" data-toggle="collapse" data-target=".method_addOption .collapse">
+<h2>addOption()
+        </h2>
+<pre>addOption(string $key, mixed $value) : <a href="../classes/Elastica.Search.html">\Elastica\Search</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$key</h4>
+<code>string</code>
+</div>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>mixed</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Search.html">\Elastica\Search</a></code></div>
+</div></div>
+</div>
+<a id="method_addType"></a><div class="element clickable method public method_addType" data-toggle="collapse" data-target=".method_addType .collapse">
+<h2>Adds a type to the current search</h2>
+<pre>addType(<a href="../classes/Elastica.Type.html">\Elastica\Type</a> | string $type) : <a href="../classes/Elastica.Search.html">\Elastica\Search</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$type</h4>
+<code><a href="../classes/Elastica.Type.html">\Elastica\Type</a></code><code>string</code><p>Type name or object</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="../classes/Elastica.Exception.InvalidException.html">\Elastica\Exception\InvalidException</a></code></th>
+<td></td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/Elastica.Search.html">\Elastica\Search</a></code>Search object</div>
+</div></div>
+</div>
+<a id="method_addTypes"></a><div class="element clickable method public method_addTypes" data-toggle="collapse" data-target=".method_addTypes .collapse">
+<h2>Add array of types</h2>
+<pre>addTypes(array $types) : <a href="../classes/Elastica.Search.html">\Elastica\Search</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$types</h4>
+<code>array</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Search.html">\Elastica\Search</a></code></div>
+</div></div>
+</div>
+<a id="method_clearOptions"></a><div class="element clickable method public method_clearOptions" data-toggle="collapse" data-target=".method_clearOptions .collapse">
+<h2>clearOptions()
+        </h2>
+<pre>clearOptions() : <a href="../classes/Elastica.Search.html">\Elastica\Search</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Search.html">\Elastica\Search</a></code></div>
+</div></div>
+</div>
+<a id="method_count"></a><div class="element clickable method public method_count" data-toggle="collapse" data-target=".method_count .collapse">
+<h2>count()
+        </h2>
+<pre>count(mixed $query) : int</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$query</h4>
+<code>mixed</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>int</code></div>
+</div></div>
+</div>
+<a id="method_create"></a><div class="element clickable method public method_create" data-toggle="collapse" data-target=".method_create .collapse">
+<h2>Creates new search object</h2>
+<pre>create(\Elastica\SearchableInterface $searchObject) : <a href="../classes/Elastica.Search.html">\Elastica\Search</a></pre>
+<div class="labels"><span class="label">Static</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$searchObject</h4>
+<code><a href="../classes/Elastica.SearchableInterface.html">\Elastica\SearchableInterface</a></code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Search.html">\Elastica\Search</a></code></div>
+</div></div>
+</div>
+<a id="method_getClient"></a><div class="element clickable method public method_getClient" data-toggle="collapse" data-target=".method_getClient .collapse">
+<h2>Return client object</h2>
+<pre>getClient() : <a href="../classes/Elastica.Client.html">\Elastica\Client</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/Elastica.Client.html">\Elastica\Client</a></code>Client object</div>
+</div></div>
+</div>
+<a id="method_getIndices"></a><div class="element clickable method public method_getIndices" data-toggle="collapse" data-target=".method_getIndices .collapse">
+<h2>Return array of indices</h2>
+<pre>getIndices() : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>List of index names</div>
+</div></div>
+</div>
+<a id="method_getOption"></a><div class="element clickable method public method_getOption" data-toggle="collapse" data-target=".method_getOption .collapse">
+<h2>getOption()
+        </h2>
+<pre>getOption(string $key) : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$key</h4>
+<code>string</code>
+</div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="../classes/Elastica.Exception.InvalidException.html">\Elastica\Exception\InvalidException</a></code></th>
+<td></td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
+<a id="method_getOptions"></a><div class="element clickable method public method_getOptions" data-toggle="collapse" data-target=".method_getOptions .collapse">
+<h2>getOptions()
+        </h2>
+<pre>getOptions() : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>array</code></div>
+</div></div>
+</div>
+<a id="method_getPath"></a><div class="element clickable method public method_getPath" data-toggle="collapse" data-target=".method_getPath .collapse">
+<h2>Combines indices and types to the search request path</h2>
+<pre>getPath() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>Search path</div>
+</div></div>
+</div>
+<a id="method_getQuery"></a><div class="element clickable method public method_getQuery" data-toggle="collapse" data-target=".method_getQuery .collapse">
+<h2>getQuery()
+        </h2>
+<pre>getQuery() : <a href="../classes/Elastica.Query.html">\Elastica\Query</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Query.html">\Elastica\Query</a></code></div>
+</div></div>
+</div>
+<a id="method_getTypes"></a><div class="element clickable method public method_getTypes" data-toggle="collapse" data-target=".method_getTypes .collapse">
+<h2>Return array of types</h2>
+<pre>getTypes() : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>List of types</div>
+</div></div>
+</div>
+<a id="method_hasIndex"></a><div class="element clickable method public method_hasIndex" data-toggle="collapse" data-target=".method_hasIndex .collapse">
+<h2>hasIndex()
+        </h2>
+<pre>hasIndex(<a href="../classes/Elastica.Index.html">\Elastica\Index</a> | string $index) : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$index</h4>
+<code><a href="../classes/Elastica.Index.html">\Elastica\Index</a></code><code>string</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>bool</code></div>
+</div></div>
+</div>
+<a id="method_hasIndices"></a><div class="element clickable method public method_hasIndices" data-toggle="collapse" data-target=".method_hasIndices .collapse">
+<h2>hasIndices()
+        </h2>
+<pre>hasIndices() : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>bool</code></div>
+</div></div>
+</div>
+<a id="method_hasOption"></a><div class="element clickable method public method_hasOption" data-toggle="collapse" data-target=".method_hasOption .collapse">
+<h2>hasOption()
+        </h2>
+<pre>hasOption(string $key) : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$key</h4>
+<code>string</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>bool</code></div>
+</div></div>
+</div>
+<a id="method_hasType"></a><div class="element clickable method public method_hasType" data-toggle="collapse" data-target=".method_hasType .collapse">
+<h2>hasType()
+        </h2>
+<pre>hasType(<a href="../classes/Elastica.Type.html">\Elastica\Type</a> | string $type) : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$type</h4>
+<code><a href="../classes/Elastica.Type.html">\Elastica\Type</a></code><code>string</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>bool</code></div>
+</div></div>
+</div>
+<a id="method_hasTypes"></a><div class="element clickable method public method_hasTypes" data-toggle="collapse" data-target=".method_hasTypes .collapse">
+<h2>hasTypes()
+        </h2>
+<pre>hasTypes() : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>bool</code></div>
+</div></div>
+</div>
+<a id="method_search"></a><div class="element clickable method public method_search" data-toggle="collapse" data-target=".method_search .collapse">
+<h2>Search in the set indices, types</h2>
+<pre>search(mixed $query, int | array $options) : <a href="../classes/Elastica.ResultSet.html">\Elastica\ResultSet</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$query</h4>
+<code>mixed</code>
+</div>
+<div class="subelement argument">
+<h4>$options</h4>
+<code>int</code><code>array</code><p>OPTIONAL Limit or associative array of options (option=>value)</p>
+</div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="../classes/Elastica.Exception.InvalidException.html">\Elastica\Exception\InvalidException</a></code></th>
+<td></td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.ResultSet.html">\Elastica\ResultSet</a></code></div>
+</div></div>
+</div>
+<a id="method_setOption"></a><div class="element clickable method public method_setOption" data-toggle="collapse" data-target=".method_setOption .collapse">
+<h2>setOption()
+        </h2>
+<pre>setOption(string $key, mixed $value) : <a href="../classes/Elastica.Search.html">\Elastica\Search</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$key</h4>
+<code>string</code>
+</div>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>mixed</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Search.html">\Elastica\Search</a></code></div>
+</div></div>
+</div>
+<a id="method_setOptions"></a><div class="element clickable method public method_setOptions" data-toggle="collapse" data-target=".method_setOptions .collapse">
+<h2>setOptions()
+        </h2>
+<pre>setOptions(array $options) : <a href="../classes/Elastica.Search.html">\Elastica\Search</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$options</h4>
+<code>array</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Search.html">\Elastica\Search</a></code></div>
+</div></div>
+</div>
+<a id="method_setOptionsAndQuery"></a><div class="element clickable method public method_setOptionsAndQuery" data-toggle="collapse" data-target=".method_setOptionsAndQuery .collapse">
+<h2>setOptionsAndQuery()
+        </h2>
+<pre>setOptionsAndQuery(array | int $options, string | array | <a href="../classes/Elastica.Query.html">\Elastica\Query</a> $query) : <a href="../classes/Elastica.Search.html">\Elastica\Search</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$options</h4>
+<code>array</code><code>int</code>
+</div>
+<div class="subelement argument">
+<h4>$query</h4>
+<code>string</code><code>array</code><code><a href="../classes/Elastica.Query.html">\Elastica\Query</a></code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Search.html">\Elastica\Search</a></code></div>
+</div></div>
+</div>
+<a id="method_setQuery"></a><div class="element clickable method public method_setQuery" data-toggle="collapse" data-target=".method_setQuery .collapse">
+<h2>setQuery()
+        </h2>
+<pre>setQuery(string | array | <a href="../classes/Elastica.Query.html">\Elastica\Query</a> | <a href="../classes/Elastica.Query.AbstractQuery.html">\Elastica\Query\AbstractQuery</a> | <a href="../classes/Elastica.Filter.AbstractFilter.html">\Elastica\Filter\AbstractFilter</a> $query) : <a href="../classes/Elastica.Search.html">\Elastica\Search</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$query</h4>
+<code>string</code><code>array</code><code><a href="../classes/Elastica.Query.html">\Elastica\Query</a></code><code><a href="../classes/Elastica.Query.AbstractQuery.html">\Elastica\Query\AbstractQuery</a></code><code><a href="../classes/Elastica.Filter.AbstractFilter.html">\Elastica\Filter\AbstractFilter</a></code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Search.html">\Elastica\Search</a></code></div>
+</div></div>
+</div>
+<a id="method__validateOption"></a><div class="element clickable method protected method__validateOption" data-toggle="collapse" data-target=".method__validateOption .collapse">
+<h2>_validateOption()
+        </h2>
+<pre>_validateOption(string $key) : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$key</h4>
+<code>string</code>
+</div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="../classes/Elastica.Exception.InvalidException.html">\Elastica\Exception\InvalidException</a></code></th>
+<td></td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>bool</code></div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a id="property__client"> </a><div class="element clickable property protected property__client" data-toggle="collapse" data-target=".property__client .collapse">
+<h2></h2>
+<pre>$_client : <a href="../classes/Elastica.Client.html">\Elastica\Client</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property__indices"> </a><div class="element clickable property protected property__indices" data-toggle="collapse" data-target=".property__indices .collapse">
+<h2></h2>
+<pre>$_indices : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property__options"> </a><div class="element clickable property protected property__options" data-toggle="collapse" data-target=".property__options .collapse">
+<h2></h2>
+<pre>$_options : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property__query"> </a><div class="element clickable property protected property__query" data-toggle="collapse" data-target=".property__query .collapse">
+<h2></h2>
+<pre>$_query : <a href="../classes/Elastica.Query.html">\Elastica\Query</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property__types"> </a><div class="element clickable property protected property__types" data-toggle="collapse" data-target=".property__types .collapse">
+<h2></h2>
+<pre>$_types : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<h3>
+<i class="icon-custom icon-constant"></i> Constants</h3>
+<a id="constant_OPTION_FROM"> </a><div class="element clickable constant  constant_OPTION_FROM" data-toggle="collapse" data-target=".constant_OPTION_FROM .collapse">
+<h2>OPTION_FROM</h2>
+<pre>OPTION_FROM </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPTION_PREFERENCE"> </a><div class="element clickable constant  constant_OPTION_PREFERENCE" data-toggle="collapse" data-target=".constant_OPTION_PREFERENCE .collapse">
+<h2>OPTION_PREFERENCE</h2>
+<pre>OPTION_PREFERENCE </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPTION_ROUTING"> </a><div class="element clickable constant  constant_OPTION_ROUTING" data-toggle="collapse" data-target=".constant_OPTION_ROUTING .collapse">
+<h2>OPTION_ROUTING</h2>
+<pre>OPTION_ROUTING </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPTION_SEARCH_TYPE"> </a><div class="element clickable constant  constant_OPTION_SEARCH_TYPE" data-toggle="collapse" data-target=".constant_OPTION_SEARCH_TYPE .collapse">
+<h2>OPTION_SEARCH_TYPE</h2>
+<pre>OPTION_SEARCH_TYPE </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPTION_SEARCH_TYPE_COUNT"> </a><div class="element clickable constant  constant_OPTION_SEARCH_TYPE_COUNT" data-toggle="collapse" data-target=".constant_OPTION_SEARCH_TYPE_COUNT .collapse">
+<h2>OPTION_SEARCH_TYPE_COUNT</h2>
+<pre>OPTION_SEARCH_TYPE_COUNT </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPTION_SEARCH_TYPE_DFS_QUERY_AND_FETCH"> </a><div class="element clickable constant  constant_OPTION_SEARCH_TYPE_DFS_QUERY_AND_FETCH" data-toggle="collapse" data-target=".constant_OPTION_SEARCH_TYPE_DFS_QUERY_AND_FETCH .collapse">
+<h2>OPTION_SEARCH_TYPE_DFS_QUERY_AND_FETCH</h2>
+<pre>OPTION_SEARCH_TYPE_DFS_QUERY_AND_FETCH </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPTION_SEARCH_TYPE_DFS_QUERY_THEN_FETCH"> </a><div class="element clickable constant  constant_OPTION_SEARCH_TYPE_DFS_QUERY_THEN_FETCH" data-toggle="collapse" data-target=".constant_OPTION_SEARCH_TYPE_DFS_QUERY_THEN_FETCH .collapse">
+<h2>OPTION_SEARCH_TYPE_DFS_QUERY_THEN_FETCH</h2>
+<pre>OPTION_SEARCH_TYPE_DFS_QUERY_THEN_FETCH </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPTION_SEARCH_TYPE_QUERY_AND_FETCH"> </a><div class="element clickable constant  constant_OPTION_SEARCH_TYPE_QUERY_AND_FETCH" data-toggle="collapse" data-target=".constant_OPTION_SEARCH_TYPE_QUERY_AND_FETCH .collapse">
+<h2>OPTION_SEARCH_TYPE_QUERY_AND_FETCH</h2>
+<pre>OPTION_SEARCH_TYPE_QUERY_AND_FETCH </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPTION_SEARCH_TYPE_QUERY_THEN_FETCH"> </a><div class="element clickable constant  constant_OPTION_SEARCH_TYPE_QUERY_THEN_FETCH" data-toggle="collapse" data-target=".constant_OPTION_SEARCH_TYPE_QUERY_THEN_FETCH .collapse">
+<h2>OPTION_SEARCH_TYPE_QUERY_THEN_FETCH</h2>
+<pre>OPTION_SEARCH_TYPE_QUERY_THEN_FETCH </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPTION_SEARCH_TYPE_SCAN"> </a><div class="element clickable constant  constant_OPTION_SEARCH_TYPE_SCAN" data-toggle="collapse" data-target=".constant_OPTION_SEARCH_TYPE_SCAN .collapse">
+<h2>OPTION_SEARCH_TYPE_SCAN</h2>
+<pre>OPTION_SEARCH_TYPE_SCAN </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPTION_SIZE"> </a><div class="element clickable constant  constant_OPTION_SIZE" data-toggle="collapse" data-target=".constant_OPTION_SIZE .collapse">
+<h2>OPTION_SIZE</h2>
+<pre>OPTION_SIZE </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPTION_TIMEOUT"> </a><div class="element clickable constant  constant_OPTION_TIMEOUT" data-toggle="collapse" data-target=".constant_OPTION_TIMEOUT .collapse">
+<h2>OPTION_TIMEOUT</h2>
+<pre>OPTION_TIMEOUT </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPTION_VERSION"> </a><div class="element clickable constant  constant_OPTION_VERSION" data-toggle="collapse" data-target=".constant_OPTION_VERSION .collapse">
+<h2>OPTION_VERSION</h2>
+<pre>OPTION_VERSION </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
+            generated on 2013-05-26T18:20:59+02:00.<br></footer></div>
+</div>
+</body>
+</html>

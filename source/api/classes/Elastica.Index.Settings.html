@@ -1,0 +1,485 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>Elastica » \Elastica\Index\Settings</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">Elastica</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/Elastica.html"><i class="icon-th"></i> Elastica</a></li>
+<li><a>Packages</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+<li><a href="../packages/Elastica.html"><i class="icon-folder-open"></i> Elastica</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">416</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul><li>todo 
+                <span class="label label-info">9</span>
+</li></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">3</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public "><a href="#method___construct" title="__construct :: Construct"><span class="description">Construct</span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#method_get" title="get :: Returns the current settings of the index"><span class="description">Returns the current settings of the index</span><pre>get()</pre></a></li>
+<li class="method public "><a href="#method_getBlocksMetadata" title="getBlocksMetadata :: "><span class="description">getBlocksMetadata()
+        </span><pre>getBlocksMetadata()</pre></a></li>
+<li class="method public "><a href="#method_getBlocksRead" title="getBlocksRead :: "><span class="description">getBlocksRead()
+        </span><pre>getBlocksRead()</pre></a></li>
+<li class="method public "><a href="#method_getBlocksWrite" title="getBlocksWrite :: "><span class="description">getBlocksWrite()
+        </span><pre>getBlocksWrite()</pre></a></li>
+<li class="method public "><a href="#method_getIndex" title="getIndex :: Returns the index object"><span class="description">Returns the index object</span><pre>getIndex()</pre></a></li>
+<li class="method public "><a href="#method_getMergePolicy" title="getMergePolicy :: Returns the specific merge policy value"><span class="description">Returns the specific merge policy value</span><pre>getMergePolicy()</pre></a></li>
+<li class="method public "><a href="#method_getMergePolicyType" title="getMergePolicyType :: Return merge policy"><span class="description">Return merge policy</span><pre>getMergePolicyType()</pre></a></li>
+<li class="method public "><a href="#method_getRefreshInterval" title="getRefreshInterval :: Returns the refresh interval"><span class="description">Returns the refresh interval</span><pre>getRefreshInterval()</pre></a></li>
+<li class="method public "><a href="#method_request" title="request :: Updates the given settings for the index"><span class="description">Updates the given settings for the index</span><pre>request()</pre></a></li>
+<li class="method public "><a href="#method_set" title="set :: Can be used to set/update settings"><span class="description">Can be used to set/update settings</span><pre>set()</pre></a></li>
+<li class="method public "><a href="#method_setBlocksMetadata" title="setBlocksMetadata :: "><span class="description">setBlocksMetadata()
+        </span><pre>setBlocksMetadata()</pre></a></li>
+<li class="method public "><a href="#method_setBlocksRead" title="setBlocksRead :: "><span class="description">setBlocksRead()
+        </span><pre>setBlocksRead()</pre></a></li>
+<li class="method public "><a href="#method_setBlocksWrite" title="setBlocksWrite :: "><span class="description">setBlocksWrite()
+        </span><pre>setBlocksWrite()</pre></a></li>
+<li class="method public "><a href="#method_setMergePolicy" title="setMergePolicy :: Sets the specific merge policies"><span class="description">Sets the specific merge policies</span><pre>setMergePolicy()</pre></a></li>
+<li class="method public "><a href="#method_setMergePolicyType" title="setMergePolicyType :: Sets merge policy"><span class="description">Sets merge policy</span><pre>setMergePolicyType()</pre></a></li>
+<li class="method public "><a href="#method_setNumberOfReplicas" title="setNumberOfReplicas :: Sets the number of replicas"><span class="description">Sets the number of replicas</span><pre>setNumberOfReplicas()</pre></a></li>
+<li class="method public "><a href="#method_setReadOnly" title="setReadOnly :: Sets the index to read only"><span class="description">Sets the index to read only</span><pre>setReadOnly()</pre></a></li>
+<li class="method public "><a href="#method_setRefreshInterval" title="setRefreshInterval :: Sets the index refresh interval"><span class="description">Sets the index refresh interval</span><pre>setRefreshInterval()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties
+                    <ul></ul>
+</li>
+<li class="nav-header protected">» Protected
+                    <ul>
+<li class="property protected "><a href="#property__data" title="$_data :: Stats info"><span class="description"></span><pre>$_data</pre></a></li>
+<li class="property protected "><a href="#property__index" title="$_index :: Index"><span class="description"></span><pre>$_index</pre></a></li>
+<li class="property protected "><a href="#property__response" title="$_response :: Response"><span class="description"></span><pre>$_response</pre></a></li>
+</ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-constant"></i> Constants
+                    <ul><li class="constant  "><a href="#constant_DEFAULT_REFRESH_INTERVAL" title="DEFAULT_REFRESH_INTERVAL :: "><span class="description">DEFAULT_REFRESH_INTERVAL</span><pre>DEFAULT_REFRESH_INTERVAL</pre></a></li></ul>
+</li>
+</ul>
+</div>
+<div class="span8">
+<a id="\Elastica\Index\Settings"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/Elastica.html">Elastica</a></li>
+<li>
+<span class="divider">\</span><a href="../namespaces/Elastica.Index.html">Index</a>
+</li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/Elastica.Index.Settings.html">Settings</a>
+</li>
+</ul>
+<div class="element class">
+<p class="short_description">Elastica index settings object</p>
+<div class="details">
+<div class="long_description"><p>All settings listed in the update settings API (http://www.elasticsearch.org/guide/reference/api/admin-indices-update-settings.html)
+can be changed on a running indices. To make changes like the merge policy (http://www.elasticsearch.org/guide/reference/index-modules/merge.html)
+the index has to be closed first and reopened after the call</p></div>
+<table class="table table-bordered">
+<tr>
+<th>category</th>
+<td>Xodoa</td>
+</tr>
+<tr>
+<th>package</th>
+<td><a href="../packages/Elastica.html">Elastica</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:spam@ruflin.com">Nicolas Ruflin</a></td>
+</tr>
+<tr>
+<th>link</th>
+<td><a href="http://www.elasticsearch.org/guide/reference/api/admin-indices-update-settings.html">http://www.elasticsearch.org/guide/reference/api/admin-indices-update-settings.html</a></td>
+</tr>
+<tr>
+<th>link</th>
+<td><a href="http://www.elasticsearch.org/guide/reference/index-modules/merge.html">http://www.elasticsearch.org/guide/reference/index-modules/merge.html</a></td>
+</tr>
+</table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a id="method___construct"></a><div class="element clickable method public method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
+<h2>Construct</h2>
+<pre>__construct(\Elastica\Index $index) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$index</h4>
+<code><a href="../classes/Elastica.Index.html">\Elastica\Index</a></code><p>Index object</p></div>
+</div></div>
+</div>
+<a id="method_get"></a><div class="element clickable method public method_get" data-toggle="collapse" data-target=".method_get .collapse">
+<h2>Returns the current settings of the index</h2>
+<pre>get(string $setting) : array | string | null</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>If param is set, only specified setting is return.
+'index.' is added in front of $setting.</p></div>
+<table class="table table-bordered"><tr>
+<th>link</th>
+<td><a href="http://www.elasticsearch.org/guide/reference/api/admin-indices-update-settings.html">http://www.elasticsearch.org/guide/reference/api/admin-indices-update-settings.html</a></td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$setting</h4>
+<code>string</code><p>OPTIONAL Setting name to return</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code><code>string</code><code>null</code>Settings data</div>
+</div></div>
+</div>
+<a id="method_getBlocksMetadata"></a><div class="element clickable method public method_getBlocksMetadata" data-toggle="collapse" data-target=".method_getBlocksMetadata .collapse">
+<h2>getBlocksMetadata()
+        </h2>
+<pre>getBlocksMetadata() : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>bool</code></div>
+</div></div>
+</div>
+<a id="method_getBlocksRead"></a><div class="element clickable method public method_getBlocksRead" data-toggle="collapse" data-target=".method_getBlocksRead .collapse">
+<h2>getBlocksRead()
+        </h2>
+<pre>getBlocksRead() : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>bool</code></div>
+</div></div>
+</div>
+<a id="method_getBlocksWrite"></a><div class="element clickable method public method_getBlocksWrite" data-toggle="collapse" data-target=".method_getBlocksWrite .collapse">
+<h2>getBlocksWrite()
+        </h2>
+<pre>getBlocksWrite() : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>bool</code></div>
+</div></div>
+</div>
+<a id="method_getIndex"></a><div class="element clickable method public method_getIndex" data-toggle="collapse" data-target=".method_getIndex .collapse">
+<h2>Returns the index object</h2>
+<pre>getIndex() : <a href="../classes/Elastica.Index.html">\Elastica\Index</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/Elastica.Index.html">\Elastica\Index</a></code>Index object</div>
+</div></div>
+</div>
+<a id="method_getMergePolicy"></a><div class="element clickable method public method_getMergePolicy" data-toggle="collapse" data-target=".method_getMergePolicy .collapse">
+<h2>Returns the specific merge policy value</h2>
+<pre>getMergePolicy(string $key) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>link</th>
+<td><a href="http://www.elasticsearch.org/guide/reference/index-modules/merge.html">http://www.elasticsearch.org/guide/reference/index-modules/merge.html</a></td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$key</h4>
+<code>string</code><p>Merge policy key (for ex. expunge_deletes_allowed)</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>Refresh interval</div>
+</div></div>
+</div>
+<a id="method_getMergePolicyType"></a><div class="element clickable method public method_getMergePolicyType" data-toggle="collapse" data-target=".method_getMergePolicyType .collapse">
+<h2>Return merge policy</h2>
+<pre>getMergePolicyType() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>Merge policy type</div>
+</div></div>
+</div>
+<a id="method_getRefreshInterval"></a><div class="element clickable method public method_getRefreshInterval" data-toggle="collapse" data-target=".method_getRefreshInterval .collapse">
+<h2>Returns the refresh interval</h2>
+<pre>getRefreshInterval() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>If no interval is set, the default interval is returned</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>Refresh interval</div>
+</div></div>
+</div>
+<a id="method_request"></a><div class="element clickable method public method_request" data-toggle="collapse" data-target=".method_request .collapse">
+<h2>Updates the given settings for the index</h2>
+<pre>request(array $data, string $method) : <a href="../classes/Elastica.Response.html">\Elastica\Response</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>With elasticsearch 0.16 the following settings are supported
+- index.term_index_interval
+- index.term_index_divisor
+- index.translog.flush_threshold_ops
+- index.translog.flush_threshold_size
+- index.translog.flush_threshold_period
+- index.refresh_interval
+- index.merge.policy
+- index.auto_expand_replicas</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$data</h4>
+<code>array</code><p>OPTIONAL Data array</p></div>
+<div class="subelement argument">
+<h4>$method</h4>
+<code>string</code><p>OPTIONAL Transfer method (default = \Elastica\Request::GET)</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/Elastica.Response.html">\Elastica\Response</a></code>Response object</div>
+</div></div>
+</div>
+<a id="method_set"></a><div class="element clickable method public method_set" data-toggle="collapse" data-target=".method_set .collapse">
+<h2>Can be used to set/update settings</h2>
+<pre>set(array $data) : <a href="../classes/Elastica.Response.html">\Elastica\Response</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$data</h4>
+<code>array</code><p>Arguments</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/Elastica.Response.html">\Elastica\Response</a></code>Response object</div>
+</div></div>
+</div>
+<a id="method_setBlocksMetadata"></a><div class="element clickable method public method_setBlocksMetadata" data-toggle="collapse" data-target=".method_setBlocksMetadata .collapse">
+<h2>setBlocksMetadata()
+        </h2>
+<pre>setBlocksMetadata(bool $state) : <a href="../classes/Elastica.Response.html">\Elastica\Response</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$state</h4>
+<code>bool</code><p>OPTIONAL (default = true)</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Response.html">\Elastica\Response</a></code></div>
+</div></div>
+</div>
+<a id="method_setBlocksRead"></a><div class="element clickable method public method_setBlocksRead" data-toggle="collapse" data-target=".method_setBlocksRead .collapse">
+<h2>setBlocksRead()
+        </h2>
+<pre>setBlocksRead(bool $state) : <a href="../classes/Elastica.Response.html">\Elastica\Response</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$state</h4>
+<code>bool</code><p>OPTIONAL (default = true)</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Response.html">\Elastica\Response</a></code></div>
+</div></div>
+</div>
+<a id="method_setBlocksWrite"></a><div class="element clickable method public method_setBlocksWrite" data-toggle="collapse" data-target=".method_setBlocksWrite .collapse">
+<h2>setBlocksWrite()
+        </h2>
+<pre>setBlocksWrite(bool $state) : <a href="../classes/Elastica.Response.html">\Elastica\Response</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$state</h4>
+<code>bool</code><p>OPTIONAL (default = true)</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Response.html">\Elastica\Response</a></code></div>
+</div></div>
+</div>
+<a id="method_setMergePolicy"></a><div class="element clickable method public method_setMergePolicy" data-toggle="collapse" data-target=".method_setMergePolicy .collapse">
+<h2>Sets the specific merge policies</h2>
+<pre>setMergePolicy(string $key, string $value) : <a href="../classes/Elastica.Response.html">\Elastica\Response</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>To have this changes made the index has to be closed and reopened</p></div>
+<table class="table table-bordered"><tr>
+<th>link</th>
+<td><a href="http://www.elasticsearch.org/guide/reference/index-modules/merge.html">http://www.elasticsearch.org/guide/reference/index-modules/merge.html</a></td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$key</h4>
+<code>string</code><p>Merge policy key (for ex. expunge_deletes_allowed)</p>
+</div>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>string</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Response.html">\Elastica\Response</a></code></div>
+</div></div>
+</div>
+<a id="method_setMergePolicyType"></a><div class="element clickable method public method_setMergePolicyType" data-toggle="collapse" data-target=".method_setMergePolicyType .collapse">
+<h2>Sets merge policy</h2>
+<pre>setMergePolicyType(string $type) : <a href="../classes/Elastica.Response.html">\Elastica\Response</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>link</th>
+<td><a href="http://www.elasticsearch.org/guide/reference/index-modules/merge.html">http://www.elasticsearch.org/guide/reference/index-modules/merge.html</a></td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$type</h4>
+<code>string</code><p>Merge policy type</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/Elastica.Response.html">\Elastica\Response</a></code>Response object</div>
+</div></div>
+</div>
+<a id="method_setNumberOfReplicas"></a><div class="element clickable method public method_setNumberOfReplicas" data-toggle="collapse" data-target=".method_setNumberOfReplicas .collapse">
+<h2>Sets the number of replicas</h2>
+<pre>setNumberOfReplicas(int $replicas) : <a href="../classes/Elastica.Response.html">\Elastica\Response</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$replicas</h4>
+<code>int</code><p>Number of replicas</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/Elastica.Response.html">\Elastica\Response</a></code>Response object</div>
+</div></div>
+</div>
+<a id="method_setReadOnly"></a><div class="element clickable method public method_setReadOnly" data-toggle="collapse" data-target=".method_setReadOnly .collapse">
+<h2>Sets the index to read only</h2>
+<pre>setReadOnly(bool $readOnly) : <a href="../classes/Elastica.Response.html">\Elastica\Response</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$readOnly</h4>
+<code>bool</code><p>(default = true)</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Elastica.Response.html">\Elastica\Response</a></code></div>
+</div></div>
+</div>
+<a id="method_setRefreshInterval"></a><div class="element clickable method public method_setRefreshInterval" data-toggle="collapse" data-target=".method_setRefreshInterval .collapse">
+<h2>Sets the index refresh interval</h2>
+<pre>setRefreshInterval(int $interval) : <a href="../classes/Elastica.Response.html">\Elastica\Response</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Value can be for example 3s for 3 seconds or
+5m for 5 minutes. -1 refreshing is disabled.</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$interval</h4>
+<code>int</code><p>Number of seconds</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/Elastica.Response.html">\Elastica\Response</a></code>Response object</div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a id="property__data"> </a><div class="element clickable property protected property__data" data-toggle="collapse" data-target=".property__data .collapse">
+<h2></h2>
+<pre>$_data : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property__index"> </a><div class="element clickable property protected property__index" data-toggle="collapse" data-target=".property__index .collapse">
+<h2></h2>
+<pre>$_index : <a href="../classes/Elastica.Index.html">\Elastica\Index</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property__response"> </a><div class="element clickable property protected property__response" data-toggle="collapse" data-target=".property__response .collapse">
+<h2></h2>
+<pre>$_response : <a href="../classes/Elastica.Response.html">\Elastica\Response</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<h3>
+<i class="icon-custom icon-constant"></i> Constants</h3>
+<a id="constant_DEFAULT_REFRESH_INTERVAL"> </a><div class="element clickable constant  constant_DEFAULT_REFRESH_INTERVAL" data-toggle="collapse" data-target=".constant_DEFAULT_REFRESH_INTERVAL .collapse">
+<h2>DEFAULT_REFRESH_INTERVAL</h2>
+<pre>DEFAULT_REFRESH_INTERVAL </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
+            generated on 2013-05-26T18:20:58+02:00.<br></footer></div>
+</div>
+</body>
+</html>
