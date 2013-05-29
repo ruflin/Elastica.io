@@ -16,23 +16,14 @@ footer: true
 These instructions give you an overview of how to use <em>Elastica</em>. You can find the complete <strong>API</strong> <a href="api/index.html">here</a>. It is build directly from source.
 </p>
 
-<nav class="toc">
-<ul>
-<li><a href="/releases">Releases</a></li>
-<li>
-<a href="/installation">Installation</a>
-</li>
-<li>
-<a href="/storing-and-indexing-documents">Storing and indexing documents</a>
-</li>
-<li>
-<a href="/search-documents">Search documents</a>
-</li>
-<li><a href="/release/v0.20.5.0">Migration Guide From  0.19 to 0.20</a></li>
-<li><a href="#section-credits">Credits</a></li>
+* [Releases](/releases)
+* [Installation](/installation)
+* [Storing and indexing documents](/storing-and-indexing-documents)
+* [Search documents](/search-documents)
+* [Logging](/logging/)
+* [Migration Guide From  0.19 to 0.20]()/release/v0.20.5.0)
+* <a href="#section-credits">Credits</a></li>
 
-</ul>
-</nav>
 
 <h2 id="section-credits">Credits</h2>
 <p>
