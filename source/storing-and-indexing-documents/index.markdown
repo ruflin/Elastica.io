@@ -5,44 +5,32 @@ comments: true
 sharing: true
 footer: true
 ---
-<ul>
-	<li>
-		<a href="#section-analysis">Define Analysis</a>
-	</li>
-	<li>
-		<a href="#section-mapping">Define Mapping</a>
-	</li>
-	<li>
-		<a href="#section-add">Add documents</a>
-	</li>
-</ul>
+
+* <a href="#section-analysis">Define Analysis</a>
+* <a href="#section-mapping">Define Mapping</a>
+* <a href="#section-add">Add documents</a>
 
 
-	<h2 id="section-storing">Storing and indexing documents</h2>
-		<p>
-			To add data to the index you can just drop some documents in and it will be indexed directly. But in most cases you want to specify how your data is indexed. There are a lot of possibilities in elasticsearch to do so. You can decide how each field is mapped and how your data is analyzed to provide the full text search.
-		</p>
-		<p>
-			For more information and all the possibilities elasticsearch provides, take a look at the <a href="http://www.elasticsearch.org/guide/reference/index-modules/analysis/">Analysis</a> and the <a href="http://www.elasticsearch.org/guide/reference/mapping/">Mapping</a> reference.
-		</p>
-		<p>
-			The documents in elasticsearch are organized in indexes. Each index contains one or more types which contains the documents. So to put our data in elasticsearch, we first have to define how the index and the type will look like.
-		</p>
-		<h3 id="section-analysis">Define Analysis</h3>
-			<p>
-				In elasticsearch, when you create an index, you define the number of shards and number of replicas. A shard is a part of your data and a replica is like an backup of that data. So when you have one node, all the shards and all the replicas will be on that node. When you have more nodes, your data will be balanced to these nodes. How it is balanced depends on your configuration. More on this topic can be found <a href="http://www.elasticsearch.org/videos/2010/02/08/es-distributed-diagram.html"> here</a>.
+<h2 id="section-storing">Storing and indexing documents</h2>
+To add data to the index you can just drop some documents in and it will be indexed directly. But in most cases you want to specify how your data is indexed. There are a lot of possibilities in elasticsearch to do so. You can decide how each field is mapped and how your data is analyzed to provide the full text search.
 
-			</p>
-			<p>
-				Data in elasticsearch is analyzed at two different times. Once, when you index a document it's analyzed and this information is put in the index. The other time is when do a search. Elasticsearch analyzes the search query and looks up the gained information in the index. To see all possible analyzers and filter check out the <a href="http://www.elasticsearch.org/guide/reference/index-modules/analysis/">Analysis</a> reference.
-			</p>
-			<p>
-				Let's create an index called twitter! We'll include two analyzers. Let's call them  <code>indexAnalyzer</code> and <code>searchAnalyzer</code>, but you can use any name. <code>indexAnalyzer</code> defines how the data will be analyzed when it's indexed and <code>searchAnalyzer</code> defines how elasticsearch will analyze the search query. We'll reference these when we create the Mapping below. In this example we'll also use a custom snowball filter for the data.
-			</p>
-			<p>
-			    The second argument of <code>\Elastica\Index</code> is an OPTIONAL bool=> (true) Deletes index first if already exists (default = false)
-			</p>
-<pre class="prettyprint">
+For more information and all the possibilities elasticsearch provides, take a look at the <a href="http://www.elasticsearch.org/guide/reference/index-modules/analysis/">Analysis</a> and the <a href="http://www.elasticsearch.org/guide/reference/mapping/">Mapping</a> reference.
+
+The documents in elasticsearch are organized in indexes. Each index contains one or more types which contains the documents. So to put our data in elasticsearch, we first have to define how the index and the type will look like.
+
+
+<h3 id="section-analysis">Define Analysis</h3>
+
+In elasticsearch, when you create an index, you define the number of shards and number of replicas. A shard is a part of your data and a replica is like an backup of that data. So when you have one node, all the shards and all the replicas will be on that node. When you have more nodes, your data will be balanced to these nodes. How it is balanced depends on your configuration. More on this topic can be found <a href="http://www.elasticsearch.org/videos/2010/02/08/es-distributed-diagram.html"> here</a>.
+
+Data in elasticsearch is analyzed at two different times. Once, when you index a document it's analyzed and this information is put in the index. The other time is when do a search. Elasticsearch analyzes the search query and looks up the gained information in the index. To see all possible analyzers and filter check out the <a href="http://www.elasticsearch.org/guide/reference/index-modules/analysis/">Analysis</a> reference.
+
+Let's create an index called twitter! We'll include two analyzers. Let's call them  <code>indexAnalyzer</code> and <code>searchAnalyzer</code>, but you can use any name. <code>indexAnalyzer</code> defines how the data will be analyzed when it's indexed and <code>searchAnalyzer</code> defines how elasticsearch will analyze the search query. We'll reference these when we create the Mapping below. In this example we'll also use a custom snowball filter for the data.
+
+The second argument of <code>\Elastica\Index</code> is an OPTIONAL bool=> (true) Deletes index first if already exists (default = false)
+
+
+```php
 // Load index
 $elasticaIndex = $elasticaClient->getIndex('twitter');
 
@@ -73,18 +61,19 @@ $elasticaIndex->create(
         )
     ),
     true
-);</pre>
-		<h3 id="section-mapping">Define Mapping</h3>
-			<p>
-				The Mapping defines what kind of data is in which field. If no mapping is defined, elasticsearch will guess the kind of the data and map it automatically. To see all of the possibilities, check out the <a href="http://www.elasticsearch.org/guide/reference/mapping/">Mapping</a> reference.</p>
-				
-			<p>
-			If you aren't going to define a mapping, you should probably change the name of the analyzers we defined above to <code>default_index</code> and <code>default_search</code>. These will be used automatically when no analyzer is specified. An analyzer named <code>default</code> can be used for both searching and indexing.
-			</p>
-			<p>
-				In our example, we will create an type called tweet which is in our index twitter. So first we create that type and afterwards we define the mapping. Note that it is possible to boost data in elasticsearch. You can either boost a specific field or you can boost a complete document. To boost a document, we'll use the field <code>_boost</code>. If we boost a field it's defined just like the kind of the field.
-			</p>
-<pre class="prettyprint">
+);
+```
+
+<h3 id="section-mapping">Define Mapping</h3>
+
+The Mapping defines what kind of data is in which field. If no mapping is defined, elasticsearch will guess the kind of the data and map it automatically. To see all of the possibilities, check out the <a href="http://www.elasticsearch.org/guide/reference/mapping/">Mapping</a> reference.</p>
+
+If you aren't going to define a mapping, you should probably change the name of the analyzers we defined above to <code>default_index</code> and <code>default_search</code>. These will be used automatically when no analyzer is specified. An analyzer named <code>default</code> can be used for both searching and indexing.
+
+In our example, we will create an type called tweet which is in our index twitter. So first we create that type and afterwards we define the mapping. Note that it is possible to boost data in elasticsearch. You can either boost a specific field or you can boost a complete document. To boost a document, we'll use the field <code>_boost</code>. If we boost a field it's defined just like the kind of the field.
+
+
+```php
 //Create a type
 $elasticaType = $elasticaIndex->getType('tweet');
 
@@ -114,15 +103,17 @@ $mapping->setProperties(array(
 ));
 
 // Send mapping to type
-$mapping->send();</pre>
-		<h3 id="section-add">Add documents</h3>
-			<p>
-				Now that we have our index ready for the data, we just need to go ahead an put some data in there!
-			</p>
-			<p>
-				First we put together our document. In our example it's a tweet. This tweet is going to be a <code>\Elastica\Document</code> which is then added to our type tweet in the index twitter.
-			</p>
-<pre class="prettyprint">
+$mapping->send();
+```
+
+<h3 id="section-add">Add documents</h3>
+
+Now that we have our index ready for the data, we just need to go ahead an put some data in there!
+
+First we put together our document. In our example it's a tweet. This tweet is going to be a <code>\Elastica\Document</code> which is then added to our type tweet in the index twitter.
+
+
+```php
 // The Id of the document
 $id = 1;
 
@@ -145,14 +136,16 @@ $tweetDocument = new \Elastica\Document($id, $tweet);
 $elasticaType->addDocument($tweetDocument);
 
 // Refresh Index
-$elasticaType->getIndex()->refresh();</pre>
-			<p>
-				Now the index contains a document. But that's not enough! Add more documents to the index, so a search makes sense!
-			</p>
-    <h3 id="section-bulk">Bulk indexing</h3>
-        <p>
-            Of course you can add one document after another. But what if you want to put the content of a large database this can be slow. It's better to create an array of documents and add them all at once:
-<pre class="prettyprint">
+$elasticaType->getIndex()->refresh();
+```
+
+Now the index contains a document. But that's not enough! Add more documents to the index, so a search makes sense!
+
+
+<h3 id="section-bulk">Bulk indexing</h3>
+Of course you can add one document after another. But what if you want to put the content of a large database this can be slow. It's better to create an array of documents and add them all at once:
+
+```php
 $documents = array();
 while ( ... ) { // Fetching content from the database
     $documents[] = new \Elastica\Document(
@@ -165,6 +158,6 @@ while ( ... ) { // Fetching content from the database
 // \Elastica\Type::addDocuments(array \Elastica\Document);
 $elasticaType->addDocuments($tweetDocument);
 $elasticaType->getIndex()->refresh();
-</pre>
-            A good start are 500 documents per bulk operation. Depending on the size of your documents you've to play around a little how many documents are a good number for your application.
-        </p>
+```
+
+A good start are 500 documents per bulk operation. Depending on the size of your documents you've to play around a little how many documents are a good number for your application.
