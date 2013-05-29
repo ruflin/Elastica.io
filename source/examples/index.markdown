@@ -5,5 +5,9 @@ comments: true
 sharing: true
 footer: true
 ---
+As everyone likes examples, here is list of examples. The perfect place to get even more examples is the quite extensive [test suite of Elastica](https://github.com/ruflin/Elastica/tree/master/test/lib/Elastica/Test). Select the object you want to know more about and check the test file for it. There you will probably have an example.
 
-* [Bool query](/example/bool-query)
+* General examples
+* Query examples
+  * [Bool query](/example/bool/query.html)
+* Filter examples
