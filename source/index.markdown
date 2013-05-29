@@ -6,23 +6,16 @@ sharing: true
 footer: true
 ---
 
-<p>
-<em><a href="http://github.com/ruflin/Elastica" title="Elastica">Elastica</a></em> is a PHP client for the <em><a href="http://elasticsearch.org">elasticsearch</a></em> search engine/database. <em>Elasticsearch</em> is an Open Source (Apache 2), Distributed, RESTful, Search Engine built on top of Apache Lucene.
-</p>
-<p>
-<em>Elastica</em> is open source, and you can download or clone the source code from <a href="http://github.com/ruflin/Elastica">ruflin/Elastica</a>.
-</p>
-<p>
-These instructions give you an overview of how to use <em>Elastica</em>. You can find the complete <strong>API</strong> <a href="api/index.html">here</a>. It is build directly from source.
-</p>
+Elastica.io is the documentation for Elastica. [Elastica](http://github.com/ruflin/Elastica) is a PHP client for the [elasticsearch](http://elasticsearch.org) search engine/database. Elasticsearch is an Open Source (Apache 2), Distributed, RESTful, Search Engine built on top of Apache Lucene. Elastica itself is also open source and you can download or clone the source code on Github from [ruflin/Elastica](http://github.com/ruflin/Elastica).
+
+These pages should give you an overview of how to use Elastica. You can find the complete [API here](api/index.html). Any contributions to the documentations are highly welcome. Elastica.io is based on [Octopress](http://octopress.org/) and is hosted on Github. Fork your copy from [ruflin/Elastica.io](https://github.com/ruflin/Elastica.io) and open a full request.
 
 * [Getting Started](/getting-started/)
-* [Releases](/releases/)
 * [Examples](/examples/)
-* [Migration Guide From  0.19 to 0.20]()/release/v0.20.5.0)
+* [Releases](/releases/)
+* [Migration Guide From  0.19 to 0.20](/release/v0.20.5.0)
 
 
-<h2 id="section-credits">Credits</h2>
-<p>
+Credits
+-------
 Credits go to <a href="https://github.com/ruflin/Elastica/network/members">all users that gave feedback and committed code</a>.
-</p>
