@@ -58,7 +58,7 @@ require_once '../vendor/autoload.php';
 
 If you don't use composer in your project you have to include Elastica. Best way to do this is to use PHP <a href="http://php.net/manual/en/function.spl-autoload-register.php">spl_autoload_register</a>. This function is automatically called in case you are trying to use a class/interface which hasn't been defined yet.
 
-So let's assume you installed Elastica to <code>/var/www/Elastica</code>. When you make an instance of <code>\Elastica\Client</code>, the function will check if there is a file with that class in <code>/var/www/Elastica/Client</code> and load it.
+So let's assume you installed Elastica to `/var/www/Elastica`. When you make an instance of `\Elastica\Client`, the function will check if there is a file with that class in `/var/www/Elastica/Client` and load it.
 
 ```php
 function __autoload_elastica ($class) {
@@ -102,7 +102,7 @@ If you are developing under windows just go to the bin folder and run
 Running a single node
 ---------------------
 
-When your single elasticsearch node is running on <code>localhost:9200</code>, which is the default, you can simply connect:
+When your single elasticsearch node is running on `localhost:9200`, which is the default, you can simply connect:
 
 ```php
 $elasticaClient = new \Elastica\Client();
@@ -123,7 +123,7 @@ Running a cluster
 
 Elasticsearch was built with the cloud / multiple distributed servers in mind. It is quite easy to start a elasticsearch cluster simply by starting multiple instances of elasticsearch on one server or on multiple servers. To start multiple instances of elasticsearch on your local machine, just run the command to start an instance in the elasticsearch folder twice.
 
-One of the goals of the distributed search index is availability. If one server goes down, search results should still be served. But if the client connects to only the server that just went down, no results are returned anymore. Because of this, <code>\Elastica\Client</code> supports multiple servers which are accessed in a round robin algorithm. This is the only and also most basic option at the moment. So if we start a node on port 9200 and port 9201 above, we pass the following arguments to <code>\Elastica\Client</code> to access both servers:
+One of the goals of the distributed search index is availability. If one server goes down, search results should still be served. But if the client connects to only the server that just went down, no results are returned anymore. Because of this, `\Elastica\Client` supports multiple servers which are accessed in a round robin algorithm. This is the only and also most basic option at the moment. So if we start a node on port 9200 and port 9201 above, we pass the following arguments to `\Elastica\Client` to access both servers:
 
 
 ```php
