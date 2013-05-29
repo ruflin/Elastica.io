@@ -16,11 +16,8 @@ footer: true
 These instructions give you an overview of how to use <em>Elastica</em>. You can find the complete <strong>API</strong> <a href="api/index.html">here</a>. It is build directly from source.
 </p>
 
+* [Getting Started](/getting-started/)
 * [Releases](/releases/)
-* [Installation](/installation/)
-* [Storing and indexing documents](/storing-and-indexing-documents)
-* [Search documents](/search-documents)
-* [Logging](/logging/)
 * [Examples](/examples/)
 * [Migration Guide From  0.19 to 0.20]()/release/v0.20.5.0)
 
