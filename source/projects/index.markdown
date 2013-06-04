@@ -8,7 +8,7 @@ footer: true
 Elastica is used in quite a few projects and libraries. In case you are using Elastica in your project or your library, feel free to add it below.
 
 # Libraries using Elastica
-* [FOQElasticaBundle](https://github.com/Exercise/FOQElasticaBundle) Symfony bundle using Elastica
+* [FOSElasticaBundle](https://github.com/FriendsOfSymfony/FOSElasticaBundle) Elasticsearch PHP integration for your Symfony2 project using Elastica
 * [pylastica](https://github.com/jlinn/pylastica) Python port of Elastica
 
 # Projects using Elastica
