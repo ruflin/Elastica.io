@@ -5,6 +5,9 @@ date: 2013-06-07 21:14
 comments: true
 categories: 
 ---
+
+* [Download](https://github.com/ruflin/Elastica/tree/v0.90.1.0)
+
 This release is a consists of several bigger refactoring steps in Elastica to make it compatible with the newest elasticsearch versions and allow to use the newest features. The release v0.90.1.0 is compatible with [elasticsearch 0.90.1](http://www.elasticsearch.org/2013/05/30/0-90-1-released/). 
 
 There are quite a few changes which break BC since the last official release [v0.19.8.0](/2012/08/12/release-v0-dot-19-dot-8-0/). For more details on the BC breaks follow the changes below and also check the [v0.20.5.0](/2013/02/20/release-v0-dot-20-dot-5-0/) release candidate changes for more details.

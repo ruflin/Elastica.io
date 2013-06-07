@@ -6,10 +6,10 @@ comments: true
 categories: 
 ---
 
-<h1>Release <a href="https://github.com/ruflin/Elastica/tree/v0.20.5.0">v0.20.5.0</a></h1>
+* [Download](https://github.com/ruflin/Elastica/tree/v0.20.5.0)
 
 
-<h2 id="section-migration">Migration Guide From  0.19 to 0.20</h2>
+## Migration Guide From  0.19 to 0.20
 
 First you had to meet the <a href="#section-required">conditions</a> <a href="#">and install Elastica 0.20 version which work with elasticsearch 0.20.</a> 
 
