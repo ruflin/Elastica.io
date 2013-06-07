@@ -1,11 +1,11 @@
 ---
-layout: page
-title: "Elastica Release v0.20.5.0"
-date: 2013-02-20 22:18
+layout: post
+title: "Release v0.20.5.0"
+date: 2013-02-20 21:15
 comments: true
-sharing: true
-footer: true
+categories: 
 ---
+
 <h1>Release <a href="https://github.com/ruflin/Elastica/tree/v0.20.5.0">v0.20.5.0</a></h1>
 
 

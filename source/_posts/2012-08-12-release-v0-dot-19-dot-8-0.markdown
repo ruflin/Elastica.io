@@ -1,11 +1,11 @@
 ---
-layout: page
+layout: post
 title: "Release v0.19.8.0"
-date: 2012-08-12 22:18
+date: 2012-08-12 21:15
 comments: true
-sharing: true
-footer: true
+categories: 
 ---
+
 
 Release [v0.19.8.0](https://github.com/ruflin/Elastica/tree/v0.19.8.0)
 ======================================================================
