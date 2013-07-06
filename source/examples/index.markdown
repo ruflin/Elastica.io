@@ -9,5 +9,5 @@ As everyone likes examples, here is list of examples. The perfect place to get e
 
 * General examples
 * Query examples
-  * [Bool query](/example/bool/query.html)
+  * [Bool query](/example/query/bool.html)
 * Filter examples
