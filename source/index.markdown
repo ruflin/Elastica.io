@@ -13,6 +13,7 @@ These pages should give you an overview of how to use Elastica. You can find the
 * [Getting Started](/getting-started/)
 * [Examples](/examples/)
 * [Releases](/releases/)
+* [Migrations](/migrations/)
 
 
 Credits
