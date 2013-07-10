@@ -16,3 +16,4 @@ Elastica is used in quite a few projects and libraries. In case you are using El
 * [Search app](http://github.com/jbroadway/search) for the [Elefant CMS](http://www.elefantcms.com/)
 * [useKit - teamwork across companies](http://useKit.com/)
 * [Zend Framework Boilerplate](http://zf-boilerplate.com)
+* [SWYF](http://www.swyf.nl)
