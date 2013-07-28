@@ -146,6 +146,7 @@ Now the index contains a document. But that's not enough! Add more documents to 
 Of course you can add one document after another. But what if you want to put the content of a large database this can be slow. It's better to create an array of documents and add them all at once:
 
 ```php
+// Create holder for Elastica documents
 $documents = array();
 while ( ... ) { // Fetching content from the database
     $documents[] = new \Elastica\Document(
@@ -155,8 +156,7 @@ while ( ... ) { // Fetching content from the database
         );
     );
 }
-// \Elastica\Type::addDocuments(array \Elastica\Document);
-$elasticaType->addDocuments($tweetDocument);
+$elasticaType->addDocuments($documents);
 $elasticaType->getIndex()->refresh();
 ```
 
