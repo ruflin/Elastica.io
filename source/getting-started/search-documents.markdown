@@ -25,14 +25,14 @@ So how do you define a query in Elastica? Just create a Query object and give it
 			
 ```php
 // Define a Query. We want a string query.
-$elasticaQueryString 	= new Elastica\Query\QueryString();
+$elasticaQueryString 	= new \Elastica\Query\QueryString();
 
 //'And' or 'Or' default : 'Or'
 $elasticaQueryString->setDefaultOperator('AND');
 $elasticaQueryString->setQuery('sesam street');
 
 // Create the actual search object with some data.
-$elasticaQuery 		= new Elastica\Query();
+$elasticaQuery 		= new \Elastica\Query();
 $elasticaQuery->setQuery($elasticaQueryString);
 
 //Search on the index.
