@@ -15,6 +15,7 @@ These pages should give you an overview of how to use Elastica. You can find the
 * [How to Contribute](/contribute/)
 * [Releases](/releases/)
 * [Migrations](/migrations/)
+* [References](/references/)
 
 
 Credits
