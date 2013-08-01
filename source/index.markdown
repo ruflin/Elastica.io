@@ -12,6 +12,7 @@ These pages should give you an overview of how to use Elastica. You can find the
 
 * [Getting Started](/getting-started/)
 * [Examples](/examples/)
+* [How to Contribute](/contribute/)
 * [Releases](/releases/)
 * [Migrations](/migrations/)
 
