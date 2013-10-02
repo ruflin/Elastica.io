@@ -11,3 +11,5 @@ As everyone likes examples, here is list of examples. The perfect place to get e
 * Query examples
   * [Bool query](/example/query/bool.html)
 * Filter examples
+* Sorting examples
+  * [By Distance](/example/sort/sort.html#distance)
