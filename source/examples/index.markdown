@@ -9,6 +9,7 @@ As everyone likes examples, here is list of examples. The perfect place to get e
 
 * General examples
   * [Raw array query](/example/raw-array-query.html)
+  * [Raw JSON query](/example/raw-json-query.html)
 
 * Query examples
   * [Bool query](/example/query/bool.html)

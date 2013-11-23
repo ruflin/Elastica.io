@@ -1,14 +1,15 @@
 ---
 layout: page
-title: "Raw Array Query"
+title: "Raw JSON Query"
 comments: true
 sharing: true
 footer: true
 ---
-Elasticsearch is evolving fast and not all queries and new features which are added to elasticsearch can be immediately added to Elastica. Still it is important that the developers can use all the new functionality. On the one side Elastica tries to map all request with objects which are then mapped to arrays and converted to a JSON string. Because of this it is possible to modify every requets with raw arrays. The basic of all this is the following function. 
+
+Elasticsearch is evolving fast and not all queries and new features which are added to elasticsearch can be immediately added to Elastica. Still it is important that the developers can use all the new functionality. On the one side Elastica tries to map all request with objects which are then mapped to arrays and converted to a JSON string. Because of this it is possible to modify every requets with [raw arrays](/example/raw-array-query.html) or directly a JSON string from the elasticsearch examples. The basic of all this is the following function. 
 
 ```php
-\Elastica\Client::request($path, $method = Request::GET, $data = array(), array $query = array())
+\Elastica\Client::request($path, $method = Request::GET, $data = array()|string, array $query = array())
 ```
 
 The function has for params. The first one is the path that should be called, then the type of the Request, the data array which is normally the JSON string and additional query params which should be added to the url. Here is a simple example for a string query in a raw array.
@@ -22,13 +23,7 @@ $type = $index->getType('test');
 $type->addDocument(new Document(1, array('username' => 'ruflin')));
 $index->refresh();
 
-$query = array(
-    'query' => array(
-        'query_string' => array(
-            'query' => 'ruflin',
-        )
-    )
-);
+$query = '{"query":{"query_string":{"query":"ruflin"}}}';
 
 $path = $index->getName() . '/' . $type->getName() . '/_search';
 
@@ -83,5 +78,3 @@ $totalHits = $responseArray['hits']['total']);
 ```
 
 As it was a "raw" query Elastica didn't know it was a query. That is also the reason the basic response object was returned instead of a ResultsSet. This array mapping can be used for every single elasticsearch request.
-
-The same can also be done directly with a [JSON string](/example/raw-json-query.html) instead of an array for the query.
