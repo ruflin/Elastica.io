@@ -14,6 +14,7 @@ Elastica is used in quite a few projects and libraries. In case you are using El
 # Projects using Elastica
 * [exercise.com](http://exercise.com) by [ornicar](http://github.com/ornicar), with [ElasticaBundle](http://github.com/Exercise/ElasticaBundle)
 * [Search app](http://github.com/jbroadway/search) for the [Elefant CMS](http://www.elefantcms.com/)
-* [useKit - teamwork across companies](http://useKit.com/)
-* [Zend Framework Boilerplate](http://zf-boilerplate.com)
 * [SWYF](http://www.swyf.nl)
+* [useKit - teamwork across companies](http://useKit.com/)
+* [Wikimedia CirrusSearch](http://www.mediawiki.org/wiki/Extension:CirrusSearch)
+* [Zend Framework Boilerplate](http://zf-boilerplate.com)
