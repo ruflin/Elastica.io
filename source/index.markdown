@@ -5,7 +5,7 @@ comments: true
 sharing: true
 footer: true
 ---
-Latest stable Elastica Release: [v0.90.7.0](/2013/11/23/release-v0-dot-90-dot-7-0/)
+Latest stable Elastica Release: [v0.90.10.0](/2014/02/02/release-v0-dot-90-dot-10-dot-0/)
 
 Elastica.io is the documentation for Elastica. [Elastica](http://github.com/ruflin/Elastica) is a PHP client for the [elasticsearch](http://elasticsearch.org) search engine/database. Elasticsearch is an Open Source (Apache 2), Distributed, RESTful, Search Engine built on top of Apache Lucene. Elastica itself is also open source and you can download or clone the source code on Github from [ruflin/Elastica](http://github.com/ruflin/Elastica).
 
