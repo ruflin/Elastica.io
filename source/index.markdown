@@ -5,7 +5,11 @@ comments: true
 sharing: true
 footer: true
 ---
-Latest stable Elastica Release: [v0.90.10.0](/2014/02/02/release-v0-dot-90-dot-10-dot-0/)
+[![Latest Stable Version](https://poser.pugx.org/ruflin/Elastica/v/stable.png)](https://packagist.org/packages/ruflin/elastica)
+[![Coverage Status](https://coveralls.io/repos/ruflin/Elastica/badge.png)](https://coveralls.io/r/ruflin/Elastica)
+[![Dependency Status](https://www.versioneye.com/php/ruflin:Elastica/master/badge.png)](https://www.versioneye.com/php/ruflin:elastica/)
+[![Total Downloads](https://poser.pugx.org/ruflin/Elastica/downloads.png)](https://packagist.org/packages/ruflin/elastica)
+
 
 Elastica.io is the documentation for Elastica. [Elastica](http://github.com/ruflin/Elastica) is a PHP client for the [elasticsearch](http://elasticsearch.org) search engine/database. Elasticsearch is an Open Source (Apache 2), Distributed, RESTful, Search Engine built on top of Apache Lucene. Elastica itself is also open source and you can download or clone the source code on Github from [ruflin/Elastica](http://github.com/ruflin/Elastica).
 
@@ -18,6 +22,25 @@ These pages should give you an overview of how to use Elastica. You can find the
 * [Migrations](/migrations/)
 * [References](/references/)
 
+
+Versions
+--------
+
+The version numbers are consistent with elasticsearch. The version number 0.16.0.0 means it is the first release for elasticsearch version 0.16.0. The next release is called 0.16.0.1. As soon as the elasticsearch is updated and the client is updated, also the next version is called 0.16.1.0. Like this it should be always clear to which versions the Elastica client is compatible.
+
+Compatibilitiy
+--------------
+Elastica is tested with PHP 5.3.3 and later. Versions prior and equal to v0.19.8.0 are compatible with PHP 5.2
+
+
+File indexing
+-------------
+
+File upload is supported but the mapper attachement plugin has to be installed
+
+```
+./bin/plugin -install elasticsearch/elasticsearch-mapper-attachments/1.9.0
+```
 
 Credits
 -------
