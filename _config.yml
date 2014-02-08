@@ -2,7 +2,7 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://Elastica.io/
+url: http://Elastica.io
 title: Elastica.io
 subtitle: A PHP client for elasticsearch.
 author: Nicolas Ruflin
