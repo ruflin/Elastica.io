@@ -1,353 +1,1437 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
-<meta charset="utf-8">
-<title>Elastica » \Elastica\Type\AbstractType</title>
-<meta name="author" content="Mike van Riel">
-<meta name="description" content="">
-<link href="../css/template.css" rel="stylesheet" media="all">
-<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
-<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>Elastica</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="https://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
 </head>
 <body>
+
 <div class="navbar navbar-fixed-top">
-<div class="navbar-inner"><div class="container">
-<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">Elastica</a><div class="nav-collapse"><ul class="nav">
-<li class="dropdown">
-<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
-                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
-<li><a>Namespaces</a></li>
-<li><a href="../namespaces/Elastica.html"><i class="icon-th"></i> Elastica</a></li>
-<li><a>Packages</a></li>
-<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
-<li><a href="../packages/Elastica.html"><i class="icon-folder-open"></i> Elastica</a></li>
-</ul>
-</li>
-<li class="dropdown" id="charts-menu">
-<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
-                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
-</li>
-<li class="dropdown" id="reports-menu">
-<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
-                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
-<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">416</span></a></li>
-<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
-                <ul><li>todo 
-                <span class="label label-info">9</span>
-</li></ul></a></li>
-<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
-                <span class="label label-info">3</span></a></li>
-</ul>
-</li>
-</ul></div>
-</div></div>
-<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">Elastica</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                    <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/Elastica.html">\Elastica</a></li>
+                                                    </ul>
+                    </li>
+                    <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">499</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">6</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
 </div>
-<div id="___" class="container">
-<noscript><div class="alert alert-warning">
-                            Javascript is disabled; several features are only available
-                            if Javascript is enabled.
-                        </div></noscript>
-<div class="row">
-<div class="span4">
-<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
-<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
-</div>
-<ul class="side-nav nav nav-list">
-<li class="nav-header">
-<i class="icon-custom icon-method"></i> Methods
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-120844910"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-120844910" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-360714115"></a>
+                                <a href="../namespaces/Elastica.html" style="margin-left: 30px; padding-left: 0">Elastica</a>
+            </div>
+            <div id="namespace-360714115" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1960357902"></a>
+                                <a href="../namespaces/Elastica.Bulk.html" style="margin-left: 30px; padding-left: 0">Bulk</a>
+            </div>
+            <div id="namespace-1960357902" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1259399102"></a>
+                                <a href="../namespaces/Elastica.Bulk.Action.html" style="margin-left: 30px; padding-left: 0">Action</a>
+            </div>
+            <div id="namespace-1259399102" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
                     <ul>
-<li class="method public "><a href="#method___construct" title="__construct :: Creates index object with client connection"><span class="description">Creates index object with client connection</span><pre>__construct()</pre></a></li>
-<li class="method public "><a href="#method_convertDate" title="convertDate :: Converts given time to format: 1995-12-31T23:59:59Z"><span class="description">Converts given time to format: 1995-12-31T23:59:59Z</span><pre>convertDate()</pre></a></li>
-<li class="method public "><a href="#method_count" title="count :: Count docs in the type based on query"><span class="description">Count docs in the type based on query</span><pre>count()</pre></a></li>
-<li class="method public "><a href="#method_create" title="create :: Creates the index and sets the mapping for this type"><span class="description">Creates the index and sets the mapping for this type</span><pre>create()</pre></a></li>
-<li class="method public "><a href="#method_createSearch" title="createSearch :: "><span class="description">createSearch()
-        </span><pre>createSearch()</pre></a></li>
-<li class="method public "><a href="#method_getIndex" title="getIndex :: Returns the search index"><span class="description">Returns the search index</span><pre>getIndex()</pre></a></li>
-<li class="method public "><a href="#method_getType" title="getType :: Returns type object"><span class="description">Returns type object</span><pre>getType()</pre></a></li>
-<li class="method public "><a href="#method_search" title="search :: Search on the type"><span class="description">Search on the type</span><pre>search()</pre></a></li>
-</ul>
-</li>
-<li class="nav-header">
-<i class="icon-custom icon-property"></i> Properties
-                    <ul></ul>
-</li>
-<li class="nav-header protected">» Protected
+                                                                                                    <li class="class"><a href="../classes/Elastica.Bulk.Action.AbstractDocument.html">AbstractDocument</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Bulk.Action.CreateDocument.html">CreateDocument</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Bulk.Action.DeleteDocument.html">DeleteDocument</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Bulk.Action.IndexDocument.html">IndexDocument</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Bulk.Action.UpdateDocument.html">UpdateDocument</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
                     <ul>
-<li class="property protected "><a href="#property__client" title="$_client :: Client"><span class="description"></span><pre>$_client</pre></a></li>
-<li class="property protected "><a href="#property__index" title="$_index :: Index"><span class="description"></span><pre>$_index</pre></a></li>
-<li class="property protected "><a href="#property__indexName" title="$_indexName :: Index name"><span class="description"></span><pre>$_indexName</pre></a></li>
-<li class="property protected "><a href="#property__indexParams" title="$_indexParams :: Index params"><span class="description"></span><pre>$_indexParams</pre></a></li>
-<li class="property protected "><a href="#property__mapping" title="$_mapping :: Mapping"><span class="description"></span><pre>$_mapping</pre></a></li>
-<li class="property protected "><a href="#property__source" title="$_source :: Source"><span class="description"></span><pre>$_source</pre></a></li>
-<li class="property protected "><a href="#property__type" title="$_type :: Type"><span class="description"></span><pre>$_type</pre></a></li>
-<li class="property protected "><a href="#property__typeName" title="$_typeName :: Index name"><span class="description"></span><pre>$_typeName</pre></a></li>
-</ul>
-</li>
-<li class="nav-header">
-<i class="icon-custom icon-constant"></i> Constants
-                    <ul><li class="constant  "><a href="#constant_MAX_DOCS_PER_REQUEST" title="MAX_DOCS_PER_REQUEST :: "><span class="description">MAX_DOCS_PER_REQUEST</span><pre>MAX_DOCS_PER_REQUEST</pre></a></li></ul>
-</li>
-</ul>
-</div>
-<div class="span8">
-<a id="\Elastica\Type\AbstractType"></a><ul class="breadcrumb">
-<li>
-<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
-</li>
-<li><a href="../namespaces/Elastica.html">Elastica</a></li>
-<li>
-<span class="divider">\</span><a href="../namespaces/Elastica.Type.html">Type</a>
-</li>
-<li class="active">
-<span class="divider">\</span><a href="../classes/Elastica.Type.AbstractType.html">AbstractType</a>
-</li>
-</ul>
-<div class="element class">
-<p class="short_description">Abstract helper class to implement search indices based on models.</p>
-<div class="details">
-<div class="long_description"><p>This abstract model should help creating search index and a subtype
+                                                                                                    <li class="class"><a href="../classes/Elastica.Bulk.Action.html">Action</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Bulk.Response.html">Response</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Bulk.ResponseSet.html">ResponseSet</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2041316042"></a>
+                                <a href="../namespaces/Elastica.Cluster.html" style="margin-left: 30px; padding-left: 0">Cluster</a>
+            </div>
+            <div id="namespace-2041316042" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1198966936"></a>
+                                <a href="../namespaces/Elastica.Cluster.Health.html" style="margin-left: 30px; padding-left: 0">Health</a>
+            </div>
+            <div id="namespace-1198966936" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Elastica.Cluster.Health.Index.html">Index</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Cluster.Health.Shard.html">Shard</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Elastica.Cluster.Health.html">Health</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Cluster.Settings.html">Settings</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1600160376"></a>
+                                <a href="../namespaces/Elastica.Exception.html" style="margin-left: 30px; padding-left: 0">Exception</a>
+            </div>
+            <div id="namespace-1600160376" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-977689833"></a>
+                                <a href="../namespaces/Elastica.Exception.Bulk.html" style="margin-left: 30px; padding-left: 0">Bulk</a>
+            </div>
+            <div id="namespace-977689833" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1005186800"></a>
+                                <a href="../namespaces/Elastica.Exception.Bulk.Response.html" style="margin-left: 30px; padding-left: 0">Response</a>
+            </div>
+            <div id="namespace-1005186800" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Elastica.Exception.Bulk.Response.ActionException.html">ActionException</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Elastica.Exception.Bulk.ResponseException.html">ResponseException</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Exception.Bulk.UdpException.html">UdpException</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1150421153"></a>
+                                <a href="../namespaces/Elastica.Exception.Connection.html" style="margin-left: 30px; padding-left: 0">Connection</a>
+            </div>
+            <div id="namespace-1150421153" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Elastica.Exception.Connection.HttpException.html">HttpException</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Exception.Connection.ThriftException.html">ThriftException</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Elastica.Exception.ExceptionInterface.html">ExceptionInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/Elastica.Exception.BulkException.html">BulkException</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Exception.ClientException.html">ClientException</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Exception.ConnectionException.html">ConnectionException</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Exception.ElasticsearchException.html">ElasticsearchException</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Exception.InvalidException.html">InvalidException</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Exception.NotFoundException.html">NotFoundException</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Exception.NotImplementedException.html">NotImplementedException</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Exception.ResponseException.html">ResponseException</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Exception.RuntimeException.html">RuntimeException</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1916734987"></a>
+                                <a href="../namespaces/Elastica.Facet.html" style="margin-left: 30px; padding-left: 0">Facet</a>
+            </div>
+            <div id="namespace-1916734987" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Elastica.Facet.AbstractFacet.html">AbstractFacet</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Facet.DateHistogram.html">DateHistogram</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Facet.Filter.html">Filter</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Facet.GeoCluster.html">GeoCluster</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Facet.GeoDistance.html">GeoDistance</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Facet.Histogram.html">Histogram</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Facet.Query.html">Query</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Facet.Range.html">Range</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Facet.Statistical.html">Statistical</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Facet.Terms.html">Terms</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Facet.TermsStats.html">TermsStats</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1541611001"></a>
+                                <a href="../namespaces/Elastica.Filter.html" style="margin-left: 30px; padding-left: 0">Filter</a>
+            </div>
+            <div id="namespace-1541611001" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Elastica.Filter.AbstractFilter.html">AbstractFilter</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Filter.AbstractGeoDistance.html">AbstractGeoDistance</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Filter.AbstractMulti.html">AbstractMulti</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Filter.Bool.html">Bool</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Filter.BoolAnd.html">BoolAnd</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Filter.BoolNot.html">BoolNot</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Filter.BoolOr.html">BoolOr</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Filter.Exists.html">Exists</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Filter.GeoBoundingBox.html">GeoBoundingBox</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Filter.GeoDistance.html">GeoDistance</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Filter.GeoDistanceRange.html">GeoDistanceRange</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Filter.GeoPolygon.html">GeoPolygon</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Filter.GeohashCell.html">GeohashCell</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Filter.HasChild.html">HasChild</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Filter.HasParent.html">HasParent</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Filter.Ids.html">Ids</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Filter.Limit.html">Limit</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Filter.MatchAll.html">MatchAll</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Filter.Missing.html">Missing</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Filter.Nested.html">Nested</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Filter.NumericRange.html">NumericRange</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Filter.Prefix.html">Prefix</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Filter.Query.html">Query</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Filter.Range.html">Range</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Filter.Regexp.html">Regexp</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Filter.Script.html">Script</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Filter.Term.html">Term</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Filter.Terms.html">Terms</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Filter.Type.html">Type</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-384413861"></a>
+                                <a href="../namespaces/Elastica.Index.html" style="margin-left: 30px; padding-left: 0">Index</a>
+            </div>
+            <div id="namespace-384413861" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Elastica.Index.Settings.html">Settings</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Index.Stats.html">Stats</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Index.Status.html">Status</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1246246204"></a>
+                                <a href="../namespaces/Elastica.Multi.html" style="margin-left: 30px; padding-left: 0">Multi</a>
+            </div>
+            <div id="namespace-1246246204" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Elastica.Multi.ResultSet.html">ResultSet</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Multi.Search.html">Search</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1769334816"></a>
+                                <a href="../namespaces/Elastica.Node.html" style="margin-left: 30px; padding-left: 0">Node</a>
+            </div>
+            <div id="namespace-1769334816" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Elastica.Node.Info.html">Info</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Node.Stats.html">Stats</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-275010594"></a>
+                                <a href="../namespaces/Elastica.Query.html" style="margin-left: 30px; padding-left: 0">Query</a>
+            </div>
+            <div id="namespace-275010594" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Elastica.Query.AbstractQuery.html">AbstractQuery</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Query.Bool.html">Bool</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Query.Builder.html">Builder</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Query.Common.html">Common</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Query.ConstantScore.html">ConstantScore</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Query.CustomFiltersScore.html">CustomFiltersScore</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Query.CustomScore.html">CustomScore</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Query.DisMax.html">DisMax</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Query.Filtered.html">Filtered</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Query.FunctionScore.html">FunctionScore</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Query.Fuzzy.html">Fuzzy</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Query.FuzzyLikeThis.html">FuzzyLikeThis</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Query.HasChild.html">HasChild</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Query.HasParent.html">HasParent</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Query.Ids.html">Ids</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Query.Match.html">Match</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Query.MatchAll.html">MatchAll</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Query.MoreLikeThis.html">MoreLikeThis</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Query.MultiMatch.html">MultiMatch</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Query.Nested.html">Nested</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Query.Prefix.html">Prefix</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Query.QueryString.html">QueryString</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Query.Range.html">Range</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Query.Simple.html">Simple</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Query.SimpleQueryString.html">SimpleQueryString</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Query.Term.html">Term</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Query.Terms.html">Terms</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Query.TopChildren.html">TopChildren</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Query.Wildcard.html">Wildcard</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1621294866"></a>
+                                <a href="../namespaces/Elastica.Suggest.html" style="margin-left: 30px; padding-left: 0">Suggest</a>
+            </div>
+            <div id="namespace-1621294866" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2082553888"></a>
+                                <a href="../namespaces/Elastica.Suggest.CandidateGenerator.html" style="margin-left: 30px; padding-left: 0">CandidateGenerator</a>
+            </div>
+            <div id="namespace-2082553888" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Elastica.Suggest.CandidateGenerator.AbstractCandidateGenerator.html">AbstractCandidateGenerator</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Suggest.CandidateGenerator.DirectGenerator.html">DirectGenerator</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Elastica.Suggest.AbstractSuggest.html">AbstractSuggest</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Suggest.Phrase.html">Phrase</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Suggest.Term.html">Term</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-113939954"></a>
+                                <a href="../namespaces/Elastica.Transport.html" style="margin-left: 30px; padding-left: 0">Transport</a>
+            </div>
+            <div id="namespace-113939954" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Elastica.Transport.AbstractTransport.html">AbstractTransport</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Transport.Http.html">Http</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Transport.Https.html">Https</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Transport.Memcache.html">Memcache</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Transport.Null.html">Null</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Transport.Thrift.html">Thrift</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2141940999"></a>
+                                <a href="../namespaces/Elastica.Type.html" style="margin-left: 30px; padding-left: 0">Type</a>
+            </div>
+            <div id="namespace-2141940999" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Elastica.Type.AbstractType.html">AbstractType</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Type.Mapping.html">Mapping</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Elastica.SearchableInterface.html">SearchableInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/Elastica.Bulk.html">Bulk</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Client.html">Client</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Cluster.html">Cluster</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Connection.html">Connection</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Document.html">Document</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Index.html">Index</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Log.html">Log</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Node.html">Node</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Param.html">Param</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Percolator.html">Percolator</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Query.html">Query</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Request.html">Request</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Response.html">Response</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Result.html">Result</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.ResultSet.html">ResultSet</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Script.html">Script</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.ScriptFields.html">ScriptFields</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Search.html">Search</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Status.html">Status</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Suggest.html">Suggest</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Type.html">Type</a></li>
+                                                    <li class="class"><a href="../classes/Elastica.Util.html">Util</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/Elastica.Type.html">\Elastica\Type</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\Elastica\Type</small>AbstractType</h1>
+                    <p><em>Abstract helper class to implement search indices based on models.</em></p>
+                    <p>This abstract model should help creating search index and a subtype
 with some easy config entries that are overloaded.</p>
+<p>The following variables have to be set:</p>
+<ul>
+<li>$_indexName</li>
+<li>$_typeName</li>
+</ul>
+<p>The following variables can be set for additional configuration</p>
+<ul>
+<li>$_mapping: Value type mapping for the given type</li>
+<li>$_indexParams: Parameters for the index</li>
+</ul>
 
-<p>The following variables have to be set:
-   - $_indexName
-   - $_typeName</p>
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/Elastica.Type.AbstractType.html#method___construct" class="">__construct()</a><br />
+                                                                    <a href="../classes/Elastica.Type.AbstractType.html#method_create" class="">create()</a><br />
+                                                                    <a href="../classes/Elastica.Type.AbstractType.html#method_createSearch" class="">createSearch()</a><br />
+                                                                    <a href="../classes/Elastica.Type.AbstractType.html#method_search" class="">search()</a><br />
+                                                                    <a href="../classes/Elastica.Type.AbstractType.html#method_count" class="">count()</a><br />
+                                                                    <a href="../classes/Elastica.Type.AbstractType.html#method_getIndex" class="">getIndex()</a><br />
+                                                                    <a href="../classes/Elastica.Type.AbstractType.html#method_getType" class="">getType()</a><br />
+                                                                    <a href="../classes/Elastica.Type.AbstractType.html#method_convertDate" class="">convertDate()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/Elastica.Type.AbstractType.html#constant_MAX_DOCS_PER_REQUEST" class="">MAX_DOCS_PER_REQUEST</a><br />
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/Elastica.Type.AbstractType.html#property__indexName" class="">$_indexName</a><br />
+                                                                    <a href="../classes/Elastica.Type.AbstractType.html#property__typeName" class="">$_typeName</a><br />
+                                                                    <a href="../classes/Elastica.Type.AbstractType.html#property__client" class="">$_client</a><br />
+                                                                    <a href="../classes/Elastica.Type.AbstractType.html#property__index" class="">$_index</a><br />
+                                                                    <a href="../classes/Elastica.Type.AbstractType.html#property__type" class="">$_type</a><br />
+                                                                    <a href="../classes/Elastica.Type.AbstractType.html#property__mapping" class="">$_mapping</a><br />
+                                                                    <a href="../classes/Elastica.Type.AbstractType.html#property__indexParams" class="">$_indexParams</a><br />
+                                                                    <a href="../classes/Elastica.Type.AbstractType.html#property__source" class="">$_source</a><br />
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <em>No private methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No private properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                            <span class="label label-info">abstract</span>
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/Type.AbstractType.php.html"><div class="path-wrapper">Type/AbstractType.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">\Elastica</div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                    <div class="namespace-wrapper">\Elastica\Type\AbstractType</div>
+                            </dd>
 
-<p>The following variables can be set for additional configuration
-   - $_mapping: Value type mapping for the given type
-   - $_indexParams: Parameters for the index</p></div>
-<table class="table table-bordered">
-<tr>
-<th>todo</th>
-<td>Add some settings examples to code</td>
-</tr>
-<tr>
-<th>category</th>
-<td>Xodoa</td>
-</tr>
-<tr>
-<th>package</th>
-<td><a href="../packages/Elastica.html">Elastica</a></td>
-</tr>
-<tr>
-<th>author</th>
-<td><a href="mailto:spam@ruflin.com">Nicolas Ruflin</a></td>
-</tr>
-</table>
-<h3>
-<i class="icon-custom icon-method"></i> Methods</h3>
-<a id="method___construct"></a><div class="element clickable method public method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
-<h2>Creates index object with client connection</h2>
-<pre>__construct(\Elastica\Client $client) </pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"><p>Reads index and type name from protected vars _indexName and _typeName.
-Has to be set in child class</p></div>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$client</h4>
-<code><a href="../classes/Elastica.Client.html">\Elastica\Client</a></code><p>OPTIONAL Client object</p></div>
-<h3>Exceptions</h3>
-<table class="table table-bordered"><tr>
-<th><code><a href="../classes/Elastica.Exception.InvalidException.html">\Elastica\Exception\InvalidException</a></code></th>
-<td></td>
-</tr></table>
-</div></div>
+                        
+                        
+                        
+                        
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr>
+                            <th>
+                                todo
+                            </th>
+                            <td>
+                                                                    <p>Add some settings examples to code</p>
+                                                            </td>
+                        </tr>
+                                            <tr>
+                            <th>
+                                category
+                            </th>
+                            <td>
+                                                                    <p>Xodoa</p>
+                                                            </td>
+                        </tr>
+                                            <tr>
+                            <th>
+                                author
+                            </th>
+                            <td>
+                                                                    <p>Nicolas Ruflin <spam@ruflin.com></p>
+                                                            </td>
+                        </tr>
+                                        </table>
+                </aside>
+            </div>
+
+                                    <a id="constants" name="constants"></a>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Constants</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_MAX_DOCS_PER_REQUEST" name="constant_MAX_DOCS_PER_REQUEST" class="anchor"></a>
+            <article id="constant_MAX_DOCS_PER_REQUEST" class="constant">
+                <h3 class="">MAX_DOCS_PER_REQUEST</h3>
+                <pre class="signature">MAX_DOCS_PER_REQUEST</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                            
+                                    <a id="properties" name="properties"></a>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Properties</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__indexName" name="property__indexName" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$_indexName</h3>
+                <pre class="signature">$_indexName : string</pre>
+                <p><em>Index name</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                &mdash; Index name                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__typeName" name="property__typeName" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$_typeName</h3>
+                <pre class="signature">$_typeName : string</pre>
+                <p><em>Index name</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                &mdash; Index name                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__client" name="property__client" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$_client</h3>
+                <pre class="signature">$_client : \Elastica\Client</pre>
+                <p><em>Client</em></p>
+                
+
+                                <h4>Type</h4>
+                <a href="../classes/Elastica.Client.html">\Elastica\Client</a>
+                &mdash; Client object                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__index" name="property__index" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$_index</h3>
+                <pre class="signature">$_index : \Elastica\Index</pre>
+                <p><em>Index</em></p>
+                
+
+                                <h4>Type</h4>
+                <a href="../classes/Elastica.Index.html">\Elastica\Index</a>
+                &mdash; Index object                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__type" name="property__type" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$_type</h3>
+                <pre class="signature">$_type : \Elastica\Type</pre>
+                <p><em>Type</em></p>
+                
+
+                                <h4>Type</h4>
+                <a href="../classes/Elastica.Type.html">\Elastica\Type</a>
+                &mdash; Type object                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__mapping" name="property__mapping" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$_mapping</h3>
+                <pre class="signature">$_mapping : array</pre>
+                <p><em>Mapping</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                &mdash; Mapping                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__indexParams" name="property__indexParams" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$_indexParams</h3>
+                <pre class="signature">$_indexParams : array</pre>
+                <p><em>Index params</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                &mdash; Index  params                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__source" name="property__source" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$_source</h3>
+                <pre class="signature">$_source : boolean</pre>
+                <p><em>Source</em></p>
+                
+
+                                <h4>Type</h4>
+                boolean
+                &mdash; Source                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                            
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__construct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__construct(\Elastica\Client <span class="argument">$client</span>)</pre>
+                <p><em>Creates index object with client connection</em></p>
+                <p>Reads index and type name from protected vars _indexName and _typeName.
+Has to be set in child class</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/Elastica.Client.html">\Elastica\Client</a></td>
+                                <td>$client</td>
+                                <td><p>OPTIONAL Client object</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\Elastica\Exception\InvalidException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_create" name="method_create" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">create()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">create(bool <span class="argument">$recreate</span>)</pre>
+                <p><em>Creates the index and sets the mapping for this type</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>bool</td>
+                                <td>$recreate</td>
+                                <td><p>OPTIONAL Recreates the index if true (default = false)</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_createSearch" name="method_createSearch" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">createSearch()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">createSearch(\Elastica\Query <span class="argument">$query</span>, array|int <span class="argument">$options</span>) : \Elastica\Search</pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/Elastica.Query.html">\Elastica\Query</a></td>
+                                <td>$query</td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>array|int</td>
+                                <td>$options</td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Elastica.Search.html">\Elastica\Search</a>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_search" name="method_search" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">search()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">search(string|array|\Elastica\Query <span class="argument">$query</span>,  <span class="argument">$options</span>) : \Elastica\ResultSet</pre>
+                <p><em>Search on the type</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string|array|<a href="../classes/Elastica.Query.html">\Elastica\Query</a></td>
+                                <td>$query</td>
+                                <td><p>Array with all query data inside or a Elastica\Query object</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$options</td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Elastica.ResultSet.html">\Elastica\ResultSet</a>
+                                            &mdash; <p>ResultSet with all results inside</p>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href=""><span class="namespace-wrapper"></span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_count" name="method_count" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">count()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">count(string|array|\Elastica\Query <span class="argument">$query</span>) : int</pre>
+                <p><em>Count docs in the type based on query</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string|array|<a href="../classes/Elastica.Query.html">\Elastica\Query</a></td>
+                                <td>$query</td>
+                                <td><p>Array with all query data inside or a Elastica\Query object</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    int
+                                            &mdash; <p>number of documents matching the query</p>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href=""><span class="namespace-wrapper"></span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getIndex" name="method_getIndex" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getIndex()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getIndex() : \Elastica\Index</pre>
+                <p><em>Returns the search index</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Elastica.Index.html">\Elastica\Index</a>
+                                            &mdash; <p>Index object</p>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getType" name="method_getType" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getType()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getType() : \Elastica\Type</pre>
+                <p><em>Returns type object</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Elastica.Type.html">\Elastica\Type</a>
+                                            &mdash; <p>Type object</p>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_convertDate" name="method_convertDate" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">convertDate()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">convertDate(int <span class="argument">$date</span>) : string</pre>
+                <p><em>Converts given time to format: 1995-12-31T23:59:59Z</em></p>
+                <p>This is the lucene date format</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>int</td>
+                                <td>$date</td>
+                                <td><p>Date input (could be string etc.) -> must be supported by strtotime</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                            &mdash; <p>Converted date string</p>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">AbstractType.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/Type/AbstractType.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/Elastica.html">\Elastica</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on February 8th, 2014 at 10:52.
+                </section>
+            </section>
+        </section>
+    </footer>
 </div>
-<a id="method_convertDate"></a><div class="element clickable method public method_convertDate" data-toggle="collapse" data-target=".method_convertDate .collapse">
-<h2>Converts given time to format: 1995-12-31T23:59:59Z</h2>
-<pre>convertDate(int $date) : string</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"><p>This is the lucene date format</p></div>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$date</h4>
-<code>int</code><p>Date input (could be string etc.) -> must be supported by strtotime</p>
-</div>
-<h3>Returns</h3>
-<div class="subelement response">
-<code>string</code>Converted date string</div>
-</div></div>
-</div>
-<a id="method_count"></a><div class="element clickable method public method_count" data-toggle="collapse" data-target=".method_count .collapse">
-<h2>Count docs in the type based on query</h2>
-<pre>count(string | array | <a href="../classes/Elastica.Query.html">\Elastica\Query</a> $query) : int</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"><p>If no query is set, matchall query is created</p></div>
-<table class="table table-bordered"><tr>
-<th>see</th>
-<td><a href="SearchableInterface.html#%5CElastica%5CSearchableInterface::count">\Elastica\SearchableInterface::count</a></td>
-</tr></table>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$query</h4>
-<code>string</code><code>array</code><code><a href="../classes/Elastica.Query.html">\Elastica\Query</a></code><p>Array with all query data inside or a Elastica\Query object</p>
-</div>
-<h3>Returns</h3>
-<div class="subelement response">
-<code>int</code>number of documents matching the query</div>
-</div></div>
-</div>
-<a id="method_create"></a><div class="element clickable method public method_create" data-toggle="collapse" data-target=".method_create .collapse">
-<h2>Creates the index and sets the mapping for this type</h2>
-<pre>create(bool $recreate) </pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$recreate</h4>
-<code>bool</code><p>OPTIONAL Recreates the index if true (default = false)</p>
-</div>
-</div></div>
-</div>
-<a id="method_createSearch"></a><div class="element clickable method public method_createSearch" data-toggle="collapse" data-target=".method_createSearch .collapse">
-<h2>createSearch()
-        </h2>
-<pre>createSearch(<a href="../classes/Elastica.Query.html">\Elastica\Query</a> $query, array | int $options) : <a href="../classes/Elastica.Search.html">\Elastica\Search</a></pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$query</h4>
-<code><a href="../classes/Elastica.Query.html">\Elastica\Query</a></code>
-</div>
-<div class="subelement argument">
-<h4>$options</h4>
-<code>array</code><code>int</code>
-</div>
-<h3>Returns</h3>
-<div class="subelement response"><code><a href="../classes/Elastica.Search.html">\Elastica\Search</a></code></div>
-</div></div>
-</div>
-<a id="method_getIndex"></a><div class="element clickable method public method_getIndex" data-toggle="collapse" data-target=".method_getIndex .collapse">
-<h2>Returns the search index</h2>
-<pre>getIndex() : <a href="../classes/Elastica.Index.html">\Elastica\Index</a></pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<h3>Returns</h3>
-<div class="subelement response">
-<code><a href="../classes/Elastica.Index.html">\Elastica\Index</a></code>Index object</div>
-</div></div>
-</div>
-<a id="method_getType"></a><div class="element clickable method public method_getType" data-toggle="collapse" data-target=".method_getType .collapse">
-<h2>Returns type object</h2>
-<pre>getType() : <a href="../classes/Elastica.Type.html">\Elastica\Type</a></pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<h3>Returns</h3>
-<div class="subelement response">
-<code><a href="../classes/Elastica.Type.html">\Elastica\Type</a></code>Type object</div>
-</div></div>
-</div>
-<a id="method_search"></a><div class="element clickable method public method_search" data-toggle="collapse" data-target=".method_search .collapse">
-<h2>Search on the type</h2>
-<pre>search(string | array | <a href="../classes/Elastica.Query.html">\Elastica\Query</a> $query, $options) : <a href="../classes/Elastica.ResultSet.html">\Elastica\ResultSet</a></pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"><p>TODO: Improve sample code
-{
-    "from" : 0,
-    "size" : 10,
-    "sort" : {
-         "postDate" : {"reverse" : true},
-         "user" : { },
-         "_score" : { }
-     },
-     "query" : {
-         "term" : { "user" : "kimchy" }
-     }
-}</p></div>
-<table class="table table-bordered"><tr>
-<th>see</th>
-<td><a href="SearchableInterface.html#%5CElastica%5CSearchableInterface::search">\Elastica\SearchableInterface::search</a></td>
-</tr></table>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$query</h4>
-<code>string</code><code>array</code><code><a href="../classes/Elastica.Query.html">\Elastica\Query</a></code><p>Array with all query data inside or a Elastica\Query object</p>
-</div>
-<div class="subelement argument"><h4>$options</h4></div>
-<h3>Returns</h3>
-<div class="subelement response">
-<code><a href="../classes/Elastica.ResultSet.html">\Elastica\ResultSet</a></code>ResultSet with all results inside</div>
-</div></div>
-</div>
-<h3>
-<i class="icon-custom icon-property"></i> Properties</h3>
-<a id="property__client"> </a><div class="element clickable property protected property__client" data-toggle="collapse" data-target=".property__client .collapse">
-<h2></h2>
-<pre>$_client : <a href="../classes/Elastica.Client.html">\Elastica\Client</a></pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
-<a id="property__index"> </a><div class="element clickable property protected property__index" data-toggle="collapse" data-target=".property__index .collapse">
-<h2></h2>
-<pre>$_index : <a href="../classes/Elastica.Index.html">\Elastica\Index</a></pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
-<a id="property__indexName"> </a><div class="element clickable property protected property__indexName" data-toggle="collapse" data-target=".property__indexName .collapse">
-<h2></h2>
-<pre>$_indexName : string</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
-<a id="property__indexParams"> </a><div class="element clickable property protected property__indexParams" data-toggle="collapse" data-target=".property__indexParams .collapse">
-<h2></h2>
-<pre>$_indexParams : array</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
-<a id="property__mapping"> </a><div class="element clickable property protected property__mapping" data-toggle="collapse" data-target=".property__mapping .collapse">
-<h2></h2>
-<pre>$_mapping : array</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
-<a id="property__source"> </a><div class="element clickable property protected property__source" data-toggle="collapse" data-target=".property__source .collapse">
-<h2></h2>
-<pre>$_source : boolean</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
-<a id="property__type"> </a><div class="element clickable property protected property__type" data-toggle="collapse" data-target=".property__type .collapse">
-<h2></h2>
-<pre>$_type : <a href="../classes/Elastica.Type.html">\Elastica\Type</a></pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
-<a id="property__typeName"> </a><div class="element clickable property protected property__typeName" data-toggle="collapse" data-target=".property__typeName .collapse">
-<h2></h2>
-<pre>$_typeName : string</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
-<h3>
-<i class="icon-custom icon-constant"></i> Constants</h3>
-<a id="constant_MAX_DOCS_PER_REQUEST"> </a><div class="element clickable constant  constant_MAX_DOCS_PER_REQUEST" data-toggle="collapse" data-target=".constant_MAX_DOCS_PER_REQUEST .collapse">
-<h2>MAX_DOCS_PER_REQUEST</h2>
-<pre>MAX_DOCS_PER_REQUEST </pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="row"><footer class="span12">
-            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
-            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
-            generated on 2013-05-26T18:35:22+02:00.<br></footer></div>
-</div>
+
 </body>
 </html>
