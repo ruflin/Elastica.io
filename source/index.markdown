@@ -1,6 +1,7 @@
 ---
 layout: page
 title: "Elastica"
+description: "Elastica - PHP client for elasticsearch"
 comments: true
 sharing: true
 footer: true

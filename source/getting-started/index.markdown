@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "getting started"
+title: "Getting Started"
 comments: true
 sharing: true
 footer: true
