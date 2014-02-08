@@ -9,6 +9,7 @@ Elastica always needs people who contribute to Elastica. There are different fie
 
  * Documentation
  * [Coding Guidelines](/contribute/coding-guidelines.html)
+ * [Build project](/contribute/build.html)
  * Fixing open issues
  * Review pull requests
  * Add new features
