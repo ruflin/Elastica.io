@@ -8,6 +8,7 @@ footer: true
 Elastica always needs people who contribute to Elastica. There are different fields where contributions are welcome:
 
  * Documentation
+ * [Coding Guidelines](/contribute/coding-guidelines.html)
  * Fixing open issues
  * Review pull requests
  * Add new features
