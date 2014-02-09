@@ -3,7 +3,7 @@
 # ----------------------- #
 
 url: http://Elastica.io
-title: Elastica.io
+title: Elastica
 subtitle: A PHP client for elasticsearch.
 author: Nicolas Ruflin
 simple_search: http://google.com/search
