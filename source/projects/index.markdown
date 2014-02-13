@@ -13,6 +13,7 @@ Elastica is used in quite a few projects and libraries. In case you are using El
 
 # Projects using Elastica
 * [exercise.com](http://exercise.com) by [ornicar](http://github.com/ornicar), with [ElasticaBundle](http://github.com/Exercise/ElasticaBundle)
+* [Pylastica](https://github.com/jlinn/pylastica) is a Python port of Elastica
 * [Search app](http://github.com/jbroadway/search) for the [Elefant CMS](http://www.elefantcms.com/)
 * [SWYF](http://www.swyf.nl)
 * [useKit - teamwork across companies](http://useKit.com/)
