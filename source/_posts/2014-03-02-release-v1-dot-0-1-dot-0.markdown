@@ -7,7 +7,7 @@ categories:
 ---
 
 
-Elastica v1.0.1.0 [download](https://github.com/ruflin/Elastica/tree/v1.0.1.0). This release is compatible with elasticsearch 1.0.1.
+[Elastica v1.0.1.0](https://github.com/ruflin/Elastica/tree/v1.0.1.0) ([download](https://github.com/ruflin/Elastica/releases/tag/v1.0.1.0)). This release is compatible with elasticsearch 1.0.1.
 
 ## Dependencies
 
