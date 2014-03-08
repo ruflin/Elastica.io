@@ -18,5 +18,6 @@ The following steps have to be followed to create a new Elastica Release
 * Update [Elastica.io](http://elastica.io)
   * Create a release post on Elastica.io with the changes and download link (``rake new_post['Release vX.X.X.X']``)
   * Update the Releases page with the newest release: http://elastica.io/releases/
+  * Build the newest API doc with ``ant phpdoc`` and copy it to the source/api folder
 * Announce the release on the [Elastica Google Group](https://groups.google.com/forum/#!forum/elastica-php-client)
 * Announce the release on Twitter
