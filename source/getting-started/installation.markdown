@@ -129,7 +129,7 @@ One of the goals of the distributed search index is availability. If one server 
 ```php
 $elasticaClient = new \Elastica\Client(array(
     'servers' => array(
-        array('host' => 'localhost', 'port' => 9200)
+        array('host' => 'localhost', 'port' => 9200),
         array('host' => 'localhost', 'port' => 9201)
     )
 ));
