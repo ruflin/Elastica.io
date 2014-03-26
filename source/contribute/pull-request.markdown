@@ -10,4 +10,4 @@ As you have come to this page, we assume you plan to contribute to Elastica whic
 
  * Is your code documented? 
  * Are there tests that cover your changes?
- * Did you update the [changes.txt](https://github.com/ruflin/Elastica/blob/master/changes.txt) file? 
+ * Did you update the [changes.txt](https://github.com/ruflin/Elastica/blob/master/changes.txt) file and add your issue number?
