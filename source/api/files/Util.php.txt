@@ -2,6 +2,8 @@
 
 namespace Elastica;
 
+use Elastica\JSON;
+
 /**
  * Elastica tools
  *
@@ -44,11 +46,14 @@ class Util
     {
         $result = $term;
         // \ escaping has to be first, otherwise escaped later once again
-        $chars = array('\\', '+', '-', '&&', '||', '!', '(', ')', '{', '}', '[', ']', '^', '"', '~', '*', '?', ':', '/');
+        $chars = array('\\', '+', '-', '&&', '||', '!', '(', ')', '{', '}', '[', ']', '^', '"', '~', '*', '?', ':');
 
         foreach ($chars as $char) {
             $result = str_replace($char, '\\' . $char, $result);
         }
+
+        // since elasticsearch uses lucene 4.0 / needs to be escaped by \\
+        $result = str_replace('/', '\\\\/', $result);
 
         return $result;
     }
@@ -119,7 +124,7 @@ class Util
 
     /**
      * Tries to guess the name of the param, based on its class
-     * Exemple: \Elastica\Filter\HasChildFilter => has_child
+     * Example: \Elastica\Filter\HasChildFilter => has_child
      *
      * @param string|object Class or Class name
      * @return string parameter name
@@ -159,7 +164,7 @@ class Util
 
         $data = $request->getData();
         if (!empty($data)) {
-            $message .= ' -d \'' . json_encode($data) . '\'';
+            $message .= ' -d \'' . JSON::stringify($data) . '\'';
         }
         return $message;
     }

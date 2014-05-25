@@ -37,6 +37,7 @@ class Search
     const OPTION_SEARCH_TYPE_QUERY_THEN_FETCH = 'query_then_fetch';
     const OPTION_SEARCH_TYPE_QUERY_AND_FETCH = 'query_and_fetch';
     const OPTION_SEARCH_TYPE_SUGGEST = 'suggest';
+    const OPTION_SEARCH_TYPE_SCROLL = 'scroll';
 
     /**
      * Array of indices
@@ -497,6 +498,18 @@ class Search
     public function setSuggest(Suggest $suggest)
     {
         return $this->setOptionsAndQuery(array(self::OPTION_SEARCH_TYPE_SUGGEST => 'suggest'), $suggest);
+    }
+
+    /**
+     * Returns the ScanAndScroll Iterator
+     *
+     * @see Elastica\ScanAndScroll
+     * @param string $expiryTime
+     * @param int $sizePerShard
+     * @return ScanAndScroll
+     */
+    public function scanAndScroll($expiryTime = '1m', $sizePerShard = 1000) {
+        return new ScanAndScroll($this, $expiryTime, $sizePerShard);
     }
 }
 
