@@ -40,7 +40,7 @@ $es_text1 = new Elastica_Query_Text();
 $es_text1 -> setField("title", "hello");
 $es_text2 = new Elastica_Query_Text();
 $es_text2 -> setField("post_text", "hello");
-$es_child = new Elastica_Query_HasChild($es_text2,"post");
+$es_child = new Elastica_Query_HasChild($es_text2, "post");
 
 $es_bool = new Elastica_Query_Bool();
 $es_bool ->addShould($es_text1);
