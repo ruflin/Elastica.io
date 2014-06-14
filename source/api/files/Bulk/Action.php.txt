@@ -165,6 +165,17 @@ class Action
     }
 
     /**
+     * @param string $routing
+     * @return \Elastica\Bulk\Action
+     */
+    public function setRouting($routing)
+    {
+        $this->_metadata['_routing'] = $routing;
+
+        return $this;
+    }
+
+    /**
      * @return array
      */
     public function toArray()
@@ -187,7 +198,8 @@ class Action
             if (is_string($source)) {
                 $string.= $source;
             } elseif (is_array($source) && array_key_exists('doc', $source) && is_string($source['doc'])) {
-                $string.= '{"doc": ' . $source['doc'] . '}';
+                $docAsUpsert = (isset($source['doc_as_upsert'])) ? ', "doc_as_upsert": '.$source['doc_as_upsert'] : '';
+                $string.= '{"doc": '.$source['doc'].$docAsUpsert.'}';
             } else {
                 $string.= JSON::stringify($source, 'JSON_ELASTICSEARCH');
             }
