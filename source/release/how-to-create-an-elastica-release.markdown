@@ -9,6 +9,7 @@ footer: true
 The following steps have to be followed to create a new Elastica Release
 
 * Open a pull request with the release planned in in changes.txt on top
+* For minor or major releases, update the branch-alias in the composer.json file
 * Verify that all the builds on [Travis](https://travis-ci.org/ruflin/Elastica) are green for the current version
 * Merge pull request
 * Go to [Github Release page](https://github.com/ruflin/Elastica/releases) and "Draft a new release"
