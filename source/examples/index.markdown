@@ -16,3 +16,5 @@ As everyone likes examples, here is list of examples. The perfect place to get e
 * Filter examples
 * Sorting examples
   * [By Distance](/example/sort/sort.html#distance)
+* Aggregation examples
+  * [Terms Aggregation](/example/aggregations/terms.html)
