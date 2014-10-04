@@ -11,7 +11,7 @@ Elasticsearch is evolving fast and not all queries and new features which are ad
 \Elastica\Client::request($path, $method = Request::GET, $data = array(), array $query = array())
 ```
 
-The function has for params. The first one is the path that should be called, then the type of the Request, the data array which is normally the JSON string and additional query params which should be added to the url. Here is a simple example for a string query in a raw array.
+The function has four params. The first one is the path that should be called, then the type of the Request, the data array which is normally the JSON string and additional query params which should be added to the url. Here is a simple example for a string query in a raw array.
 
 ```php
 $client = new Client();
