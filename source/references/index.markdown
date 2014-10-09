@@ -28,3 +28,4 @@ This is a list of links / blogs found online about Elastica
 * [Symfony2: improving elasticsearch results](http://miller.limethinking.co.uk/2011/11/18/symfony2-improving-elasticsearch-results/)
 * [Symfony2: elasticsearch integration](http://afsy.fr/avent/2013/20-elasticsearch-dans-votre-Symfony2)
 * [Optimize your Symfony2 Application with Elasticsearch and Elastica](http://www.ucs-labs.com/blog/optimize-your-symfony2-application-with-elasticsearch-and-elastica)
+* [Elasticsearch : Advanced search and nested objects](http://obtao.com/blog/2014/04/elasticsearch-advanced-search-and-nested-objects/)
