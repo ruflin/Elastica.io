@@ -17,6 +17,8 @@ Elastica is used in quite a few projects and libraries. In case you are using El
 * [Search app](http://github.com/jbroadway/search) for the [Elefant CMS](http://www.elefantcms.com/)
 * [SWYF](http://www.swyf.nl)
 * [useKit - teamwork across companies](http://useKit.com/)
-* [Wikimedia CirrusSearch](http://www.mediawiki.org/wiki/Extension:CirrusSearch)
+* MediaWiki extensions ([library package](https://www.mediawiki.org/wiki/Extension:Elastica)):
+  * [CirrusSearch](http://www.mediawiki.org/wiki/Extension:CirrusSearch), e.g. on Wikimedia projects
+  * [Translate](https://www.mediawiki.org/wiki/Extension:Translate)'s [translation memory](https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Extension:Translate/Translation_memories), e.g. on translatewiki.net
 * [Zend Framework Boilerplate](http://zf-boilerplate.com)
 * [Search API Elasticsearch](https://www.drupal.org/project/search_api_elasticsearch) for [Drupal](https://www.drupal.org)
