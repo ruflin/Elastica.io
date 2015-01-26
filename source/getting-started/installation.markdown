@@ -39,7 +39,7 @@ You can also install Elastica by using composer:
 ```
 {
     "require": {
-        "ruflin/Elastica": "dev-master"
+        "ruflin/elastica": "dev-master"
     }
 }
 ```
