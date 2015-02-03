@@ -21,11 +21,11 @@ The documents in elasticsearch are organized in indexes. Each index contains one
 
 <h3 id="section-analysis">Define Analysis</h3>
 
-In elasticsearch, when you create an index, you define the number of shards and number of replicas. A shard is a part of your data and a replica is like an backup of that data. So when you have one node, all the shards and all the replicas will be on that node. When you have more nodes, your data will be balanced to these nodes. How it is balanced depends on your configuration. More on this topic can be found <a href="http://www.elasticsearch.org/videos/2010/02/08/es-distributed-diagram.html"> here</a>.
+In elasticsearch, when you create an index, you define the number of shards and number of replicas. A shard is a part of your data and a replica is like an backup of that data. So when you have one node, all the shards and all the replicas will be on that node. When you have more nodes, your data will be balanced to these nodes. How it is balanced depends on your configuration. More on this topic can be found <a href="http://www.elasticsearch.org/videos/2010/02/08/es-distributed-diagram.html">here</a>.
 
 Data in elasticsearch is analyzed at two different times. Once, when you index a document it's analyzed and this information is put in the index. The other time is when do a search. Elasticsearch analyzes the search query and looks up the gained information in the index. To see all possible analyzers and filter check out the <a href="http://www.elasticsearch.org/guide/reference/index-modules/analysis/">Analysis</a> reference.
 
-Let's create an index called twitter! We'll include two analyzers. Let's call them  <code>indexAnalyzer</code> and <code>searchAnalyzer</code>, but you can use any name. <code>indexAnalyzer</code> defines how the data will be analyzed when it's indexed and <code>searchAnalyzer</code> defines how elasticsearch will analyze the search query. We'll reference these when we create the Mapping below. In this example we'll also use a custom snowball filter for the data.
+Let's create an index called twitter! We'll include two analyzers. Let's call them <code>indexAnalyzer</code> and <code>searchAnalyzer</code>, but you can use any name. <code>indexAnalyzer</code> defines how the data will be analyzed when it's indexed and <code>searchAnalyzer</code> defines how elasticsearch will analyze the search query. We'll reference these when we create the Mapping below. In this example we'll also use a custom snowball filter for the data.
 
 The second argument of <code>\Elastica\Index</code> is an OPTIONAL bool=> (true) Deletes index first if already exists (default = false)
 
