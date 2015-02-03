@@ -83,7 +83,7 @@ $query->setSuggest(new \Elastica\Suggest(new \Elastica\Suggest\Term('name', 'fie
 $query->setFacets([new \Elastica\Facet\Range('name')]);
 ```
 
-to create more complex queries use [QueryBuilder](LINK TO API) to construct all of the different parts of your query. `QueryBuilder` is going to check, whether the method you want to use is available in your current elasticsearch version or not.
+to create more complex queries use [QueryBuilder](http://elastica.io/api/classes/Elastica.Query.Builder.html) to construct all of the different parts of your query. `QueryBuilder` is going to check, whether the method you want to use is available in your current elasticsearch version or not.
 
 ```php
 // version checks against latest DSL version
