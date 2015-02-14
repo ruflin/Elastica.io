@@ -10,6 +10,8 @@ Elastica is used in quite a few projects and libraries. In case you are using El
 # Libraries using Elastica
 * [FOSElasticaBundle](https://github.com/FriendsOfSymfony/FOSElasticaBundle) Elasticsearch PHP integration for your Symfony2 project using Elastica
 * [pylastica](https://github.com/jlinn/pylastica) Python port of Elastica
+* [eluastica](https://github.com/CriztianiX/eluastica) Elasticsearch library for lua based on Elastica
+
 
 # Projects using Elastica
 * [exercise.com](http://exercise.com) by [ornicar](http://github.com/ornicar), with [ElasticaBundle](http://github.com/Exercise/ElasticaBundle)
