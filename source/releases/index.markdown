@@ -11,7 +11,7 @@ footer: true
 
 ## List of recent releases
 
-
+* [v1.4.3.0](/2015/02/17/release-v1-dot-4-3-dot-0/) (2015-02-17)
 * [v1.4.2.0](/2015/01/25/release-v1-dot-4-2-dot-0/) (2015-01-25)
 * [v1.3.4.0](/2014/10/04/release-v1-dot-3-4-dot-0/) (2014-10-04)
 * [v1.3.0.0](/2014/07/27/release-v1-dot-3-0-dot-0/) (2014-07-27)
