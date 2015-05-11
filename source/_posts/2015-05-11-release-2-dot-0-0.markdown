@@ -1,0 +1,66 @@
+---
+layout: post
+title: "Release 2.0.0"
+date: 2015-05-11
+comments: true
+categories: 
+---
+
+
+
+[Elastica 2.0.0](https://github.com/ruflin/Elastica/tree/2.0.0) ([download](https://github.com/ruflin/Elastica/releases/tag/2.0.0)). This release is compatible with elasticsearch 1.5.2.
+
+## Release Notes
+With this release Elastica moves to its own independent semantic versioning. It starts with the jump from Elastica v1.4.3.0 to 2.0.0. The compatible elasticsearch version will be linked with every release. This changes makes it possible to better indicate major branches to previous Elastica versions without being dependent on elasticsearch release version numbering. The v in front of the version was dropped.
+
+Release 2.0.0 has only minor backward compatibility breaks (see below), but lots of improvements and additions. All BC changes are related to changes in elasticsearch 1.5.*. Migration from v1.4.3.0 to 2.0.0 should not be an issue in most cases even though it is a big step concerning version number.
+
+The goal is also to improve on the release notes to make it easier to see what changes and what are the backward compatible changes. More details can be found [here](https://github.com/ruflin/Elastica/issues/833)
+
+
+## Dependencies
+
+| Project | Version | Required |
+|---------|---------|----------|
+|[Elasticsearch](https://github.com/elasticsearch/elasticsearch/tree/v1.5.2)| 1.5.2 | yes
+|[Elasticsearch mapper attachments plugin](https://github.com/elasticsearch/elasticsearch-mapper-attachments/tree/v2.4.2)|2.4.2|no
+|[Elasticsearch thrift transport plugin](https://github.com/elasticsearch/elasticsearch-transport-thrift/tree/v2.4.1)|2.4.1|no
+|[Elasticsearch geocluster facet plugin](https://github.com/zenobase/geocluster-facet/tree/0.0.12)|0.0.12|no
+
+
+
+## Changes
+
+### Backward Compatibility Breaks
+- Elastica\Query\QueryString::setLowercaseExpandedTerms removed #813
+- Update Elasticsearch version to 1.5 #813
+- Added deprecation notice to Elastica\Transport\Thrift, Elastica\Transport\Memcached and Elastica\Type::deleteByQuery  #817
+- Escape new symbols in Util::escapeTerm #795
+
+### Bugfixes
+- Fix empty bool query to act as match all query #817
+- Fixed short match construction in query DSL #796
+- Index optimize method to return Response object. #797
+- Fix fluent interface inconsistency #788
+
+
+### Improvements
+- Add testing on PHP 7 on Travis #826
+- Add Elastica\Util::reindex function by scan and bulk way http://www.elastic.co/guide/en/elasticsearch/guide/master/reindex.html #829 #931
+- Allow bool in Query::setSource function #818 http://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-source-filtering.html
+- deleteByQuery() implemented in Elastica\Index #816
+- Add MLT query against documents #814
+- Added Elastica\Query\SimpleQueryString::setMinimumShouldMatch #813
+- Added Elastica\Query\FunctionScore::setMinScore #813
+- Added Elastica\Query\MoreLikeThis::setMinimumShouldMatch #813
+- Added new methods to Elastica\Aggregation\DateHistogram: setOffset, setTimezone #813
+- Following methods in Elastica\Aggregation\DateHistogram marked as deprecated: setPreOffset, setPostOffset, setPreZone, setPostZone, setPreZoneAdjustLargeInterval #813
+- Add Elastica\Facet\DateHistogram::setFactor() #806
+- Added Elastica\Query\QueryString::setTimezone #813
+- Add .editorconfig #807
+- Added Elastica\Suggest\Completion #808
+- Fix elasticsearch links to elastic domain #809
+- Added Elastica\Query\Image #787
+- Add Scrutinizer Code Quality status badge
+- Added support for percentiles aggregation #786
+
