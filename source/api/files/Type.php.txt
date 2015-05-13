@@ -2,10 +2,10 @@
 
 namespace Elastica;
 
-use Elastica\Exception\RuntimeException;
 use Elastica\Exception\InvalidException;
 use Elastica\Exception\NotFoundException;
 use Elastica\Exception\ResponseException;
+use Elastica\Exception\RuntimeException;
 use Elastica\Type\Mapping;
 
 /**
@@ -108,10 +108,11 @@ class Type implements SearchableInterface
     }
 
     /**
-     * @param $object
-     * @param  Document                   $doc
-     * @return Response
      * @throws Exception\RuntimeException
+     *
+     * @param $object
+     * @param  Document $doc
+     * @return Response
      */
     public function addObject($object, Document $doc = null)
     {
@@ -131,11 +132,12 @@ class Type implements SearchableInterface
     /**
      * Update document, using update script. Requires elasticsearch >= 0.19.0
      *
-     * @param  \Elastica\Document|\Elastica\Script  $data    Document with update data
-     * @param  array                                $options array of query params to use for query. For possible options check es api
+     * @link http://www.elastic.co/guide/en/elasticsearch/reference/current/docs-update.html
      * @throws \Elastica\Exception\InvalidException
+     *
+     * @param  \Elastica\Document|\Elastica\Script $data    Document with update data
+     * @param  array                               $options array of query params to use for query. For possible options check es api
      * @return \Elastica\Response
-     * @link http://www.elasticsearch.org/guide/reference/api/update.html
      */
     public function updateDocument($data, array $options = array())
     {
@@ -163,7 +165,7 @@ class Type implements SearchableInterface
      *
      * @param  array|\Elastica\Document[] $docs Array of Elastica\Document
      * @return \Elastica\Bulk\ResponseSet
-     * @link http://www.elasticsearch.org/guide/reference/api/bulk.html
+     * @link http://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html
      */
     public function updateDocuments(array $docs)
     {
@@ -179,7 +181,7 @@ class Type implements SearchableInterface
      *
      * @param  array|\Elastica\Document[] $docs Array of Elastica\Document
      * @return \Elastica\Bulk\ResponseSet
-     * @link http://www.elasticsearch.org/guide/reference/api/bulk.html
+     * @link http://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html
      */
     public function addDocuments(array $docs)
     {
@@ -195,7 +197,7 @@ class Type implements SearchableInterface
      *
      * @param  objects[]                  $objects
      * @return \Elastica\Bulk\ResponseSet
-     * @link http://www.elasticsearch.org/guide/reference/api/bulk.html
+     * @link http://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html
      */
     public function addObjects(array $objects)
     {
@@ -218,10 +220,11 @@ class Type implements SearchableInterface
     /**
      * Get the document from search index
      *
-     * @param  string                                $id      Document id
-     * @param  array                                 $options Options for the get request.
      * @throws \Elastica\Exception\NotFoundException
      * @throws \Elastica\Exception\ResponseException
+     *
+     * @param  string             $id      Document id
+     * @param  array              $options Options for the get request.
      * @return \Elastica\Document
      */
     public function getDocument($id, $options = array())
@@ -389,7 +392,7 @@ class Type implements SearchableInterface
      *
      * @param  array|\Elastica\Document[] $docs Array of Elastica\Document
      * @return \Elastica\Bulk\ResponseSet
-     * @link http://www.elasticsearch.org/guide/reference/api/bulk.html
+     * @link http://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html
      */
     public function deleteDocuments(array $docs)
     {
@@ -403,12 +406,13 @@ class Type implements SearchableInterface
     /**
      * Deletes an entry by its unique identifier
      *
-     * @param  int|string                            $id      Document id
-     * @param  array                                 $options
      * @throws \InvalidArgumentException
      * @throws \Elastica\Exception\NotFoundException
-     * @return \Elastica\Response                    Response object
-     * @link http://www.elasticsearch.org/guide/reference/api/delete.html
+     * @link http://www.elastic.co/guide/en/elasticsearch/reference/current/docs-delete.html
+     *
+     * @param  int|string         $id      Document id
+     * @param  array              $options
+     * @return \Elastica\Response Response object
      */
     public function deleteById($id, array $options = array())
     {
@@ -447,7 +451,8 @@ class Type implements SearchableInterface
      * @param  \Elastica\Query|string $query   Query object
      * @param  array                  $options Optional params
      * @return \Elastica\Response
-     * @link http://www.elasticsearch.org/guide/reference/api/delete-by-query.html
+     * @link http://www.elastic.co/guide/en/elasticsearch/reference/current/docs-delete-by-query.html
+     * @deprecated Delete by Query api is deprecated as of ES 1.5, and will be removed in ES 2.0
      */
     public function deleteByQuery($query, array $options = array())
     {
@@ -483,7 +488,7 @@ class Type implements SearchableInterface
      * @param  array                        $params OPTIONAL Additional arguments for the query
      * @param  string|array|\Elastica\Query $query  OPTIONAL Query to filter the moreLikeThis results
      * @return \Elastica\ResultSet          ResultSet with all results inside
-     * @link http://www.elasticsearch.org/guide/reference/api/more-like-this.html
+     * @link http://www.elastic.co/guide/en/elasticsearch/reference/current/search-more-like-this.html
      */
     public function moreLikeThis(Document $doc, $params = array(), $query = array())
     {
@@ -516,11 +521,14 @@ class Type implements SearchableInterface
      * Sets the serializer callable used in addObject
      * @see \Elastica\Type::addObject
      *
-     * @param array|string $serializer @see \Elastica\Type::_serializer
+     * @param  array|string $serializer @see \Elastica\Type::_serializer
+     * @return $this
      */
     public function setSerializer($serializer)
     {
         $this->_serializer = $serializer;
+
+        return $this;
     }
 
     /**
