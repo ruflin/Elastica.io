@@ -1,0 +1,55 @@
+---
+layout: post
+title: "Release 2.1.0"
+date: 2015-06-01 15:38:06 +0200
+comments: true
+categories: 
+---
+
+
+
+[Elastica 2.1.0](https://github.com/ruflin/Elastica/tree/2.1.0) ([download](https://github.com/ruflin/Elastica/releases/tag/2.1.0)). This release is compatible with elasticsearch 1.5.2.
+
+
+### Backward Compatibility Breaks
+- `Elastica\ScanAndScroll::$_lastScrollId` removed: `key()` now always returns the next scroll id [#842](https://github.com/ruflin/Elastica/issues/842/)
+
+
+### Deprecated
+- Facets are deprecated. You are encouraged to migrate to aggregations instead. [#855](https://github.com/ruflin/Elastica/pull/855/)
+- Elastica\Query\Builder is deprecated. Use new Elastica\QueryBuilder instead. [#855](https://github.com/ruflin/Elastica/pull/855/)
+- For PHP 7 compatibility Elastica\Query\Bool was renamed to *\BoolQuery, Elastica\Filter\Bool was renamed to BoolFilter, Elastica\Transport\Null was renamed to NullTransport as Null and Bool are reserved phrases in PHP 7. Proxy objects for all three exist to keep backward compatibility. It is recommended to start using the new objects as the proxy classes will be deprecated as soon as PHP 7 is stable. #837
+
+
+### Added
+- Multiple rescore query [#820](https://github.com/ruflin/Elastica/issues/820/)
+- Support for a custom connection timeout through a connectTimeout parameter. [#841](https://github.com/ruflin/Elastica/issues/841/)
+- SignificantTerms Aggregation [#847](https://github.com/ruflin/Elastica/issues/847/)
+- Support for 'precision_threshold' and 'rehash' options for the Cardinality Aggregation [#851]
+- Support for retrieving id node #852
+- Scroll Iterator [#842](https://github.com/ruflin/Elastica/issues/842/)
+- Gitter Elastica Chat Room add for Elastica discussions: https://gitter.im/ruflin/Elastica
+- Introduce PHP7 compatibility and tests. #837
+- `Tool\CrossIndex` for reindexing and copying data and mapping between indices [#853](https://github.com/ruflin/Elastica/pull/853)
+- CONTIRUBTING.md file added for contributor guidelines. #854
+
+### Improvements
+- Introduction of Changelog standard based on http://keepachangelog.com/. changes.txt moved to CHANGELOG.md [#844](https://github.com/ruflin/Elastica/issues/844/)
+- Make host for all tests dynamic to prepare it for a more dynamic test environment #846
+- Node information is retrieved based on id instead of name as multiple nodes can have the same name. #852
+- Guzzle Http dependency updated to 5.3.*
+- Remove NO_DEV builds from travis build matrix to speed up building. All builds include no dev packages.
+- Introduction of benchmark test group to make it easy to run benchmark tests.
+- Make the docker images directly [available](https://hub.docker.com/u/ruflin/) on the docker registry. This speeds up fetching of the images and automates the build of the images.
+
+
+## Dependencies
+
+| Project | Version | Required |
+|---------|---------|----------|
+|[Elasticsearch](https://github.com/elasticsearch/elasticsearch/tree/v1.5.2)|1.5.2|yes|
+|[Elasticsearch mapper attachments plugin](https://github.com/elasticsearch/elasticsearch-mapper-attachments/tree/v2.5.0)|2.5.0|no|
+|[Elasticsearch thrift transport plugin](https://github.com/elasticsearch/elasticsearch-transport-thrift/tree/v2.5.0)|2.5.0|no|
+|[Elasticsearch memcached transport plugin](https://github.com/elasticsearch/elasticsearch-transport-memcached/tree/v2.5.0)|2.5.0|no|
+|[Elasticsearch geocluster facet plugin](https://github.com/zenobase/geocluster-facet/tree/0.0.12)|0.0.12|no|
+|[Elasticsearch image plugin](https://github.com/SibaTokyo/elasticsearch-image/tree/1.4.0)|1.4.0|no|
