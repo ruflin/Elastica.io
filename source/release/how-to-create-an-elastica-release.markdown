@@ -11,10 +11,12 @@ The following steps have to be followed to create a new Elastica Release
 * Open a pull request with the release planned in in changes.txt on top
 * For minor or major releases, update the branch-alias in the composer.json file
 * Verify that all the builds on [Travis](https://travis-ci.org/ruflin/Elastica) are green for the current version
+* Copy all the changes since the last release from [CHANGELOG.md](https://github.com/ruflin/Elastica/blob/master/CHANGELOG.md) and format that they are properly formatted
+* Copy Dependencies for [README.md](https://github.com/ruflin/Elastica/blob/master/README.md)
+* Prepare new empty fields for next release in [CHANGELOG.md](https://github.com/ruflin/Elastica/blob/master/CHANGELOG.md) by adding the Unreleased title and the following sub titles: Backward Compatibility Breaks, Bugfixes, Added, Improvements, Deprecated
 * Merge pull request
-* Go to [Github Release page](https://github.com/ruflin/Elastica/releases) and "Draft a new release"
 * Set the proper tag and title (Release X.X.X) for the release
-* Copy all the changes since the last release from [changes.txt](https://github.com/ruflin/Elastica/blob/master/changes.txt) and format them properly (remove dates)
+* Go to [Github Release page](https://github.com/ruflin/Elastica/releases) and "Draft a new release"
 * Publish the release
 * Update [Elastica.io](http://elastica.io)
   * Create a release post on Elastica.io with the changes and download link (``rake new_post['Release X.X.X']``)

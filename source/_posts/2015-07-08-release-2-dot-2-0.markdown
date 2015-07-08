@@ -1,0 +1,44 @@
+---
+layout: post
+title: "Release 2.2.0"
+date: 2015-07-08 07:28:30 +0200
+comments: true
+categories: 
+---
+
+
+[Elastica 2.2.0](https://github.com/ruflin/Elastica/tree/2.2.0) ([download](https://github.com/ruflin/Elastica/releases/tag/2.2.0)). This release is compatible with elasticsearch 1.6.0.
+
+
+### Backward Compatibility Breaks
+- Usage of constant DEBUG and method Elastica\Util::debugEnabled is removed. [#868](https://github.com/ruflin/Elastica/pull/868)
+- Elastica\Response::getTransferInfo will not return "request_header" by default. [#868](https://github.com/ruflin/Elastica/pull/868)
+- The Image Plugin is currently not compatible with Elasticearch 1.6.0
+
+### Bugfixes
+- Fixed segmentation fault in PHP7 [#868](https://github.com/ruflin/Elastica/pull/868)
+- Removed deprecation for Elastica\Type::deleteByQuery [#875](https://github.com/ruflin/Elastica/pull/875)
+
+### Improvements
+- `CallbackStrategy` now will accept any `callable` as callback, not only instance of `Closure`. [#871](https://github.com/ruflin/Elastica/pull/871)
+- `StrategyFactory` now will try to find predefined strategy before looking to global namespace. [#877](https://github.com/ruflin/Elastica/pull/877)
+- Update elasticsearch dependency to elasticsearch 1.6.0 https://www.elastic.co/downloads/past-releases/elasticsearch-1-6-0 
+- All elasticsearch plugin dependencies were updated to the newest version.
+- Methods of classes in `QueryBuilder\DSL` namespace now have exact same signatures as corresponding constructors. [#878](https://github.com/ruflin/Elastica/pull/878)
+- Constructor of `Aggregation\Filter` now accepts filter as second parameter [#878](https://github.com/ruflin/Elastica/pull/878)
+- Constructor of `Filter\AbstractMulti` (`BoolAnd`, `BooldOr`) now accepts array of filters as parameter [#878](https://github.com/ruflin/Elastica/pull/878)
+- Constructor of `Query\Match` now accepts arguments [#878](https://github.com/ruflin/Elastica/pull/878)
+- Coverage Reporting improved with Codecov [#888](https://github.com/ruflin/Elastica/pull/888)
+- Added 'query_cache' option for search [#886](https://github.com/ruflin/Elastica/pull/886)
+
+
+## Dependencies
+
+| Project | Version | Required |
+|---------|---------|----------|
+|[Elasticsearch](https://github.com/elasticsearch/elasticsearch/tree/v1.6.0)|1.6.0|yes|
+|[Elasticsearch mapper attachments plugin](https://github.com/elasticsearch/elasticsearch-mapper-attachments/tree/v2.6.0)|2.6.0|no|
+|[Elasticsearch thrift transport plugin](https://github.com/elasticsearch/elasticsearch-transport-thrift/tree/v2.6.0)|2.6.0|no|
+|[Elasticsearch memcached transport plugin](https://github.com/elastic/elasticsearch-transport-memcached/tree/v2.6.0)|2.6.0|no|
+|[Elasticsearch geocluster facet plugin](https://github.com/zenobase/geocluster-facet/tree/0.0.12)|0.0.12|no|
+|[Elasticsearch image plugin](https://github.com/SibaTokyo/elasticsearch-image/tree/1.4.0)|1.4.0|no|
