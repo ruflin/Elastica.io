@@ -22,5 +22,7 @@ The following steps have to be followed to create a new Elastica Release
   * Create a release post on Elastica.io with the changes and download link (``rake new_post['Release X.X.X']``)
   * Update the Releases page with the newest release: http://elastica.io/releases/
   * Build the newest API doc with ``ant phpdoc`` and copy it to the source/api folder
+* Update Docker Hub Tags for elasticsearch-elastica and elastica repository: https://hub.docker.com/u/ruflin/
 * Announce the release on the [Elastica Google Group](https://groups.google.com/forum/#!forum/elastica-php-client)
 * Announce the release on Twitter
+
