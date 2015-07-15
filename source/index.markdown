@@ -7,14 +7,16 @@ sharing: true
 footer: true
 ---
 [![Latest Stable Version](https://poser.pugx.org/ruflin/Elastica/v/stable.png)](https://packagist.org/packages/ruflin/elastica)
-[![Coverage Status](https://coveralls.io/repos/ruflin/Elastica/badge.png)](https://coveralls.io/r/ruflin/Elastica)
-[![Dependency Status](https://www.versioneye.com/php/ruflin:Elastica/master/badge.png)](https://www.versioneye.com/php/ruflin:elastica/)
+[![codecov.io](http://codecov.io/github/ruflin/Elastica/coverage.svg?branch=master)](http://codecov.io/github/ruflin/Elastica?branch=master)
 [![Total Downloads](https://poser.pugx.org/ruflin/Elastica/downloads.png)](https://packagist.org/packages/ruflin/elastica)
+[![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=ruflin&url=https://github.com/ruflin/Elastica&title=Elastica&language=PHP&tags=github&category=software)
+[![Join the chat at https://gitter.im/ruflin/Elastica](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ruflin/Elastica?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 
 
 Elastica.io is the documentation for [Elastica](http://github.com/ruflin/Elastica), a PHP client for [elasticsearch](http://elasticsearch.org). Elastica is open source and you can download or clone the source code on Github from [ruflin/Elastica](http://github.com/ruflin/Elastica).
 
-These pages should give you an overview of how to use Elastica. You can find the complete [API here](api/index.html). Any contributions to the documentations are highly welcome. Elastica.io is based on [Octopress](http://octopress.org/) and is hosted on Github. Fork your copy from [ruflin/Elastica.io](https://github.com/ruflin/Elastica.io) and open a pull request.
+These pages gives an overview of how to use Elastica. You can find the complete [API here](/api/index.html). Any contributions to the documentations are highly welcome. Elastica.io is based on [Octopress](http://octopress.org/) and is hosted on Github. Fork your copy from [ruflin/Elastica.io](https://github.com/ruflin/Elastica.io) and open a pull request.
 
 * [Getting Started](/getting-started/)
 * [Examples](/examples/)
@@ -22,12 +24,7 @@ These pages should give you an overview of how to use Elastica. You can find the
 * [Releases](/releases/)
 * [Migrations](/migrations/)
 * [References](/references/)
-
-
-Versions
---------
-
-The version numbers are consistent with elasticsearch. The version number 0.16.0.0 means it is the first release for elasticsearch version 0.16.0. The next release is called 0.16.0.1. As soon as the elasticsearch is updated and the client is updated, also the next version is called 0.16.1.0. Like this it should be always clear to which versions the Elastica client is compatible.
+* [Elastica vs elasticsearch-php](/elastica-vs-elasticsearch-php)
 
 Compatibility
 --------------
