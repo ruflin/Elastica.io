@@ -25,6 +25,32 @@ The following table should give a brief overview how Elastica and elasticsearch-
 | **Http Client**			| Selectable		| guzzle3 				|
 
 
+# Code Snippets
+List of code snippets that compare the two clients:
+
+## Add Document
+
+Elastica:
+```php
+$client = new \Elastica\Client();
+$index = $client->getIndex('indexName');
+$type = $index->getType('typeName');
+$doc = new \Elastica\Document('myId', array('name' => 'ruflin'));
+$respone = $type->addDocument($doc);
+```
+
+elasticsearch-php:
+
+```php
+$client = new Elasticsearch\Client();
+$params = array();
+$params['body']  = array('name' => 'ruflin');
+$params['index'] = 'indexName';
+$params['type']  = 'typeName';
+$params['id']    = 'myId';
+$respone = $client->index($params);
+```
+
 # History
 Elastica was in 2010 one of the first PHP clients for elasticsearch and was initially built for elasticsearch v0.16.0 and before. Since then a lot of things have changed in the elasticsearch API. Filter, facets, aggregations and more were added which also added complexity on the client side.
 
