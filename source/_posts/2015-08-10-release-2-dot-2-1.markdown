@@ -1,0 +1,36 @@
+---
+layout: post
+title: "Release 2.2.1"
+date: 2015-08-10 21:01:10 +0200
+comments: true
+categories: 
+---
+
+
+[Elastica 2.2.1](https://github.com/ruflin/Elastica/tree/2.2.1) ([download](https://github.com/ruflin/Elastica/releases/tag/2.2.1)). This release is compatible with elasticsearch 1.7.1.
+
+
+### Added
+- Support for index template added [#905](https://github.com/ruflin/Elastica/pull/905)
+
+### Improvements
+- Update Elasticsearch dependency to 1.7.1 and update plugin dependencies [#909](https://github.com/ruflin/Elastica/pull/909)
+- Update php-cs-fixer to 1.10 [#898](https://github.com/ruflin/Elastica/pull/898)
+- Elastica\QueryBuilder now uses Elastica\QueryBuilder\Version\Latest as default version to avoid empty version classes. [#897](https://github.com/ruflin/Elastica/pull/897)
+- Update elasticseach-image to work with ES 1.7.1 [#907](https://github.com/ruflin/Elastica/pull/907)
+- Local dev environment was refactored to fully work in docker environment. Running tests is now only one command: `make tests` [#901](https://github.com/ruflin/Elastica/pull/901)
+
+### Deprecated
+- Elastica\QueryBuilder\Version\Version150 deprecated in favor of Elastica\QueryBuilder\Version\Latest [#897](https://github.com/ruflin/Elastica/pull/897)
+
+
+## Dependencies
+
+| Project | Version | Required |
+|---------|---------|----------|
+|[Elasticsearch](https://github.com/elasticsearch/elasticsearch/tree/v1.7.1)|1.7.1|yes|
+|[Elasticsearch mapper attachments plugin](https://github.com/elasticsearch/elasticsearch-mapper-attachments/tree/v2.7.0)|2.7.0|no|
+|[Elasticsearch thrift transport plugin](https://github.com/elasticsearch/elasticsearch-transport-thrift/tree/v2.7.0)|2.7.0|no|
+|[Elasticsearch memcached transport plugin](https://github.com/elastic/elasticsearch-transport-memcached/tree/v2.7.0)|2.7.0|no|
+|[Elasticsearch geocluster facet plugin](https://github.com/zenobase/geocluster-facet/tree/0.0.12)|0.0.12|no|
+|[Elasticsearch image plugin](https://github.com/Jmoati/elasticsearch-image/releases/tag/1.7.1)|1.7.1|no|
