@@ -7,10 +7,9 @@ categories:
 ---
 
 
-
-
 [Elastica 2.3.0](https://github.com/ruflin/Elastica/tree/2.3.0) ([download](https://github.com/ruflin/Elastica/releases/tag/2.3.0)). This release is compatible with elasticsearch 1.7.2.
 
+As this release breaks backward compatibility, a detailed explanation about the breaking changes can be found [here](/2015/09/22/elastica-2-dot-3-0-broken-backward-compatibility-explanation/)
 
 ### Backward Compatibility Breaks
 - Objects do not casts to arrays in setters and saved in params as objects. There is many side effects if
