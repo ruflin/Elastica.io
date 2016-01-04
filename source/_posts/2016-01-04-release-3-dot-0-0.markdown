@@ -1,0 +1,48 @@
+---
+layout: post
+title: "Release 3.0.0"
+date: 2016-01-04 16:11:26 +0100
+comments: true
+categories:
+---
+
+
+[Elastica 3.0.0](https://github.com/ruflin/Elastica/tree/3.0.0) ([download](https://github.com/ruflin/Elastica/releases/tag/3.0.0)). This release is compatible with [elasticsearch 2.0.0](https://www.elastic.co/blog/elasticsearch-2-0-0-released).
+
+Elastica 3.0.0 is a major release. It is compatible with elasticsearch 2.0 which means also bringing lots of compatibility break. Switch to Elastica 3.0.0-beta1 does not only mean you have to adapt your code but also migrate to elasticsearch 2.0. For the migration to elasticsearch 2.0 check the following two blog posts:
+
+* [Key points to be aware of when upgrading from Elasticsearch 1.x to 2.x](https://www.elastic.co/blog/key-point-to-be-aware-of-when-upgrading-from-elasticsearch-1-to-2)
+* [Breaking changes in 2.0](https://www.elastic.co/guide/en/elasticsearch/reference/current/breaking-changes-2.0.html)
+
+We tried to make the migration as easy as possible by adding deprecated messages and exceptions for the stuff that was or will be removed. Make sure to test your application with the newest version. For more details also see the [3.0.0-beta1 release](http://elastica.io/2015/11/26/release-3-dot-0-0-beta1/).
+
+### Backward Compatibility Breaks
+- Revert getError changes in Response object and make it better BC compatible. See comment [here](https://github.com/ruflin/Elastica/commit/41a7a2075837320bc9bd3bca4150e05a1ec9a115#commitcomment-15136374).
+
+### Bugfixes
+- Function score query: corrected the `score_method` `average` to `avg` #975
+- Set `json_decode()` assoc parameter to true in `Elastica\Response` #1005
+- Add `bigintConversion` to keys passed to connection config in `Elastica\Client` #1005
+- Use POST instead of PUT to send bulk requests #1010
+
+### Added
+- Elastica\Query\MultiMatch::setFuzziness now supports being set to `AUTO` with the const `MultiMatch::FUZZINESS_AUTO`
+- Elastica\Type\Mapping::send now accepts query string parameters to send along with the mapping request
+- Elastica\Query\BoolQuery::addFilter
+
+### Improvements
+- More info on Elastica\Exception\PartialShardFailureException. Not just number of failed shards.
+- Allow bool in TopHits::setSource function #1012
+
+### Deprecated
+- Elastica\Query\Filtered triggers E_USER_DEPRECATED error because filtered query is deprecated since ES 2.0.0-beta1. Use BoolQuery instead.
+- Elastica\QueryBuilder\DSL\Query::filtered() triggers E_USER_DEPRECATED error because filtered query is deprecated since ES 2.0.0-beta1. Use bool() instead.
+
+
+## Dependencies
+
+| Project | Version | Required |
+|---------|---------|----------|
+|[Elasticsearch](https://github.com/elasticsearch/elasticsearch/tree/v2.0.0)|2.0.0|yes|
+|[Elasticsearch mapper attachments plugin](https://github.com/elasticsearch/elasticsearch-mapper-attachments/tree/v3.0.2)|3.0.2|no|
+|[Elasticsearch image plugin](https://github.com/Jmoati/elasticsearch-image/releases/tag/1.7.1)|1.7.1|no|
