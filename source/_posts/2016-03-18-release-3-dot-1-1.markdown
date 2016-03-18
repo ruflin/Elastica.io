@@ -1,0 +1,24 @@
+---
+layout: post
+title: "Release 3.1.1"
+date: 2016-03-18 07:58:25 +0100
+comments: true
+categories: 
+---
+
+[Elastica 3.1.1](https://github.com/ruflin/Elastica/tree/3.1.1) ([download](https://github.com/ruflin/Elastica/releases/tag/3.1.1)). 
+
+This release is compatible with Elasticsearch 2.x and was tested with [elasticsearch 2.2.1](https://www.elastic.co/guide/en/elasticsearch/reference/2.2/release-notes-2.2.1.html).
+
+## Added
+- Add an "AwsAuthV4" transport that automatically signs requests using credentials from the environment or from the client config. This allows using Elastica with Amazon ElasticSearch Service domains that are restricted to IAM roles or policies. https://github.com/ruflin/Elastica/pull/1056
+- Update elasticsearch build dependency to elasticsearch 2.2.1
+
+## Improvements
+- `Elastica\Exception\InvalidException` will be thrown if you try using an
+  `Elastica\Aggregation\AbstractSimpleAggregation` without setting either the
+  `field` or `script` param.
+- `Elastica\Index->deleteByQuery($query, $options)` $query param can be a query `array` again
+- `Elastica\Query\MoreLikeThis->toArray()` now supports providing a non-indexed document as an input to perform the comparison.
+- `Elastica\Status` will lazy load the `_stats` at when it is needed. https://github.com/ruflin/Elastica/pull/1058
+
