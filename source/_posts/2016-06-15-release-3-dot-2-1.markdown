@@ -1,0 +1,24 @@
+---
+layout: post
+title: "Release 3.2.1"
+date: 2016-06-15 08:18:56 +0200
+comments: true
+categories:
+---
+
+
+[Elastica 3.2.1](https://github.com/ruflin/Elastica/tree/3.2.1) ([download](https://github.com/ruflin/Elastica/releases/tag/3.2.1)).
+
+This release is compatible with Elasticsearch 2.x and was tested with [elasticsearch 2.3.2](https://www.elastic.co/guide/en/elasticsearch/reference/2.3/release-notes-2.3.2.html).
+
+
+## Backward Compatibility Fixes
+- Reintroduced properties in ResultSet removed in 3.2.0 as deprecated properties to be removed in 4.0
+
+## Bugfixes
+- Fix fatal error on `Query::addScriptField()` if scripts were already set via `setScriptFields()` [#1086](https://github.com/ruflin/Elastica/pull/1086)
+- Fix namespace collision of `Type` in `Query\Ids` [#1104](https://github.com/ruflin/Elastica/pull/1104)
+
+## Added
+- Added the concept of ResultSet Transformers. The Transformer adds more information to a Result, for example the original object or data that created the Result. [#1066](https://github.com/ruflin/Elastica/pull/1066)
+- Tidied property initialisation in classes where it was duplicated
