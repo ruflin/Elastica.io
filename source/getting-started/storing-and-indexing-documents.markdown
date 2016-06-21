@@ -16,7 +16,7 @@ To add data to the index you can just drop some documents in and it will be inde
 
 For more information and all the possibilities elasticsearch provides, take a look at the <a href="http://www.elasticsearch.org/guide/reference/index-modules/analysis/">Analysis</a> and the <a href="http://www.elasticsearch.org/guide/reference/mapping/">Mapping</a> reference.
 
-The documents in elasticsearch are organized in indexes. Each index contains one or more types which contains the documents. So to put our data in elasticsearch, we first have to define how the index and the type will look like.
+The documents in elasticsearch are organized in indices. Each index contains one or more types which contains the documents. So to put our data in elasticsearch, we first have to define how the index and the type will look like.
 
 
 <h3 id="section-analysis">Define Analysis</h3>
@@ -25,7 +25,7 @@ In elasticsearch, when you create an index, you define the number of shards and 
 
 Data in elasticsearch is analyzed at two different times. Once, when you index a document it's analyzed and this information is put in the index. The other time is when you do a search. Elasticsearch analyzes the search query and looks up the gained information in the index. To see all possible analyzers and filter check out the <a href="http://www.elasticsearch.org/guide/reference/index-modules/analysis/">Analysis</a> reference.
 
-Let's create an index called twitter! We'll include two analyzers. Let's call them <code>indexAnalyzer</code> and <code>searchAnalyzer</code>, but you can use any name. <code>indexAnalyzer</code> defines how the data will be analyzed when it's indexed and <code>searchAnalyzer</code> defines how elasticsearch will analyze the search query. We'll reference these when we create the Mapping below. In this example we'll also use a custom snowball filter for the data.
+Let's create an index called twitter! We'll include two analyzers. The indices names are IMPORTANT because they decide when the analyzer will be used. The analyzer named "default_index" will be the analyzer used at index-time. The analyzer named "default_search" will be used when searching, if a custom analyzer is not provided in the query. <code>default_index</code> defines how the data will be analyzed when it's indexed and <code>default_search</code> defines how elasticsearch will analyze the search query. You can create analyzers with a random name, you can use these by referencing them in your query as the analyzer to use. In this example we'll also use a custom snowball filter for the data.
 
 The second argument of <code>\Elastica\Index</code> is an OPTIONAL bool=> (true) Deletes index first if already exists (default = false)
 
@@ -41,12 +41,12 @@ $elasticaIndex->create(
         'number_of_replicas' => 1,
         'analysis' => array(
             'analyzer' => array(
-                'indexAnalyzer' => array(
+                'default_index' => array(
                     'type' => 'custom',
                     'tokenizer' => 'standard',
                     'filter' => array('lowercase', 'mySnowball')
                 ),
-                'searchAnalyzer' => array(
+                'default_search' => array(
                     'type' => 'custom',
                     'tokenizer' => 'standard',
                     'filter' => array('standard', 'lowercase', 'mySnowball')
@@ -68,9 +68,9 @@ $elasticaIndex->create(
 
 The Mapping defines what kind of data is in which field. If no mapping is defined, elasticsearch will guess the kind of the data and map it automatically. To see all of the possibilities, check out the <a href="http://www.elasticsearch.org/guide/reference/mapping/">Mapping</a> reference.</p>
 
-If you aren't going to define a mapping, you should probably change the name of the analyzers we defined above to <code>default_index</code> and <code>default_search</code>. These will be used automatically when no analyzer is specified. An analyzer named <code>default</code> can be used for both searching and indexing.
+In newer versions of ElasticSearch you can not use the mapping anymore to give your custom analyzers a function. You will have to provide 2 analyzers with the default names.
 
-In our example, we will create an type called tweet which is in our index twitter. So first we create that type and afterwards we define the mapping. Note that it is possible to boost data in elasticsearch. You can either boost a specific field or you can boost a complete document. To boost a document, we'll use the field <code>_boost</code>. If we boost a field it's defined just like the kind of the field.
+In our example, we will create an type called tweet which is in our index twitter. So first we create that type and afterwards we define the mapping. Note that it is possible to boost data in elasticsearch. You can boost a specific field like 'title' to have more importance over normal content. If we boost a field it's defined just like the kind of the field. In this example we boost the importance of the 'fullname' of the user by a factor of 2.
 
 
 ```php
@@ -80,11 +80,6 @@ $elasticaType = $elasticaIndex->getType('tweet');
 // Define mapping
 $mapping = new \Elastica\Type\Mapping();
 $mapping->setType($elasticaType);
-$mapping->setParam('index_analyzer', 'indexAnalyzer');
-$mapping->setParam('search_analyzer', 'searchAnalyzer');
-
-// Define boost field
-$mapping->setParam('_boost', array('name' => '_boost', 'null_value' => 1.0));
 
 // Set mapping
 $mapping->setProperties(array(
@@ -93,13 +88,12 @@ $mapping->setProperties(array(
         'type' => 'object',
         'properties' => array(
             'name'      => array('type' => 'string', 'include_in_all' => TRUE),
-            'fullName'  => array('type' => 'string', 'include_in_all' => TRUE)
+            'fullName'  => array('type' => 'string', 'include_in_all' => TRUE, 'boost' => 2)
         ),
     ),
     'msg'     => array('type' => 'string', 'include_in_all' => TRUE),
     'tstamp'  => array('type' => 'date', 'include_in_all' => FALSE),
-    'location'=> array('type' => 'geo_point', 'include_in_all' => FALSE),
-    '_boost'  => array('type' => 'float', 'include_in_all' => FALSE)
+    'location'=> array('type' => 'geo_point', 'include_in_all' => FALSE)
 ));
 
 // Send mapping to type
@@ -126,8 +120,7 @@ $tweet = array(
     ),
     'msg'     => 'Me wish there were expression for cookies like there is for apples. "A cookie a day make the doctor diagnose you with diabetes" not catchy.',
     'tstamp'  => '1238081389',
-    'location'=> '41.12,-71.34',
-    '_boost'  => 1.0
+    'location'=> '41.12,-71.34'
 );
 // First parameter is the id of document.
 $tweetDocument = new \Elastica\Document($id, $tweet);
