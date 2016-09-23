@@ -1,0 +1,24 @@
+---
+layout: post
+title: "Release 3.2.3"
+date: 2016-09-23 12:26:28 +0200
+comments: true
+categories:
+---
+
+[Elastica 3.2.3](https://github.com/ruflin/Elastica/tree/3.2.3) ([download](https://github.com/ruflin/Elastica/releases/tag/3.2.3)).
+
+This release is compatible with Elasticsearch 2.x and was tested with [elasticsearch 2.4.0](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/release-notes-2.4.0.html).
+
+
+## Bugfixes
+- Query builder is now compatible with Elasticsearch 2.X
+
+## Added
+- Elastica\Aggregation\BucketScript
+- Elastica\Aggregation\SerialDiff
+- Elastica\Query\InnerHits
+
+## Improvements
+- Elastica\Client constructor now accepts a transport of fully qualified name. [#1169](https://github.com/ruflin/Elastica/pull/1169)
+- Update Elasticsearch dependency to 2.4.0
