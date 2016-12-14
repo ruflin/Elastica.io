@@ -1,0 +1,24 @@
+---
+layout: post
+title: "Release 5.0.0"
+date: 2016-12-14 09:58:44 +0100
+comments: true
+categories:
+---
+
+[Elastica 5.0.0](https://github.com/ruflin/Elastica/tree/5.0.0) ([download](https://github.com/ruflin/Elastica/releases/tag/5.0.0)).
+
+This is the first GA release of the Elastica 5.x series. Elastica is now compatible with [Elasticsearch 5.0]((https://www.elastic.co/guide/en/elasticsearch/reference/5.0/release-notes-5.0.0.html)). For all the backward compatibility changes also check [5.0.0-beta1 release notes](http://elastica.io/2016/11/09/release-5-dot-0-0-beta1/). For all the major changes in Elasticsearch 5.0 check this [blog post](https://www.elastic.co/blog/elasticsearch-5-0-0-released).
+
+## Backward Compatibility Fixes
+- remove _shutdown for Node and Cluster as deprecated
+
+## Bugfixes
+- Query options such as "timeout" or "terminate_after" should not be ignored when using Multi\Search
+
+## Added
+- Added regex option form suggest completions https://www.elastic.co/guide/en/elasticsearch/reference/current/search-suggesters-completion.html#regex
+
+## Improvements
+- `\Elastica\JSON` throws exception with readable message instead of errno
+- `\Elastica\JSON::stringify` throws `\Elastica\Exception\JSONParseException` on error
