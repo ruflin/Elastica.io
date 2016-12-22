@@ -69,6 +69,26 @@ $query
 $search->setQuery($query);
 ```
 
+Also it's possible to provide an array to create a new search. This array
+follows Elasticsearch request structure, e.g.:
+```php
+$query = new \Elastica\Query([
+    'query' => [
+        'term' => ['_all' => 'search term'],
+    ],
+]);
+
+$search->setQuery($query);
+```
+For further information check out the [official documentation](https://www.elastic.co/guide/en/elasticsearch/reference/5.0/search-request-body.html).
+
+And for very basic searches it's also possible to just search for a term:
+```php
+$query = new \Elastica\Query('search term');
+
+$search->setQuery($query);
+```
+
 <h4>QueryBuilder</h4>
 
 In order to set `query`, `aggregation`, `suggest` and `facet` query parts, you can create the corresponding classes like
