@@ -11,7 +11,7 @@ categories:
 This release is compatible with Elasticsearch 5.x and was tested with [elasticsearch 5.1.2](https://www.elastic.co/guide/en/elasticsearch/reference/5.1/release-notes-5.1.2.html).
 
 
-### Backward Compatibility Breaks
+## Backward Compatibility Breaks
 
 - `\Elastica\Script\AbstractScript` added the script language as constructor argument and sub-classes must implement `getScriptTypeArray`
 
