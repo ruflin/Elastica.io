@@ -1,0 +1,25 @@
+---
+layout: post
+title: "Release 5.3.0"
+date: 2017-07-26 14:11:19 +0200
+comments: true
+categories:
+---
+
+
+[Elastica 5.3.0](https://github.com/ruflin/Elastica/tree/5.3.0) ([download](https://github.com/ruflin/Elastica/releases/tag/5.3.0)).
+
+This release is compatible with Elasticsearch 5.x and was tested with [elasticsearch 5.4.1](https://www.elastic.co/guide/en/elasticsearch/reference/5.4/release-notes-5.4.1.html).
+
+
+## Backward Compatibility Breaks
+
+- Removed `Query\NumericRange`, use `Query\Range` instead [#1334](https://github.com/ruflin/Elastica/pull/1334)
+
+## Bugfixes
+
+- Send the `scroll_id` inside a json body instead of plain text [#1325](https://github.com/ruflin/Elastica/pull/1325)
+
+## Added
+ - Added getNumberOfReplicas() for index settings [PR#1324](https://github.com/ruflin/Elastica/pull/1324)
+ - Added getNumberOfShards() for index settings [PR#1321](https://github.com/ruflin/Elastica/pull/1331)
