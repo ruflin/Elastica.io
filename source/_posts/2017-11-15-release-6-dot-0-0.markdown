@@ -1,0 +1,27 @@
+---
+layout: post
+title: "Release 6.0.0"
+date: 2017-11-15 10:27:37 +1100
+comments: true
+categories:
+---
+
+[Elastica 6.0.0](https://github.com/ruflin/Elastica/tree/6.0.0) ([download](https://github.com/ruflin/Elastica/releases/tag/6.0.0)).
+
+This is the firts GA release of the 6.x release cycle. The release is compatible with Elasticsearch 6.x and was tested with [Elasticsearch 6.0.0](https://www.elastic.co/guide/en/elasticsearch/reference/6.0/release-notes-6.0.0.html).
+
+For previous breaking changes in 6.0 make sure to also have a look at the [breaking changes in 6.0.0-beta1](/2017/10/05/release-6-dot-0-0-beta1/) release.
+
+
+### Backward Compatibility Breaks
+- Return the [_source of inner hit nested](https://github.com/elastic/elasticsearch/pull/26982) as is without wrapping it into its full path context [#1398](https://github.com/ruflin/Elastica/pull/1398)
+- Removed CrossIndex Class as from now use Reindex. [#1411](https://github.com/ruflin/Elastica/pull/1411)
+
+### Added
+
+- Added clear() to `Scroll` for closing search context on ES manually
+- Added Elastica\Aggregation\StatsBucket
+
+### Improvements
+
+- Clear search context on ES after usage in `Scroll`

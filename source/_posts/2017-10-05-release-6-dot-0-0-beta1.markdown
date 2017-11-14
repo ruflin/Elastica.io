@@ -9,7 +9,7 @@ categories:
 
 [Elastica 6.0.0-beta1](https://github.com/ruflin/Elastica/tree/6.0.0-beta1) ([download](https://github.com/ruflin/Elastica/releases/tag/6.0.0-beta1)).
 
-This is the first pre release of the 6.x release cylce. The release is compatible with Elasticsearch 6.x and was tested with [Elasticsearch 6.0.0-rc1](https://www.elastic.co/guide/en/elasticsearch/reference/6.0/release-notes-6.0.0-rc1.html).
+This is the first pre release of the 6.x release cycle. The release is compatible with Elasticsearch 6.x and was tested with [Elasticsearch 6.0.0-rc1](https://www.elastic.co/guide/en/elasticsearch/reference/6.0/release-notes-6.0.0-rc1.html).
 
 
 ## Backward Compatibility Breaks
