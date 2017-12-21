@@ -12,7 +12,6 @@ footer: true
 [![Join the chat at https://gitter.im/ruflin/Elastica](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ruflin/Elastica?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
-
 Elastica.io is the documentation for [Elastica](http://github.com/ruflin/Elastica), a PHP client for [elasticsearch](http://elasticsearch.org). Elastica is open source and you can download or clone the source code on Github from [ruflin/Elastica](http://github.com/ruflin/Elastica).
 
 These pages gives an overview of how to use Elastica. You can find the complete [API here](/api/index.html). Any contributions to the documentations are highly welcome. Elastica.io is based on [Octopress](http://octopress.org/) and is hosted on Github. Fork your copy from [ruflin/Elastica.io](https://github.com/ruflin/Elastica.io) and open a pull request.
@@ -27,8 +26,7 @@ These pages gives an overview of how to use Elastica. You can find the complete 
 
 Compatibility
 --------------
-Elastica is tested with PHP 5.4 and later. Most functionality still works with PHP 5.3 but future support is not guaranteed. It Versions prior and equal to v0.19.8.0 are compatible with PHP 5.2
-
+Elastica 6.x is tested with PHP 7.0 and later.
 
 File indexing
 -------------
