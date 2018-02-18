@@ -8,6 +8,9 @@ categories:
 
 [Elastica 5.3.1](https://github.com/ruflin/Elastica/tree/5.3.1) ([download](https://github.com/ruflin/Elastica/releases/tag/5.3.1)).
 
+This release is compatible with Elasticsearch 5.x and was tested with [elasticsearch 5.4.1](https://www.elastic.co/guide/en/elasticsearch/reference/5.4/release-notes-5.4.1.html).
+
+
 ### Bugfixes
 
 - Removed deprecated `min_word_len` field in `Elastica\Suggest\Term`.
