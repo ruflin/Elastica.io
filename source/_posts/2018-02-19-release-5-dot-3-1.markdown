@@ -1,0 +1,23 @@
+---
+layout: post
+title: "Release 5.3.1"
+date: 2018-02-19 07:46:55 +1100
+comments: true
+categories:
+---
+
+[Elastica 5.3.1](https://github.com/ruflin/Elastica/tree/5.3.1) ([download](https://github.com/ruflin/Elastica/releases/tag/5.3.1)).
+
+### Bugfixes
+
+- Removed deprecated `min_word_len` field in `Elastica\Suggest\Term`.
+  Use `min_word_length` instead.
+
+### Added
+
+- Added clear() to `Scroll` for closing search context on ES manually
+- In PHP 7.2 count() now raises a warning when an invalid parameter is passed. Only arrays and objects implementing the Countable interface should be passed. [#1378](https://github.com/ruflin/Elastica/pull/1378)
+
+### Improvements
+
+- Clear search context on ES after usage in `Scroll`
