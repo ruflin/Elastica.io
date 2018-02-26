@@ -74,7 +74,7 @@ Array
 To access the total number of hits, the following code is needed:
 
 ```php
-$totalHits = $responseArray['hits']['total']);
+$totalHits = $responseArray['hits']['total'];
 ```
 
 As it was a "raw" query Elastica didn't know it was a query. That is also the reason the basic response object was returned instead of a ResultsSet. This array mapping can be used for every single elasticsearch request.
