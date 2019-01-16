@@ -19,7 +19,7 @@ If you get this error, then cURL is not installed properly. To make sure that cU
  * make sure cURL is properly installed. You should have a cURL file in your PHP extensions folder.
     * For Windows users on Wamp, that will be ```\Your folder\wamp\bin\php\php.(your PHP version number)\ext ;``` and the file will be called ```php_curl.dll```
     * Linux users should know how to install an extension. Here is an example for Ubuntu:
-        ```sudo apt-get install curl libcurl3 libcurl3-dev php5-curl```
+        ```sudo apt-get install php7.3-curl```
         After installing libcurl you should restart the web server with one of the following commands,
         ```sudo /etc/init.d/apache2 restart OR sudo service apache2 restart```
         (taken from StackOverflow)
