@@ -171,10 +171,10 @@ __search [API](http://www.elasticsearch.org/guide/en/elasticsearch/reference/cur
 $resultSet = $search->search(); // returns Elastica\ResultSet
 ```
 
-__scan and scroll [API](http://www.elasticsearch.org/guide/en/elasticsearch/guide/current/scan-scroll.html)__
+__scroll [API](https://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-body.html#request-body-search-scroll)__
 
 ```php
-foreach ($search->scanAndScroll() as $scrollId => $resultSet) {
+foreach ($search->scroll() as $scrollId => $resultSet) {
     // ... handle Elastica\ResultSet
 }
 ```
