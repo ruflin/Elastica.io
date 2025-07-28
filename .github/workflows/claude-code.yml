@@ -1,0 +1,154 @@
+name: Claude Code Integration
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: 'PR number to analyze'
+        required: true
+        type: number
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  claude-analysis:
+    runs-on: ubuntu-latest
+    name: Claude Code Analysis
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          
+      - name: Install Ruby and dependencies
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0'
+          bundler-cache: true
+          
+      - name: Claude Code Analysis
+        uses: anthropics/claude-code-action@v1
+        with:
+          # Basic configuration
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          
+          # Analysis configuration
+          auto_review: true
+          review_changed_files: true
+          generate_summary: true
+          
+          # Documentation-specific checks
+          check_documentation: true
+          verify_links: true
+          validate_markdown: true
+          
+          # Custom prompts for documentation site
+          custom_instructions: |
+            This is a documentation website for Elastica PHP client built with Octopress/Jekyll.
+            
+            Focus on:
+            - Markdown syntax and formatting
+            - Documentation clarity and completeness
+            - Link validity and accuracy
+            - Code example correctness
+            - Consistency in documentation style
+            - Accessibility and user experience
+            
+            Check for:
+            - Broken internal links
+            - Missing or outdated examples
+            - Inconsistent formatting
+            - Typos and grammar issues
+            - Missing documentation for new features
+            
+            The site structure includes:
+            - Getting started guides
+            - API documentation
+            - Examples and tutorials
+            - Release notes and blog posts
+
+  build-test:
+    runs-on: ubuntu-latest
+    name: Build and Test Documentation
+    needs: claude-analysis
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0'
+          bundler-cache: true
+          
+      - name: Generate site
+        run: |
+          bundle exec rake generate
+          
+      - name: Test site build
+        run: |
+          # Check if site generated successfully
+          if [ ! -d "public" ] && [ ! -d "_deploy" ]; then
+            echo "Site generation failed - no output directory found"
+            exit 1
+          fi
+          
+          # Basic validation
+          echo "Site built successfully"
+          
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: generated-site
+          path: |
+            public/
+            _deploy/
+          retention-days: 7
+
+  link-check:
+    runs-on: ubuntu-latest
+    name: Check Documentation Links
+    needs: build-test
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: generated-site
+          
+      - name: Install link checker
+        run: npm install -g markdown-link-check
+        
+      - name: Check internal links
+        run: |
+          find source -name "*.markdown" -o -name "*.md" | \
+          xargs -I {} markdown-link-check {} --config .github/link-check-config.json
+        continue-on-error: true
+        
+      - name: Comment on PR with link check results
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '🔗 Link check completed. Please review any broken links in the workflow logs.'
+            })
