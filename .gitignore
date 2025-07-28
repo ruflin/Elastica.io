@@ -15,3 +15,5 @@ node_modules
 *.iml
 atlassian-ide-plugin.xml
 Gemfile.lock
+
+/_worktrees
