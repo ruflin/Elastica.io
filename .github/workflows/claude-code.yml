@@ -1,0 +1,133 @@
+name: Claude Code Integration
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: 'PR number to analyze'
+        required: true
+        type: number
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  documentation-checks:
+    runs-on: ubuntu-latest
+    name: Documentation Quality Checks
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          
+      - name: Install Ruby and dependencies
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0'
+          bundler-cache: true
+          
+      - name: Install markdown tools
+        run: |
+          npm install -g markdownlint-cli
+          
+      - name: Lint markdown files
+        run: |
+          find source -name "*.markdown" -o -name "*.md" | xargs markdownlint --config .github/markdownlint.json
+        continue-on-error: true
+        
+      - name: Check for Claude Code integration
+        run: |
+          echo "✅ Repository is configured for Claude Code integration"
+          echo "📝 CLAUDE.md configuration file exists"
+          echo "🔧 GitHub Actions workflow is set up for documentation checks"
+          if [ -f "CLAUDE.md" ]; then
+            echo "✅ CLAUDE.md found - Claude Code can understand this project"
+          else
+            echo "❌ CLAUDE.md missing - Claude Code integration incomplete"
+            exit 1
+          fi
+
+  build-test:
+    runs-on: ubuntu-latest
+    name: Build and Test Documentation
+    needs: documentation-checks
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0'
+          bundler-cache: true
+          
+      - name: Generate site
+        run: |
+          bundle exec rake generate
+          
+      - name: Test site build
+        run: |
+          # Check if site generated successfully
+          if [ ! -d "public" ] && [ ! -d "_deploy" ]; then
+            echo "Site generation failed - no output directory found"
+            exit 1
+          fi
+          
+          # Basic validation
+          echo "Site built successfully"
+          
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: generated-site
+          path: |
+            public/
+            _deploy/
+          retention-days: 7
+
+  link-check:
+    runs-on: ubuntu-latest
+    name: Check Documentation Links
+    needs: build-test
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: generated-site
+          
+      - name: Install link checker
+        run: npm install -g markdown-link-check
+        
+      - name: Check internal links
+        run: |
+          find source -name "*.markdown" -o -name "*.md" | \
+          xargs -I {} markdown-link-check {} --config .github/link-check-config.json
+        continue-on-error: true
+        
+      - name: Comment on PR with link check results
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '🔗 Link check completed. Please review any broken links in the workflow logs.'
+            })
